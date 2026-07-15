@@ -1,0 +1,13 @@
+/* BCA Partners — elevation, borders & glass effects (from the Figma file) */
+:root{
+  --shadow-nav:0px 1px 4px 0px rgba(0,0,0,0.15);   /* sticky navbar */
+  --shadow-card:0px 1px 4px 0px rgba(0,0,0,0.1);
+  --border-hairline:inset 0 0 0 1px rgba(0,0,0,0.1); /* @kind shadow */
+  --border-outline:inset 0 0 0 2px currentColor;      /* @kind shadow */
+
+  /* Frosted glass — used on feature panels and the key-partners band */
+  --blur-panel:blur(4px);     /* @kind other */
+  --blur-band:blur(12px);     /* @kind other */
+
+  --transition:160ms ease;    /* @kind other */
+}

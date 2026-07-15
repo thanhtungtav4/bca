@@ -1,0 +1,140 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="BCA Partners — Career" subtitle="Careers hero + open positions" -->
+<!-- @startingPoint section="Website" subtitle="Career / open positions page" viewport="1440x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BCA Partners — Career</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-sans);background:#fff;color:var(--bca-ink)}
+  a{color:var(--link)}a:hover{color:var(--link-hover)}
+  .navwrap{position:sticky;top:0;z-index:50}
+  .ov{position:fixed;inset:0;background:rgba(0,26,46,0.55);display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow:auto;z-index:100}
+  .modal{width:100%;max-width:520px;background:#fff;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,0.3);overflow:hidden}
+  .modal-hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:28px 28px 0}
+  .fld{display:flex;flex-direction:column;gap:6px}
+  .fld label{font-size:13px;font-weight:600;color:var(--bca-ink-2)}
+  .fld input,.fld textarea{font-family:var(--font-sans);font-size:15px;padding:11px 14px;border:1px solid var(--bca-border);border-radius:4px;background:#fff;outline:none;box-sizing:border-box;width:100%}
+  .fld input:focus,.fld textarea:focus{border-color:var(--bca-blue)}
+  .drop{border:1.5px dashed var(--bca-border);border-radius:4px;padding:18px;text-align:center;font-size:14px;color:var(--bca-ink-2);cursor:pointer}
+  .drop b{color:var(--bca-blue)}
+  @media(max-width:900px){.jobrow{grid-template-columns:1fr !important;gap:16px !important}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Navbar, Footer, Button, ContactBand } = window.BCAPartnersDesignSystem_f92865;
+
+function ApplyModal({ role, onClose }){
+  const [sent,setSent]=React.useState(false);
+  const [file,setFile]=React.useState("");
+  return (
+    <div className="ov" onClick={onClose}>
+      <div className="modal" onClick={(e)=>e.stopPropagation()}>
+        <div className="modal-hd">
+          <div>
+            <h3 style={{margin:0,fontWeight:700,fontSize:22,color:"var(--bca-navy)"}}>{role==='General application' ? 'Send us your CV' : 'Apply for this role'}</h3>
+            <p style={{margin:"4px 0 0",fontSize:14,color:"var(--bca-ink-2)"}}>{role}</p>
+          </div>
+          <button onClick={onClose} aria-label="Close" style={{border:"none",background:"none",fontSize:26,lineHeight:1,color:"var(--bca-muted)",cursor:"pointer"}}>&times;</button>
+        </div>
+        {sent ? (
+          <div style={{padding:"28px",display:"flex",flexDirection:"column",gap:16,alignItems:"flex-start"}}>
+            <p style={{margin:0,fontSize:16,lineHeight:"24px",color:"var(--bca-ink)"}}>Thank you — your application has been received. Our team will review your CV and be in touch shortly.</p>
+            <Button variant="filled" onClick={onClose}>Done</Button>
+          </div>
+        ) : (
+          <form onSubmit={(e)=>{e.preventDefault();setSent(true);}} style={{padding:"20px 28px 28px",display:"flex",flexDirection:"column",gap:16}}>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
+              <div className="fld"><label>Full name *</label><input required placeholder="Your name" /></div>
+              <div className="fld"><label>Phone</label><input placeholder="+84 …" /></div>
+            </div>
+            <div className="fld"><label>Email *</label><input type="email" required placeholder="you@email.com" /></div>
+            <div className="fld"><label>Cover note</label><textarea rows={3} placeholder="Why you'd be a great fit…"></textarea></div>
+            <div className="fld">
+              <label>CV / Résumé *</label>
+              <label className="drop">{file ? file : (<span><b>Click to upload</b> — PDF or DOCX, max 10MB</span>)}
+                <input type="file" required accept=".pdf,.doc,.docx" style={{display:"none"}} onChange={(e)=>setFile(e.target.files[0] ? e.target.files[0].name : "")} />
+              </label>
+            </div>
+            <div style={{marginTop:4}}><Button variant="filled" icon as="button">Submit application</Button></div>
+          </form>
+        )}
+      </div>
+    </div>
+  );
+}
+const A = "../../assets/";
+
+const JOBS = [
+  { title: "Investment Banking Analyst / Associate", type: "Full-time", loc: "District 1, HCMC", desc: "Support M&A, capital raising and corporate restructuring engagements — financial modelling, valuation, due diligence and client materials." },
+  { title: "Intern", type: "Internship", loc: "District 1, HCMC", desc: "Work alongside our consulting team on live market research and analysis. A hands-on introduction to advisory work in Vietnam." },
+];
+
+function Hero(){
+  return (
+    <section style={{position:"relative",height:390,overflow:"hidden"}}>
+      <img src={A+"career-hero.jpg"} alt="" style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover"}} />
+      <div style={{position:"absolute",inset:0,background:"rgba(0,0,0,0.4)"}} />
+      <div style={{position:"absolute",left:112,top:120,width:640,display:"flex",flexDirection:"column",gap:16}}>
+        <h1 style={{margin:0,fontWeight:700,fontSize:60,lineHeight:"72px",letterSpacing:"-0.025em",color:"#fff"}}>Career</h1>
+        <p style={{margin:0,fontWeight:400,fontSize:18,lineHeight:"28px",color:"#fff"}}>Join a team that turns complex business challenges into practical solutions. We recruit talent from diverse backgrounds and invest in their growth.</p>
+      </div>
+    </section>
+  );
+}
+
+function Jobs({ onApply }){
+  return (
+    <section style={{padding:"80px 112px",background:"#fff"}}>
+      <h2 style={{margin:"0 0 40px",fontWeight:700,fontSize:40,lineHeight:"100%",letterSpacing:"-0.025em",color:"var(--bca-navy)"}}>Open Positions</h2>
+      <div style={{borderTop:"1px solid var(--bca-border)"}}>
+        {JOBS.map((j)=>(
+          <div key={j.title} className="jobrow" style={{display:"grid",gridTemplateColumns:"1fr auto",gap:32,alignItems:"center",padding:"32px 0",borderBottom:"1px solid var(--bca-border)"}}>
+            <div style={{display:"flex",flexDirection:"column",gap:8,maxWidth:760}}>
+              <h3 style={{margin:0,fontWeight:700,fontSize:24,lineHeight:"100%",color:"var(--bca-ink)"}}>{j.title}</h3>
+              <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+                {[j.type,j.loc].map((t)=>(<span key={t} style={{fontSize:13,fontWeight:600,color:"var(--bca-navy)",background:"var(--bca-surface-section)",borderRadius:4,padding:"4px 10px"}}>{t}</span>))}
+              </div>
+              <p style={{margin:"4px 0 0",fontSize:16,lineHeight:"24px",color:"var(--bca-ink-2)"}}>{j.desc}</p>
+            </div>
+            <Button variant="line" icon onClick={()=>onApply(j.title)}>Apply</Button>
+          </div>
+        ))}
+      </div>
+      <div style={{marginTop:48,padding:32,borderRadius:4,background:"var(--bca-surface-section)",display:"flex",justifyContent:"space-between",alignItems:"center",gap:24,flexWrap:"wrap"}}>
+        <div>
+          <h3 style={{margin:"0 0 4px",fontWeight:700,fontSize:20,color:"var(--bca-navy)"}}>Don't see a role that fits?</h3>
+          <p style={{margin:0,fontSize:16,color:"var(--bca-ink-2)"}}>Send us your CV — we're always keen to meet talented people.</p>
+        </div>
+        <Button variant="filled" icon onClick={()=>onApply('General application')}>Send your CV</Button>
+      </div>
+    </section>
+  );
+}
+
+function App(){
+  const [role,setRole]=React.useState(null);
+  return (
+    <div>
+      {role && <ApplyModal role={role} onClose={()=>setRole(null)} />}
+      <div className="navwrap"><Navbar logoSrc={A+"logo-bca.png"} active="Career" links={["Home","About us","Our services","Projects","Research","News","Career","Contact us"]} /></div>
+      <Hero />
+      <Jobs onApply={setRole} />
+      <ContactBand image={A+"contact-bg.jpg"} />
+      <Footer />
+    </div>
+  );
+}
+const PAGES={"Home":"index.html","About us":"about.html","Our services":"services.html","Projects":"projects.html","Research":"research.html","News":"news.html","Career":"career.html","Contact us":"contact.html","Our team":"leadership.html","Privacy Policy":"privacy.html","Terms of Use":"privacy.html"};document.addEventListener('click',(e)=>{const a=e.target.closest('a,button');if(!a)return;const t=(a.textContent||'').trim();if(PAGES[t]){e.preventDefault();location.href=PAGES[t];}});
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

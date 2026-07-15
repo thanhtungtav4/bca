@@ -1,0 +1,137 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="BCA Partners — Vision, Mission & Core Values" subtitle="Dedicated VMV page" -->
+<!-- @startingPoint section="Website" subtitle="Vision, Mission and Core Values page" viewport="1440x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BCA Partners — Vision, Mission and Core Values</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-sans);background:#fff;color:var(--bca-ink)}
+  a{color:var(--link)}a:hover{color:var(--link-hover)}
+  .navwrap{position:sticky;top:0;z-index:50}
+  section{box-sizing:border-box}
+  .gut{padding-left:clamp(20px,6vw,112px);padding-right:clamp(20px,6vw,112px)}
+  h2.sec{margin:0;font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-0.025em;color:var(--bca-navy)}
+  h3.sub{margin:0 0 8px;font-weight:700;font-size:24px;color:var(--bca-ink)}
+  p.body{margin:0;font-weight:400;font-size:16px;line-height:24px;color:var(--bca-ink-2)}
+  .split{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:56px;align-items:center}
+  .values{display:grid;grid-template-columns:1fr 1fr;gap:36px 48px}
+  @media(max-width:900px){.split{grid-template-columns:1fr}.values{grid-template-columns:1fr}.team{grid-template-columns:1fr 1fr !important}}
+  @media(max-width:560px){.team{grid-template-columns:1fr !important}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Navbar, Footer, Button, LeaderCard, ContactBand } = window.BCAPartnersDesignSystem_f92865;
+const A = "../../assets/";
+
+const VALUES = [
+  { title: "Integrity", body: "At BCA, integrity is always our top priority. We believe that sustainable success is achieved with integrity — demonstrated across employees, clients and partners." },
+  { title: "Social Responsibility", body: "BCA is committed to long-term development and sustainability. Economic benefits should be accompanied by sustainable development and social responsibility." },
+  { title: "Passion", body: "Passion is the driving force that motivates BCA and its team to move forward. It is our honor to help clients solve their business problems." },
+  { title: "Professionalism", body: "With professionalism, we bring value to our clients. This also helps us build trust with partners and other stakeholders." },
+];
+
+const TEAM = [
+  { photo: A+"leader-binh.jpg", name: "Binh Pham, MBA, CFA", role: "Managing Director" },
+  { photo: A+"leader-thuy.png", name: "Thuy Huynh, PhD", role: "Director, Operations & Transformation" },
+  { photo: A+"leader-chau.png", name: "Chau Tran, Msc", role: "Director, Finance & Human Capitals" },
+  { photo: A+"leader-andy.png", name: "Andy Phan, PhD, MBA", role: "Advisor, Financial Market & Strategy" },
+];
+
+function Header(){
+  return (
+    <section className="gut" style={{background:"var(--bca-surface-section)",paddingTop:64,paddingBottom:64}}>
+      <div style={{maxWidth:720}}>
+        <h1 style={{margin:"0 0 16px",fontWeight:700,fontSize:44,lineHeight:1.1,letterSpacing:"-0.025em",color:"var(--bca-navy)"}}>Vision, Mission and Core Values</h1>
+        <p className="body" style={{fontSize:18,lineHeight:"28px"}}>Our purpose and principles guide how we work with clients, partners and each other — and how we create lasting value in the Vietnamese market.</p>
+      </div>
+    </section>
+  );
+}
+
+function VMBlock({ title, body, image, flip }){
+  return (
+    <section className="gut" style={{paddingTop:64,paddingBottom:8}}>
+      <div className="split">
+        <div style={{order:flip?2:1}}>
+          <h2 className="sec" style={{marginBottom:12}}>{title}</h2>
+          <p className="body" style={{fontSize:18,lineHeight:"28px",maxWidth:560}}>{body}</p>
+        </div>
+        <div style={{order:flip?1:2,borderRadius:4,overflow:"hidden",height:260}}>
+          <img src={image} alt="" style={{width:"100%",height:"100%",objectFit:"cover"}} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CoreValues(){
+  return (
+    <section className="gut" style={{paddingTop:72,paddingBottom:16}}>
+      <h2 className="sec" style={{marginBottom:40}}>Core Values</h2>
+      <div className="values">
+        {VALUES.map((v)=>(
+          <div key={v.title} style={{display:"grid",gridTemplateColumns:"12px minmax(0,1fr)",columnGap:16}}>
+            <span style={{width:12,height:12,borderRadius:"50%",background:"var(--bca-blue)",marginTop:8}} />
+            <div>
+              <h3 className="sub" style={{color:"var(--bca-navy)"}}>{v.title}</h3>
+              <p className="body">{v.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function StrengthsBelief(){
+  return (
+    <section className="gut" style={{paddingTop:72,paddingBottom:8}}>
+      <h2 className="sec" style={{marginBottom:16}}>Our Strengths and Belief</h2>
+      <p className="body" style={{maxWidth:720,marginBottom:24}}>Local market insight, a highly diversified team, and extensive domestic and overseas relationships — combined with a belief that our expertise and network bring practical value to every client.</p>
+      <Button variant="filled" icon onClick={()=>location.href="about.html"}>Learn more</Button>
+    </section>
+  );
+}
+
+function Team(){
+  return (
+    <section className="gut" style={{paddingTop:72,paddingBottom:80,textAlign:"center"}}>
+      <h2 className="sec" style={{marginBottom:40}}>Meet our team</h2>
+      <div className="team" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:32}}>
+        {TEAM.map((p)=><LeaderCard key={p.name} {...p} style={{width:"100%"}} />)}
+      </div>
+    </section>
+  );
+}
+
+function App(){
+  return (
+    <div>
+      <div className="navwrap"><Navbar logoSrc={A+"logo-bca.png"} active="About us" links={["Home","About us","Our services","Projects","Research","News","Career","Contact us"]} /></div>
+      <Header />
+      <VMBlock title="Vision" image={A+"about-vision.jpg"} body="To become one of the most trusted advisors to corporates in Vietnam — the partner businesses turn to for their most important decisions." />
+      <VMBlock title="Mission" image={A+"about-mission.jpg"} flip body="To deliver value to our customers through practical solutions and the best service experience, grounded in deep local knowledge." />
+      <CoreValues />
+      <StrengthsBelief />
+      <Team />
+      <ContactBand image={A+"contact-bg.jpg"} />
+      <Footer />
+    </div>
+  );
+}
+const PAGES={"Home":"index.html","About us":"about.html","Our services":"services.html","Projects":"projects.html","Research":"research.html","News":"news.html","Career":"career.html","Contact us":"contact.html","Our team":"leadership.html","Privacy Policy":"privacy.html","Terms of Use":"privacy.html"};
+document.addEventListener('click',(e)=>{const a=e.target.closest('a');if(!a)return;const t=(a.textContent||'').trim();if(PAGES[t]){e.preventDefault();location.href=PAGES[t];}});
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

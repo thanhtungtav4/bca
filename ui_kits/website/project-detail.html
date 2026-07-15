@@ -1,0 +1,149 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="BCA Partners — Project detail" subtitle="Case study detail (responsive)" -->
+<!-- @startingPoint section="Website" subtitle="Project case-study detail" viewport="1440x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BCA Partners — Strategy consulting & Implementation support</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-sans);background:#fff;color:var(--bca-ink)}
+  a{color:var(--link)}a:hover{color:var(--link-hover)}
+  .navwrap{position:sticky;top:0;z-index:50}
+  .pad{padding-left:112px;padding-right:112px}
+  .overview{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:64;align-items:center}
+  .ins{display:grid;grid-template-columns:2fr 1fr;gap:32}
+  .ins-side{display:flex;flex-direction:column;gap:32}
+  .related{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32}
+  @media(max-width:900px){.pad{padding-left:20px;padding-right:20px}.overview,.ins{grid-template-columns:1fr}.related{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.related{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Navbar, Footer, Button, SectionHeading, FeatureCard, FeatureItem, ProjectCard, Input } = window.BCAPartnersDesignSystem_f92865;
+const A = "../../assets/";
+
+const BULLETS = [
+  "Strategy consulting in market research, market exploration, market positioning, products, financial plan, fund-raising plan, and project implementation.",
+  "Researched best practices and successful case studies on the operating models of both domestic and international e-wallets.",
+  "Built an e-wallet operation model and development strategy for the client in the Vietnamese market.",
+];
+
+function Hero(){
+  return (
+    <section style={{position:"relative",height:400,overflow:"hidden",background:"#0b2437"}}>
+      <img src={A+"project-strategy.jpg"} alt="" style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"center"}} />
+      <div style={{position:"absolute",inset:0,background:"linear-gradient(90deg,rgba(0,26,46,0.85) 0%,rgba(0,26,46,0.5) 55%,rgba(0,26,46,0.1) 100%)"}} />
+      <div className="pad" style={{position:"absolute",left:0,right:0,top:120,display:"flex",flexDirection:"column",gap:12,maxWidth:720}}>
+        <span style={{fontWeight:600,fontSize:16,color:"#cfe3ee",letterSpacing:"0.03em"}}>FINTECH PROJECTS</span>
+        <h1 style={{margin:0,fontWeight:700,fontSize:44,lineHeight:"52px",letterSpacing:"-0.025em",color:"#fff"}}>Strategy consulting &amp; Implementation support</h1>
+        <span style={{fontWeight:600,fontSize:16,color:"rgba(255,255,255,0.85)"}}>MM TECHNOLOGY · E-wallet</span>
+      </div>
+    </section>
+  );
+}
+
+function Overview(){
+  return (
+    <section className="pad overview" style={{padding:"72px 112px"}}>
+      <div style={{display:"flex",flexDirection:"column",gap:20}}>
+        <p style={{margin:0,fontSize:16,lineHeight:"26px",color:"var(--bca-ink-2)"}}>MM is a newly established e-wallet in this high-growth and exciting fin-tech sector in Vietnam. At the time the firm advised the client, MoMo, VinaPay, ZaloPay, GrabPay by Moca, and others were all big and fierce competitors in this fast-growing space.</p>
+        <p style={{margin:0,fontSize:16,lineHeight:"26px",color:"var(--bca-ink-2)"}}>As an independent consultant, BCA Partners assisted the e-wallet client in key areas of the business:</p>
+        <ul style={{margin:0,padding:0,listStyle:"none",display:"flex",flexDirection:"column",gap:12}}>
+          {BULLETS.map((b)=>(<li key={b} style={{display:"flex",gap:10,fontSize:16,lineHeight:"24px",color:"var(--bca-ink-2)"}}><span style={{color:"var(--bca-blue)",fontWeight:700,flexShrink:0}}>—</span><span>{b}</span></li>))}
+        </ul>
+      </div>
+      <FeatureItem image={A+"project-dragonfruit.jpg"} height={360} />
+    </section>
+  );
+}
+
+function Insights(){
+  return (
+    <section className="pad" style={{padding:"0 112px 72px"}}>
+      <div style={{marginBottom:40}}><SectionHeading align="left">Insights</SectionHeading></div>
+      <div className="ins">
+        <FeatureCard image={A+"feature-fintech.jpg"} height={360} headline="Identifying the right partner is crucial for success to enter Vietnam Fintech and Cyber Securities market" description="The future of payment in Fintech is fostered by the high rate of internet usage in Vietnam." />
+        <div className="ins-side">
+          <SplitFeature image={A+"feature-lease.jpg"} text="Vietnam operating lease market is in nascent phase with little to no regulatory barriers to entry" />
+          <SplitFeature image={A+"feature-msme.jpg"} text="MSMEs in Vietnam are facing difficulties in accessing bank loans" />
+        </div>
+      </div>
+    </section>
+  );
+}
+function SplitFeature({ image, text }){
+  return (
+    <div style={{display:"flex",minHeight:150,borderRadius:4,overflow:"hidden",background:"var(--bca-surface-section)"}}>
+      <div style={{width:110,flexShrink:0,backgroundImage:`url(${image})`,backgroundSize:"cover",backgroundPosition:"center"}} />
+      <div style={{flex:1,padding:20,display:"flex",flexDirection:"column",gap:12,justifyContent:"space-between"}}>
+        <p style={{margin:0,fontWeight:500,fontSize:15,lineHeight:"21px",color:"var(--bca-ink)"}}>{text}</p>
+        <Button variant="ghost" icon size="sm">Explore</Button>
+      </div>
+    </div>
+  );
+}
+
+function Related(){
+  return (
+    <section className="pad" style={{padding:"0 112px 80px"}}>
+      <div style={{marginBottom:32}}><SectionHeading align="left">Related projects</SectionHeading></div>
+      <div className="related">
+        <ProjectCard image={A+"project-strategy.jpg"} eyebrow="FINTECH PROJECTS" title="Strategy consulting & Implementation support" description="Assisting an e-wallet client across key areas of the business." />
+        <ProjectCard image={A+"service-restructuring.jpg"} eyebrow="FINTECH PROJECTS" title="Strategy consulting & Restructuring" description="Leading POS & payments consulting for a multinational network." />
+        <ProjectCard image={A+"project-dragonfruit.jpg"} eyebrow="MARKET RESEARCH SERVICES" title="Dragon fruit value chain Restructuring" description="Rethinking logistics and financing for a national staple fruit." />
+        <ProjectCard image={A+"service-market-entry.jpg"} eyebrow="MARKET ENTRY" title="Vietnam market entry advisory" description="Go-to-market for an international payments leader." />
+      </div>
+    </section>
+  );
+}
+
+function ContactBar(){
+  const [sent,setSent]=React.useState(false);
+  return (
+    <section className="pad" style={{padding:"0 112px 80px"}}>
+      <div style={{background:"var(--bca-surface-section)",borderRadius:4,padding:48,display:"grid",gridTemplateColumns:"1fr auto",gap:40,alignItems:"center"}}>
+        <div>
+          <h3 style={{margin:"0 0 8px",fontWeight:700,fontSize:24,color:"var(--bca-navy)"}}>How can we help you succeed?</h3>
+          <p style={{margin:0,fontSize:16,color:"var(--bca-ink-2)"}}>Leave your email and our team will reach out within one business day.</p>
+        </div>
+        <form onSubmit={(e)=>{e.preventDefault();setSent(true);}} style={{display:"flex",gap:12,alignItems:"center"}}>
+          {sent ? <span style={{fontWeight:600,color:"var(--bca-navy)"}}>Thanks — we'll be in touch.</span> : (
+            <React.Fragment>
+              <input type="email" required placeholder="you@company.com" style={{width:300,fontSize:16,padding:"14px 16px",border:"1px solid var(--bca-border)",borderRadius:4,outline:"none",boxSizing:"border-box"}} />
+              <Button variant="filled" as="button">Submit</Button>
+            </React.Fragment>
+          )}
+        </form>
+      </div>
+    </section>
+  );
+}
+
+function App(){
+  return (
+    <div>
+      <div className="navwrap"><Navbar logoSrc={A+"logo-bca.png"} active="Projects" links={["Home","About us","Our services","Projects","Research","News","Career","Contact us"]} /></div>
+      <Hero />
+      <Overview />
+      <Insights />
+      <Related />
+      <ContactBar />
+      <Footer />
+    </div>
+  );
+}
+const PAGES={"Home":"index.html","About us":"about.html","Our services":"services.html","Projects":"projects.html","Research":"research.html","News":"news.html","Career":"career.html","Contact us":"contact.html","Our team":"leadership.html","Privacy Policy":"privacy.html","Terms of Use":"privacy.html"};
+document.addEventListener('click',(e)=>{const a=e.target.closest('a,button');if(!a)return;const t=(a.textContent||'').trim();if(PAGES[t]){e.preventDefault();location.href=PAGES[t];}});
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

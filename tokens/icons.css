@@ -1,0 +1,7 @@
+/* Icon sizing helper. BCA uses line icons at currentColor.
+   Icons render via assets/icons/Icon.jsx (<Icon name="…" size={…} />). */
+:root{
+  --icon-sm:16px;
+  --icon-md:24px;
+  --icon-lg:40px;
+}

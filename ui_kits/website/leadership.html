@@ -1,0 +1,78 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="BCA Partners — Our Leadership" subtitle="Leadership hero + management team & advisors" -->
+<!-- @startingPoint section="Website" subtitle="Our Leadership / team page" viewport="1440x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BCA Partners — Our Leadership</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-sans);background:#fff;color:var(--bca-ink)}
+  a{color:var(--link)}a:hover{color:var(--link-hover)}
+  .navwrap{position:sticky;top:0;z-index:50}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Navbar, Footer, LeaderCard, SectionHeading, ContactBand } = window.BCAPartnersDesignSystem_f92865;
+const A = "../../assets/";
+
+const MGMT = [
+  { photo: A+"leader-binh.jpg", name: "Binh Pham, MBA, CFA", role: "Managing Director" },
+  { photo: A+"leader-thuy.png", name: "Thuy Huynh, PhD", role: "Director, Operations & Transformation" },
+  { photo: A+"leader-chau.png", name: "Chau Tran, Msc", role: "Director, Finance & Human Capitals" },
+];
+const ADVISORS = [
+  { photo: A+"leader-andy.png", name: "Andy Phan, PhD, MBA", role: "Advisor, Financial Market & Strategy" },
+  { photo: A+"leader-nga.png", name: "Nga Do, MBA", role: "Advisor, Risk Management & Strategy" },
+];
+
+function Hero(){
+  return (
+    <section style={{position:"relative",height:524,overflow:"hidden"}}>
+      <img src={A+"leadership-hero.jpg"} alt="" style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover"}} />
+      <div style={{position:"absolute",inset:0,background:"rgba(0,0,0,0.35)"}} />
+      <div style={{position:"absolute",left:108,top:176,width:648,display:"flex",flexDirection:"column",gap:16}}>
+        <h1 style={{margin:0,fontWeight:700,fontSize:60,lineHeight:"72px",letterSpacing:"-0.025em",color:"#fff"}}>Our Leadership</h1>
+        <p style={{margin:0,fontWeight:400,fontSize:18,lineHeight:"28px",color:"#fff"}}>People are our most valuable asset. We recruit and develop our team from different backgrounds and experiences so that we can deliver the right team, with the right experience and expertise, to our client.</p>
+      </div>
+    </section>
+  );
+}
+
+function Group({ title, people }){
+  return (
+    <div style={{marginBottom:64}}>
+      <div style={{marginBottom:32}}><SectionHeading align="left">{title}</SectionHeading></div>
+      <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:32}}>
+        {people.map((p)=>(<a key={p.name} href="leader-detail.html" style={{textDecoration:"none",color:"inherit"}}><LeaderCard {...p} style={{width:"100%"}} /></a>))}
+      </div>
+    </div>
+  );
+}
+
+function App(){
+  return (
+    <div>
+      <div className="navwrap"><Navbar logoSrc={A+"logo-bca.png"} active="Our team" links={["Home","About us","Our services","Projects","Research","News","Career","Contact us"]} /></div>
+      <Hero />
+      <section style={{padding:"80px 112px",background:"#fff"}}>
+        <Group title="Management Team" people={MGMT} />
+        <Group title="Advisors" people={ADVISORS} />
+      </section>
+      <ContactBand image={A+"contact-bg.jpg"} />
+      <Footer />
+    </div>
+  );
+}
+const PAGES={"Home":"index.html","About us":"about.html","Our services":"services.html","Projects":"projects.html","Research":"research.html","News":"news.html","Career":"career.html","Contact us":"contact.html","Our team":"leadership.html","Privacy Policy":"privacy.html","Terms of Use":"privacy.html"};document.addEventListener('click',(e)=>{const a=e.target.closest('a');if(!a)return;const t=(a.textContent||'').trim();if(PAGES[t]){e.preventDefault();location.href=PAGES[t];}});
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

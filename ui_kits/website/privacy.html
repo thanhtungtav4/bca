@@ -1,0 +1,73 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="BCA Partners — Privacy Policy" subtitle="Legal / privacy policy page" -->
+<!-- @startingPoint section="Website" subtitle="Privacy Policy page" viewport="1440x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BCA Partners — Privacy Policy</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-sans);background:#fff;color:var(--bca-ink)}
+  a{color:var(--link)}a:hover{color:var(--link-hover)}
+  .navwrap{position:sticky;top:0;z-index:50}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  .doc h2{margin:40px 0 12px;font-size:24px;color:var(--bca-navy);font-weight:700}
+  .doc p{margin:0 0 16px;font-size:16px;line-height:26px;color:var(--bca-ink-2)}
+  .doc ul{margin:0 0 16px;padding-left:22px;display:flex;flex-direction:column;gap:8px}
+  .doc li{font-size:16px;line-height:24px;color:var(--bca-ink-2)}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Navbar, Footer } = window.BCAPartnersDesignSystem_f92865;
+const A = "../../assets/";
+
+function App(){
+  return (
+    <div>
+      <div className="navwrap"><Navbar logoSrc={A+"logo-bca.png"} active="" links={["Home","About us","Our services","Projects","Research","News","Career","Contact us"]} /></div>
+      <section style={{background:"var(--bca-navy)",color:"#fff",padding:"56px 0"}}>
+        <div className="wrap">
+          <h1 style={{margin:0,fontWeight:700,fontSize:44,lineHeight:"52px",letterSpacing:"-0.025em"}}>Privacy Policy</h1>
+          <p style={{margin:"12px 0 0",fontSize:16,color:"rgba(255,255,255,0.8)"}}>Last updated: 1 January 2024</p>
+        </div>
+      </section>
+      <section style={{padding:"56px 0 80px"}}>
+        <div className="wrap doc">
+          <p>BCA Partners ("we", "us", "our") is committed to protecting the privacy of visitors to our website and clients who share information with us. This policy explains what we collect, how we use it, and the choices you have.</p>
+          <h2>Information we collect</h2>
+          <p>We collect information you provide directly — such as your name, company, email, phone number and any message you send through our contact forms — as well as limited technical data (e.g. IP address, browser type) collected automatically for security and analytics.</p>
+          <h2>How we use your information</h2>
+          <ul>
+            <li>To respond to enquiries and provide our advisory services.</li>
+            <li>To communicate updates, insights and news you have requested.</li>
+            <li>To operate, maintain and improve our website.</li>
+            <li>To comply with legal and regulatory obligations.</li>
+          </ul>
+          <h2>Sharing &amp; disclosure</h2>
+          <p>We do not sell your personal data. We may share information with trusted service providers who support our operations, or where required by law. Any partners are bound by confidentiality obligations.</p>
+          <h2>Data retention &amp; security</h2>
+          <p>We retain personal data only as long as necessary for the purposes described above, and apply appropriate technical and organisational measures to protect it against unauthorised access, loss or disclosure.</p>
+          <h2>Your rights</h2>
+          <p>You may request access to, correction of, or deletion of your personal data, and may withdraw consent to marketing communications at any time. To exercise these rights, contact us using the details below.</p>
+          <h2>Contact us</h2>
+          <p>Questions about this policy can be directed to <a href="mailto:info@bcapartners.com.vn">info@bcapartners.com.vn</a>, or Unit G2, FOSCO Building, 06 Phung Khac Khoan, Dakao Ward, District 1, HCMC, Vietnam.</p>
+        </div>
+      </section>
+      <Footer />
+    </div>
+  );
+}
+const PAGES={"Home":"index.html","About us":"about.html","Our services":"services.html","Projects":"projects.html","Research":"research.html","News":"news.html","Career":"career.html","Contact us":"contact.html","Our team":"leadership.html","Privacy Policy":"privacy.html","Terms of Use":"privacy.html"};
+document.addEventListener('click',(e)=>{const a=e.target.closest('a,button');if(!a)return;const t=(a.textContent||'').trim();if(PAGES[t]){e.preventDefault();location.href=PAGES[t];}});
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

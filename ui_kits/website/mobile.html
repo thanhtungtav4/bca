@@ -1,0 +1,111 @@
+<!-- @dsCard group="Website" viewport="900x760" name="BCA Partners — Mobile" subtitle="Responsive homepage in an iPhone frame" -->
+<!-- @startingPoint section="Website" subtitle="Mobile homepage (iPhone)" viewport="900x760" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BCA Partners — Mobile</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-sans);background:var(--bca-surface-muted);color:var(--bca-ink);display:flex;justify-content:center;padding:40px 0}
+  a{color:var(--link)}a:hover{color:var(--link-hover)}
+  ::-webkit-scrollbar{width:0}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { MobileFrame, Button, ServiceCard, LeaderCard, Input, Icon, Footer } = window.BCAPartnersDesignSystem_f92865;
+const A = "../../assets/";
+
+function MobileNav(){
+  const [open,setOpen]=React.useState(false);
+  const LINKS=["Home","About us","Our services","Projects","Research","Career","Contact us"];
+  return (
+    <div style={{position:"sticky",top:0,zIndex:10,background:"#fff",boxShadow:"var(--shadow-nav)"}}>
+      <div style={{height:60,padding:"0 20px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+        <img src={A+"logo-bca.png"} alt="BCA Partners" style={{height:34}} />
+        <button onClick={()=>setOpen(o=>!o)} aria-label="Menu" style={{border:"none",background:"none",padding:6,cursor:"pointer",color:"var(--bca-ink)"}}>
+          <Icon name={open?"EssentialIconIconClose":"EssentialIconIconMenu1"} size={24} />
+        </button>
+      </div>
+      {open && (
+        <nav style={{padding:"8px 20px 16px",display:"flex",flexDirection:"column",borderTop:"1px solid var(--bca-border)"}}>
+          {LINKS.map((l,i)=>(<a key={l} href="#" onClick={(e)=>{e.preventDefault();setOpen(false);}} style={{padding:"12px 0",fontWeight:600,fontSize:15,color:i===0?"var(--bca-navy)":"var(--bca-ink)",textDecoration:"none",borderBottom:i<LINKS.length-1?"1px solid var(--bca-border)":"none"}}>{l}</a>))}
+        </nav>
+      )}
+    </div>
+  );
+}
+
+function Hero(){
+  return (
+    <section style={{position:"relative",height:360,overflow:"hidden",background:"#0b2437"}}>
+      <img src={A+"hero.jpg"} alt="" style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"65% center"}} />
+      <div style={{position:"absolute",inset:0,background:"linear-gradient(180deg,rgba(0,26,46,0.35) 0%,rgba(0,26,46,0.85) 100%)"}} />
+      <div style={{position:"absolute",left:20,right:20,bottom:32,display:"flex",flexDirection:"column",gap:12}}>
+        <h1 style={{margin:0,fontWeight:800,fontSize:34,lineHeight:"38px",letterSpacing:"-0.02em",color:"#fff"}}>Fostering Business Evolution</h1>
+        <p style={{margin:0,fontWeight:400,fontSize:15,lineHeight:"22px",color:"rgba(255,255,255,0.9)"}}>Trusted partner for your most important business challenges.</p>
+        <div style={{marginTop:8}}><Button variant="line" tone="light" icon size="md">Contact Us</Button></div>
+      </div>
+    </section>
+  );
+}
+
+function Block({ title, children, bg }){
+  return (
+    <section style={{padding:"40px 20px",background:bg||"#fff"}}>
+      <h2 style={{margin:"0 0 24px",fontWeight:700,fontSize:28,lineHeight:"100%",letterSpacing:"-0.025em",color:"var(--bca-navy)",textAlign:"center"}}>{title}</h2>
+      {children}
+    </section>
+  );
+}
+
+function App(){
+  const [sent,setSent]=React.useState(false);
+  return (
+    <MobileFrame width={390} height={720}>
+      <MobileNav />
+      <Hero />
+      <Block title="About Us">
+        <p style={{margin:0,textAlign:"center",fontSize:15,lineHeight:"23px",color:"var(--bca-ink-2)"}}>BCA Partners is a consulting firm specializing in M&amp;As, Strategy, Corporate Restructuring and Market Entry in Vietnam.</p>
+        <div style={{display:"flex",justifyContent:"center",marginTop:20}}><Button variant="filled" icon size="md">Explore More</Button></div>
+      </Block>
+      <Block title="Our Services" bg="var(--bca-surface-muted)">
+        <div style={{display:"flex",flexDirection:"column",gap:16}}>
+          <ServiceCard image={A+"service-strategy.jpg"} title="Strategy" height={180} />
+          <ServiceCard image={A+"service-market-entry.jpg"} title="Market Entry" height={180} />
+          <ServiceCard image={A+"service-research.jpg"} title="Research" height={180} />
+        </div>
+      </Block>
+      <Block title="Our Team">
+        <div style={{display:"flex",flexDirection:"column",gap:24}}>
+          <LeaderCard photo={A+"leader-binh.jpg"} name="Binh Pham, MBA, CFA" role="Managing Director" style={{width:"100%"}} />
+          <LeaderCard photo={A+"leader-thuy.png"} name="Thuy Huynh, PhD" role="Director, Operations & Transformation" style={{width:"100%"}} />
+        </div>
+      </Block>
+      <Block title="Contact Us" bg="var(--bca-surface-section)">
+        {sent ? (
+          <div style={{textAlign:"center",fontWeight:600,color:"var(--bca-navy)"}}>Thanks — we'll be in touch.</div>
+        ) : (
+          <form onSubmit={(e)=>{e.preventDefault();setSent(true);}} style={{display:"flex",flexDirection:"column",gap:16}}>
+            <Input label="Name" placeholder="Your name" />
+            <Input label="Email" type="email" placeholder="you@company.com" />
+            <Input label="Message" multiline rows={3} placeholder="How can we help?" />
+            <Button variant="filled" as="button" size="md">Send Now</Button>
+          </form>
+        )}
+      </Block>
+      <Footer style={{flexDirection:"column",padding:"32px 20px",gap:24,alignItems:"flex-start"}} />
+    </MobileFrame>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

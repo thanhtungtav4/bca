@@ -1,0 +1,132 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="BCA Partners — Job detail" subtitle="Career job detail (responsive)" -->
+<!-- @startingPoint section="Website" subtitle="Career job detail" viewport="1440x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BCA Partners — Investment Banking Analyst / Associate</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-sans);background:#fff;color:var(--bca-ink)}
+  a{color:var(--link)}a:hover{color:var(--link-hover)}
+  .navwrap{position:sticky;top:0;z-index:50}
+  .grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:64;padding:56px 112px 80px;align-items:start}
+  .body h2{margin:32px 0 12px;font-size:24px;color:var(--bca-navy);font-weight:700}
+  .body p{margin:0 0 16px;font-size:16px;line-height:24px;color:var(--bca-ink-2)}
+  .body ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+  .body li{display:flex;gap:10px;font-size:16px;line-height:24px;color:var(--bca-ink-2)}
+  .body li b{color:var(--bca-blue);font-weight:700;flex-shrink:0}
+  .apply{position:sticky;top:104px;padding:28px;border-radius:4px;background:var(--bca-surface-section);display:flex;flex-direction:column;gap:14px}
+  @media(max-width:900px){.grid{grid-template-columns:1fr;gap:40px;padding:40px 20px}.apply{position:static}}
+  .ov{position:fixed;inset:0;background:rgba(0,26,46,0.55);display:flex;align-items:flex-start;justify-content:center;padding:48px 20px;overflow:auto;z-index:100}
+  .modal{width:100%;max-width:520px;background:#fff;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,0.3);overflow:hidden}
+  .modal-hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:28px 28px 0}
+  .fld{display:flex;flex-direction:column;gap:6px}
+  .fld label{font-size:13px;font-weight:600;color:var(--bca-ink-2)}
+  .fld input,.fld textarea,.fld select{font-family:var(--font-sans);font-size:15px;padding:11px 14px;border:1px solid var(--bca-border);border-radius:4px;background:#fff;outline:none;box-sizing:border-box;width:100%}
+  .fld input:focus,.fld textarea:focus,.fld select:focus{border-color:var(--bca-blue)}
+  .drop{border:1.5px dashed var(--bca-border);border-radius:4px;padding:18px;text-align:center;font-size:14px;color:var(--bca-ink-2);cursor:pointer}
+  .drop b{color:var(--bca-blue)}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Navbar, Footer, Button } = window.BCAPartnersDesignSystem_f92865;
+
+function ApplyModal({ role, onClose }){
+  const [sent,setSent]=React.useState(false);
+  const [file,setFile]=React.useState("");
+  return (
+    <div className="ov" onClick={onClose}>
+      <div className="modal" onClick={(e)=>e.stopPropagation()}>
+        <div className="modal-hd">
+          <div>
+            <h3 style={{margin:0,fontWeight:700,fontSize:22,color:"var(--bca-navy)"}}>Apply for this role</h3>
+            <p style={{margin:"4px 0 0",fontSize:14,color:"var(--bca-ink-2)"}}>{role}</p>
+          </div>
+          <button onClick={onClose} aria-label="Close" style={{border:"none",background:"none",fontSize:26,lineHeight:1,color:"var(--bca-muted)",cursor:"pointer"}}>&times;</button>
+        </div>
+        {sent ? (
+          <div style={{padding:"28px",display:"flex",flexDirection:"column",gap:16,alignItems:"flex-start"}}>
+            <p style={{margin:0,fontSize:16,lineHeight:"24px",color:"var(--bca-ink)"}}>Thank you — your application has been received. Our team will review your CV and be in touch shortly.</p>
+            <Button variant="filled" onClick={onClose}>Done</Button>
+          </div>
+        ) : (
+          <form onSubmit={(e)=>{e.preventDefault();setSent(true);}} style={{padding:"20px 28px 28px",display:"flex",flexDirection:"column",gap:16}}>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
+              <div className="fld"><label>Full name *</label><input required placeholder="Your name" /></div>
+              <div className="fld"><label>Phone</label><input placeholder="+84 …" /></div>
+            </div>
+            <div className="fld"><label>Email *</label><input type="email" required placeholder="you@email.com" /></div>
+            <div className="fld"><label>Cover note</label><textarea rows={3} placeholder="Why you'd be a great fit…"></textarea></div>
+            <div className="fld">
+              <label>CV / Résumé *</label>
+              <label className="drop">{file ? file : (<span><b>Click to upload</b> — PDF or DOCX, max 10MB</span>)}
+                <input type="file" required accept=".pdf,.doc,.docx" style={{display:"none"}} onChange={(e)=>setFile(e.target.files[0] ? e.target.files[0].name : "")} />
+              </label>
+            </div>
+            <div style={{marginTop:4}}><Button variant="filled" icon as="button">Submit application</Button></div>
+          </form>
+        )}
+      </div>
+    </div>
+  );
+}
+const A = "../../assets/";
+const RESP = ["Build financial models and valuations for M&A, capital raising and restructuring mandates","Conduct industry, market and company due diligence","Prepare client presentations, information memoranda and pitch materials","Support deal execution and coordinate with clients and partners"];
+const REQS = ["Bachelor's degree in Finance, Economics, Accounting or related field","1–3 years in investment banking, consulting, or corporate finance (Associate); fresh graduates considered for Analyst","Strong financial modelling and analytical skills","Fluent English and Vietnamese; excellent communication"];
+
+function Hero(){
+  return (
+    <section style={{background:"var(--bca-navy)",color:"#fff",padding:"48px 112px"}}>
+      <a href="career.html" style={{color:"rgba(255,255,255,0.85)",fontWeight:600,fontSize:14,textDecoration:"none"}}>&larr; All positions</a>
+      <h1 style={{margin:"16px 0 12px",fontWeight:700,fontSize:40,lineHeight:"48px",letterSpacing:"-0.025em"}}>Investment Banking Analyst / Associate</h1>
+      <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+        {["Full-time","District 1, HCMC","Advisory"].map((t)=>(<span key={t} style={{fontSize:13,fontWeight:600,background:"rgba(255,255,255,0.18)",borderRadius:4,padding:"5px 12px"}}>{t}</span>))}
+      </div>
+    </section>
+  );
+}
+
+function App(){
+  const [apply,setApply]=React.useState(false);
+  return (
+    <div>
+      {apply && <ApplyModal role="Investment Banking Analyst / Associate" onClose={()=>setApply(false)} />}
+      <div className="navwrap"><Navbar logoSrc={A+"logo-bca.png"} active="Career" links={["Home","About us","Our services","Projects","Research","News","Career","Contact us"]} /></div>
+      <Hero />
+      <div className="grid">
+        <div className="body">
+          <h2 style={{marginTop:0}}>About the role</h2>
+          <p>As an Analyst or Associate, you will support BCA Partners' M&amp;A, capital raising and corporate restructuring engagements. You will work directly with senior advisors and clients, contributing to every stage of the deal lifecycle in a fast-paced, high-impact environment.</p>
+          <h2>Responsibilities</h2>
+          <ul>{RESP.map((r)=>(<li key={r}><b>—</b><span>{r}</span></li>))}</ul>
+          <h2>Requirements</h2>
+          <ul>{REQS.map((r)=>(<li key={r}><b>—</b><span>{r}</span></li>))}</ul>
+          <h2>What we offer</h2>
+          <p>A steep learning curve alongside experienced advisors, exposure to landmark transactions in the Vietnamese market, and a collaborative team that invests in your growth.</p>
+        </div>
+        <aside className="apply">
+          <h3 style={{margin:0,fontWeight:700,fontSize:20,color:"var(--bca-navy)"}}>Apply for this role</h3>
+          <p style={{margin:0,fontSize:15,lineHeight:"22px",color:"var(--bca-ink-2)"}}>Send your CV and a short note about why you'd be a great fit.</p>
+          <Button variant="filled" icon onClick={()=>setApply(true)}>Apply now</Button>
+          <Button variant="line" onClick={()=>setApply(true)}>Email us your CV</Button>
+        </aside>
+      </div>
+      <Footer />
+    </div>
+  );
+}
+const PAGES={"Home":"index.html","About us":"about.html","Our services":"services.html","Projects":"projects.html","Research":"research.html","News":"news.html","Career":"career.html","Contact us":"contact.html","Our team":"leadership.html","Privacy Policy":"privacy.html","Terms of Use":"privacy.html"};
+document.addEventListener('click',(e)=>{const a=e.target.closest('a,button');if(!a)return;const t=(a.textContent||'').trim();if(PAGES[t]){e.preventDefault();location.href=PAGES[t];}});
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

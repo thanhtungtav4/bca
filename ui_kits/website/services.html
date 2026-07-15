@@ -1,0 +1,87 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="BCA Partners — Our Services" subtitle="Service offerings with capability lists" -->
+<!-- @startingPoint section="Website" subtitle="Our Services page" viewport="1440x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BCA Partners — Our Services</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-sans);background:#fff;color:var(--bca-ink)}
+  a{color:var(--link)}a:hover{color:var(--link-hover)}
+  .navwrap{position:sticky;top:0;z-index:50}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Navbar, Footer, SectionHeading, ContactBand, FeatureItem } = window.BCAPartnersDesignSystem_f92865;
+const A = "../../assets/";
+
+const SERVICES = [
+  { title: "Mergers & Acquisitions (M&As)", image: A+"service-strategy.jpg", items: ["Sell-side advisory","Buy-side advisory","Post-M&A business strategy","Leveraged buyouts"] },
+  { title: "Strategy", image: A+"service-market-entry.jpg", items: ["Strategy consulting","Pre-IPO & IPO strategies","Project Management Office (PMO)"] },
+  { title: "Market Entry", image: A+"service-research.jpg", items: ["Market intelligence","Market entry strategy","Diagnosis of local partner","Partner search"] },
+  { title: "Capital Raising", image: A+"service-capital.jpg", items: ["Fund raising for listed & private companies","Medium and long-term loans","Bond issuances"] },
+  { title: "Corporate Restructuring", image: A+"service-restructuring.jpg", items: ["Financial restructuring","Operational restructuring","Crisis management"] },
+  { title: "Research", image: A+"project-strategy.jpg", items: ["Industry & market research","Feasibility studies","Data & trend analysis"] },
+];
+
+function Hero(){
+  return (
+    <section style={{padding:"80px 112px 40px",background:"#fff",textAlign:"center"}}>
+      <div style={{maxWidth:764,margin:"0 auto",display:"flex",flexDirection:"column",gap:16}}>
+        <h1 style={{margin:0,fontWeight:700,fontSize:60,lineHeight:"72px",letterSpacing:"-0.025em",color:"var(--bca-ink)"}}>Our Services</h1>
+        <p style={{margin:0,fontWeight:400,fontSize:18,lineHeight:"28px",color:"#000"}}>Satisfying our clients' needs is our top priority. BCA understands that our clients' successes are our success, so we do our best to bring value to every engagement — building relationships on honesty and fairness.</p>
+      </div>
+    </section>
+  );
+}
+
+function ServiceBlock({ title, image, items }){
+  return (
+    <a href="service-detail.html" style={{textDecoration:"none",color:"inherit",display:"flex",flexDirection:"column",gap:24}}>
+      <FeatureItem image={image} height={320} />
+      <div style={{display:"flex",flexDirection:"column",gap:12}}>
+        <h3 style={{margin:0,fontWeight:700,fontSize:28,lineHeight:"100%",color:"var(--bca-ink)"}}>{title}</h3>
+        <ul style={{margin:0,padding:0,listStyle:"none",display:"flex",flexDirection:"column",gap:8}}>
+          {items.map((it)=>(
+            <li key={it} style={{display:"flex",gap:10,fontFamily:"var(--font-sans)",fontSize:16,lineHeight:"24px",color:"var(--bca-ink-2)"}}>
+              <span style={{color:"var(--bca-blue)",fontWeight:700,flexShrink:0}}>&mdash;</span><span>{it}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </a>
+  );
+}
+
+function Services(){
+  return (
+    <section style={{padding:"40px 112px 80px",background:"#fff",display:"grid",gridTemplateColumns:"repeat(3,minmax(0,1fr))",gap:"56px 32px"}}>
+      {SERVICES.map((s)=><ServiceBlock key={s.title} {...s} />)}
+    </section>
+  );
+}
+
+function App(){
+  return (
+    <div>
+      <div className="navwrap"><Navbar logoSrc={A+"logo-bca.png"} active="Our services" links={["Home","About us","Our services","Projects","Research","News","Career","Contact us"]} /></div>
+      <Hero />
+      <Services />
+      <ContactBand image={A+"contact-bg.jpg"} />
+      <Footer />
+    </div>
+  );
+}
+const PAGES={"Home":"index.html","About us":"about.html","Our services":"services.html","Projects":"projects.html","Research":"research.html","News":"news.html","Career":"career.html","Contact us":"contact.html","Our team":"leadership.html","Privacy Policy":"privacy.html","Terms of Use":"privacy.html"};document.addEventListener('click',(e)=>{const a=e.target.closest('a');if(!a)return;const t=(a.textContent||'').trim();if(PAGES[t]){e.preventDefault();location.href=PAGES[t];}});
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="BCA Partners — Article detail" subtitle="Research article detail (responsive)" -->
+<!-- @startingPoint section="Website" subtitle="Research article detail" viewport="1440x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BCA Partners — Article</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-sans);background:#fff;color:var(--bca-ink)}
+  a{color:var(--link)}a:hover{color:var(--link-hover)}
+  .navwrap{position:sticky;top:0;z-index:50}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  .pad{padding:0 112px}
+  .art p{margin:0 0 20px;font-size:18px;line-height:30px;color:var(--bca-ink-2)}
+  .art h2{margin:40px 0 16px;font-size:28px;line-height:34px;color:var(--bca-navy);font-weight:700}
+  .art blockquote{margin:32px 0;padding:8px 0 8px 28px;border-left:4px solid var(--bca-blue);font-size:22px;line-height:32px;font-weight:600;color:var(--bca-navy)}
+  @media(max-width:900px){.pad{padding:0 20px}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Navbar, Footer, Button, FeatureItem } = window.BCAPartnersDesignSystem_f92865;
+const A = "../../assets/";
+
+function Article(){
+  return (
+    <article style={{padding:"56px 0 80px"}}>
+      <div className="wrap">
+        <a href="research.html" style={{fontWeight:600,fontSize:14,textDecoration:"none",display:"inline-flex",gap:6,alignItems:"center"}}>&larr; Back to Research</a>
+        <span style={{display:"block",marginTop:24,fontWeight:600,fontSize:16,color:"var(--bca-navy)"}}>FINTECH</span>
+        <h1 style={{margin:"12px 0 16px",fontWeight:700,fontSize:44,lineHeight:"52px",letterSpacing:"-0.025em",color:"var(--bca-ink)"}}>The future of payment in Vietnam's Fintech market</h1>
+        <div style={{display:"flex",gap:16,alignItems:"center",fontSize:14,color:"var(--bca-muted)"}}>
+          <span>By BCA Research Team</span><span>·</span><span>12 March 2024</span><span>·</span><span>6 min read</span>
+        </div>
+      </div>
+      <div className="wrap" style={{marginTop:32}}>
+        <FeatureItem image={A+"research-1.jpg"} height={420} />
+      </div>
+      <div className="wrap art" style={{marginTop:40}}>
+        <p>High internet penetration and a young, mobile-first population are fostering the next wave of digital payments in Vietnam — and reshaping who wins in financial services. In this piece we examine the structural drivers and the strategic choices facing incumbents and challengers alike.</p>
+        <h2>A market primed for digital payment</h2>
+        <p>With over 70% internet penetration and one of the fastest-growing e-commerce markets in Southeast Asia, Vietnam presents a rare combination of scale and momentum. Consumer behaviour has shifted decisively toward mobile, and QR-based payments have moved from novelty to norm in under three years.</p>
+        <blockquote>Identifying the right partner is crucial for success when entering Vietnam's Fintech and cyber-security market.</blockquote>
+        <h2>Where the value accrues</h2>
+        <p>The future of payment in Fintech is fostered by the high rate of internet usage in Vietnam. Yet value does not accrue evenly — it concentrates around trust, distribution and regulatory relationships. For international entrants, a credible local partner shortens the path to license, liquidity and merchant acceptance.</p>
+        <p>BCA Partners advises clients on market entry, partner identification and go-to-market strategy across the Vietnamese financial-services landscape.</p>
+      </div>
+      <div className="pad" style={{marginTop:56}}>
+        <div style={{maxWidth:820,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center",gap:16,flexWrap:"wrap",borderTop:"1px solid var(--bca-border)",paddingTop:24}}>
+          <span style={{fontSize:16,color:"var(--bca-ink-2)"}}>Interested in this topic?</span>
+          <Button variant="filled" icon>Talk to our team</Button>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function App(){
+  return (
+    <div>
+      <div className="navwrap"><Navbar logoSrc={A+"logo-bca.png"} active="Research" links={["Home","About us","Our services","Projects","Research","News","Career","Contact us"]} /></div>
+      <Article />
+      <Footer />
+    </div>
+  );
+}
+const PAGES={"Home":"index.html","About us":"about.html","Our services":"services.html","Projects":"projects.html","Research":"research.html","News":"news.html","Career":"career.html","Contact us":"contact.html","Our team":"leadership.html","Privacy Policy":"privacy.html","Terms of Use":"privacy.html","Talk to our team":"contact.html"};
+document.addEventListener('click',(e)=>{const a=e.target.closest('a,button');if(!a)return;const t=(a.textContent||'').trim();if(PAGES[t]){e.preventDefault();location.href=PAGES[t];}});
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

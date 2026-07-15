@@ -1,0 +1,4 @@
+/* BCA Partners uses Inter across the entire product.
+   The .fig ships no font binaries, so we load Inter from Google Fonts.
+   Swap in self-hosted Inter woff2 files here if brand hosting is required. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");

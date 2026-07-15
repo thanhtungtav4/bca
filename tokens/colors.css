@@ -1,0 +1,43 @@
+/* BCA Partners — color tokens (values transcribed verbatim from the Figma file) */
+:root{
+  /* Brand */
+  --bca-navy:#003f6f;          /* rgb(0,63,111)  — primary brand, headings, filled buttons */
+  --bca-blue:#0079a6;          /* rgb(0,121,166) — secondary/accent, wordmark, links, overlays */
+
+  /* Ink / text */
+  --bca-ink:#111827;           /* rgb(17,24,39)  — primary heading ink */
+  --bca-ink-2:#374151;         /* rgb(55,65,81)  — body copy */
+  --bca-black:#000000;         /* footer bg, some body text */
+  --bca-muted:#8896a6;         /* rgb(136,150,166) — hairline dividers, muted text */
+  --bca-white:#ffffff;
+
+  /* Neutral surfaces & borders */
+  --bca-surface:#ffffff;
+  --bca-surface-muted:#f5f5f5;     /* services section bg */
+  --bca-surface-section:#e9ecf2;   /* rgb(233,236,242) — alternating section bg / soft cards */
+  --bca-border:#e0e1e5;            /* rgb(224,225,229) — image placeholders, card fills */
+  --bca-border-2:#dee1e6;          /* rgb(222,225,230) — caption bars */
+
+  /* Overlays */
+  --bca-overlay-dark:rgba(36,36,36,0.5);   /* blurred glass panel over imagery */
+  --bca-overlay-blue:rgba(0,121,166,0.8);  /* contact CTA band */
+  --bca-overlay-white:rgba(255,255,255,0.8);
+  --bca-scrim:rgba(0,0,0,0.3);
+
+  /* Semantic aliases */
+  --color-primary:var(--bca-navy);
+  --color-accent:var(--bca-blue);
+  --text-heading:var(--bca-ink);
+  --text-body:var(--bca-ink-2);
+  --text-on-dark:var(--bca-white);
+  --text-eyebrow:var(--bca-navy);
+  --surface-page:var(--bca-surface);
+  --surface-muted:var(--bca-surface-muted);
+  --surface-section:var(--bca-surface-section);
+  --surface-card:var(--bca-border);
+  --surface-footer:var(--bca-black);
+  --border-subtle:var(--bca-border);
+  --divider:var(--bca-muted);
+  --link:var(--bca-blue);
+  --link-hover:var(--bca-navy);
+}

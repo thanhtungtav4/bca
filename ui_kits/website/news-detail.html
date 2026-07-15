@@ -1,0 +1,74 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="BCA Partners — News detail" subtitle="News article detail (responsive)" -->
+<!-- @startingPoint section="Website" subtitle="News article detail" viewport="1440x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BCA Partners — News article</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-sans);background:#fff;color:var(--bca-ink)}
+  a{color:var(--link)}a:hover{color:var(--link-hover)}
+  .navwrap{position:sticky;top:0;z-index:50}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+  .art p{margin:0 0 20px;font-size:18px;line-height:30px;color:var(--bca-ink-2)}
+  .art h2{margin:40px 0 16px;font-size:28px;line-height:34px;color:var(--bca-navy);font-weight:700}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Navbar, Footer, Button, FeatureItem } = window.BCAPartnersDesignSystem_f92865;
+const A = "../../assets/";
+
+function Article(){
+  return (
+    <article style={{padding:"56px 0 80px"}}>
+      <div className="wrap">
+        <a href="news.html" style={{fontWeight:600,fontSize:14,textDecoration:"none"}}>&larr; Back to News</a>
+        <div style={{display:"flex",gap:12,alignItems:"center",marginTop:24}}>
+          <span style={{fontWeight:600,fontSize:14,color:"var(--bca-navy)"}}>DEAL</span>
+          <span style={{fontSize:14,color:"var(--bca-muted)"}}>18 April 2024</span>
+        </div>
+        <h1 style={{margin:"12px 0 0",fontWeight:700,fontSize:44,lineHeight:"52px",letterSpacing:"-0.025em",color:"var(--bca-ink)"}}>BCA Partners advises on landmark e-wallet transaction</h1>
+      </div>
+      <div className="wrap" style={{marginTop:32}}><FeatureItem image={A+"project-strategy.jpg"} height={420} /></div>
+      <div className="wrap art" style={{marginTop:40}}>
+        <p>Ho Chi Minh City — BCA Partners today announced it acted as independent advisor to a leading fintech client on a major strategic transaction in Vietnam's fast-growing digital-payments sector.</p>
+        <h2>About the transaction</h2>
+        <p>Working across strategy, valuation and execution, the BCA team supported the client through diligence, negotiation and closing — helping unlock new growth in one of Southeast Asia's most dynamic markets.</p>
+        <p>"Identifying the right partner is crucial for success in this market," said the engagement lead. "We're proud to have helped our client navigate a complex, high-stakes process to a strong outcome."</p>
+        <h2>About BCA Partners</h2>
+        <p>BCA Partners is a Vietnam-based consulting firm specializing in M&amp;As, strategy, corporate restructuring, market entry and other financial solutions.</p>
+      </div>
+      <div style={{maxWidth:820,margin:"56px auto 0",padding:"0 24px"}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:16,flexWrap:"wrap",borderTop:"1px solid var(--bca-border)",paddingTop:24}}>
+          <span style={{fontSize:16,color:"var(--bca-ink-2)"}}>Media enquiries?</span>
+          <Button variant="filled" icon>Contact us</Button>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function App(){
+  return (
+    <div>
+      <div className="navwrap"><Navbar logoSrc={A+"logo-bca.png"} active="News" links={["Home","About us","Our services","Projects","Research","News","Career","Contact us"]} /></div>
+      <Article />
+      <Footer />
+    </div>
+  );
+}
+const PAGES={"Home":"index.html","About us":"about.html","Our services":"services.html","Projects":"projects.html","Research":"research.html","News":"news.html","Career":"career.html","Contact us":"contact.html","Our team":"leadership.html","Privacy Policy":"privacy.html","Terms of Use":"privacy.html","Contact us ":"contact.html"};
+document.addEventListener('click',(e)=>{const a=e.target.closest('a,button');if(!a)return;const t=(a.textContent||'').trim();if(PAGES[t]){e.preventDefault();location.href=PAGES[t];}});
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

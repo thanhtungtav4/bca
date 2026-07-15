@@ -1,0 +1,147 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="BCA Partners — About Us" subtitle="Company overview: strengths, vision, values" -->
+<!-- @startingPoint section="Website" subtitle="About Us / company overview page" viewport="1440x900" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BCA Partners — About Us</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-sans);background:#fff;color:var(--bca-ink)}
+  a{color:var(--link)}a:hover{color:var(--link-hover)}
+  .navwrap{position:sticky;top:0;z-index:50}
+  .wrap{max-width:1440px;margin:0 auto}
+  section{box-sizing:border-box}
+  h2.sec{margin:0;font-weight:700;font-size:48px;line-height:64px;letter-spacing:-0.025em;color:var(--bca-navy)}
+  h3.sub{margin:0 0 8px;font-weight:700;font-size:24px;color:var(--bca-ink)}
+  p.body{margin:0;font-weight:400;font-size:16px;line-height:24px;color:var(--bca-ink-2)}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Navbar, Footer, Button, SectionHeading, ContactBand, FeatureItem } = window.BCAPartnersDesignSystem_f92865;
+const A = "../../assets/";
+
+const STRENGTHS = [
+  { icon: A + "icon-strength-3.png", title: "Local market insights",
+    body: "BCA's professional team, with extensive working experience in the local market, is knowledgeable about the business environment and regulations in Vietnam." },
+  { icon: A + "icon-strength-1.png", title: "Strong expertise and highly diversified team members",
+    body: "BCA's founders and Advisory Board together have many years of combined experience across different business sectors, allowing BCA to provide clients with practical solutions that are highly applicable to the Vietnam market environment." },
+  { icon: A + "icon-strength-2.png", title: "Extensive domestic and oversea relationships",
+    body: "BCA has close relationships with funds, investment banks, commercial banks, auditing companies, securities firms, and domestic and foreign economic organizations — making the firm an ideal one-stop solution to the problems faced by its clients." },
+];
+
+const VALUES = [
+  { title: "Integrity", body: "At BCA, integrity is always our top priority. We believe that sustainable success is achieved with integrity. Integrity is demonstrated throughout BCA's activities, whether among employees, clients, or partners." },
+  { title: "Social Responsibility", body: "BCA is committed to long-term development and sustainability. We believe economic benefits should be accompanied by sustainable development and social responsibility." },
+  { title: "Passion", body: "Passion is the driving force to motivate BCA and its team members to move forward. At BCA, it is our honor to help clients solve their business problems." },
+  { title: "Professionalism", body: "With professionalism, we bring value to our clients. This also helps us build trust with partners and other stakeholders." },
+];
+
+function Hero(){
+  return (
+    <section style={{position:"relative",height:426,overflow:"hidden"}}>
+      <img src={A+"about-hero.jpg"} alt="" style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover"}} />
+      <div style={{position:"absolute",inset:0,background:"rgba(0,0,0,0.35)"}} />
+      <div style={{position:"absolute",left:112,top:141,width:590,display:"flex",flexDirection:"column",gap:16}}>
+        <h1 style={{margin:0,fontWeight:700,fontSize:60,lineHeight:"72px",letterSpacing:"-0.025em",color:"#fff"}}>Company Overview</h1>
+        <p style={{margin:0,fontWeight:400,fontSize:18,lineHeight:"28px",color:"#fff"}}>BCA Partners is a consulting firm specializing in M&amp;As, Strategy, Corporate Restructuring, Market Entry, and other Financial Solutions in the Vietnam market.</p>
+      </div>
+    </section>
+  );
+}
+
+function Strengths(){
+  return (
+    <section style={{padding:"80px 112px",background:"#fff"}}>
+      <h2 className="sec" style={{fontSize:40,lineHeight:"100%",marginBottom:48}}>Our Strengths</h2>
+      <div style={{display:"grid",gridTemplateColumns:"minmax(0,1fr) 300px",gap:48,alignItems:"start"}}>
+        <div style={{display:"flex",flexDirection:"column",gap:36}}>
+          {STRENGTHS.map((s,i)=>(
+            <div key={s.title} style={{display:"grid",gridTemplateColumns:"56px minmax(0,1fr)",columnGap:20,rowGap:8}}>
+              <div style={{width:56,height:56,background:"var(--bca-surface-section)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+                <img src={s.icon} alt="" style={{width:30,height:30,objectFit:"contain"}} />
+              </div>
+              <h3 className="sub" style={{margin:0,alignSelf:"center"}}>{s.title}</h3>
+              <p className="body" style={{gridColumn:2}}>{s.body}</p>
+            </div>
+          ))}
+        </div>
+        <FeatureItem image={A+"about-vision.jpg"} height={380} />
+      </div>
+    </section>
+  );
+}
+
+const VMCV_CARDS = [
+  { image: A+"about-vision.jpg", title: "Vision", body: "To become one of the most trusted advisors to corporates in Vietnam." },
+  { image: A+"about-mission.jpg", title: "Mission", body: "To deliver value to customers through practical solutions and best service experience." },
+  { image: A+"feature-fintech.jpg", title: "Integrity", body: "Integrity is always our top priority. Sustainable success is achieved with integrity — across employees, clients and partners." },
+  { image: A+"service-research.jpg", title: "Social Responsibility", body: "We are committed to long-term development and sustainability, pairing economic benefits with social responsibility." },
+  { image: A+"service-strategy.jpg", title: "Passion", body: "Passion is the driving force that moves us forward. It is our honor to help clients solve their business problems." },
+  { image: A+"service-restructuring.jpg", title: "Professionalism", body: "With professionalism, we bring value to clients and build trust with partners and stakeholders." },
+];
+
+function VisionMission(){
+  return (
+    <section style={{padding:"40px 112px 80px",background:"#fff"}}>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:24,flexWrap:"wrap",marginBottom:40}}>
+        <h2 className="sec" style={{fontSize:40,lineHeight:"100%"}}>Vision, Mission and Core Values</h2>
+        <Button variant="filled" icon onClick={()=>location.href="vision-mission-values.html"}>Explore more</Button>
+      </div>
+      <div style={{display:"flex",gap:32,overflowX:"auto",paddingBottom:8}}>
+        {VMCV_CARDS.map((c)=>(
+          <article key={c.title} style={{width:300,flexShrink:0,display:"flex",flexDirection:"column",gap:16}}>
+            <FeatureItem image={c.image} height={200} />
+            <h3 className="sub" style={{color:"var(--bca-navy)"}}>{c.title}</h3>
+            <p className="body">{c.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Belief(){
+  return (
+    <section style={{padding:"0 112px 80px",background:"#fff"}}>
+      <div style={{position:"relative",borderRadius:4,overflow:"hidden",height:360}}>
+        <img src={A+"about-belief.jpg"} alt="" style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover"}} />
+        <div style={{position:"absolute",inset:0,background:"linear-gradient(90deg,rgba(0,63,111,0.9) 0%,rgba(0,63,111,0.6) 55%,rgba(0,63,111,0.15) 100%)"}} />
+        <div style={{position:"absolute",left:64,right:64,top:0,bottom:0,display:"flex",flexDirection:"column",justifyContent:"center",gap:20}}>
+          <h2 style={{margin:0,fontWeight:700,fontSize:40,lineHeight:"100%",letterSpacing:"-0.025em",color:"#fff"}}>Our Belief</h2>
+          <div style={{position:"relative",maxWidth:660,paddingLeft:36}}>
+            <span style={{position:"absolute",left:-4,top:-18,fontSize:60,lineHeight:1,fontWeight:800,color:"rgba(255,255,255,0.7)"}}>&ldquo;</span>
+            <p style={{margin:0,fontWeight:400,fontSize:18,lineHeight:"28px",color:"#fff"}}>Whether you want to make a great change, tackle a challenge, or capture an opportunity, BCA is with you. We believe that our expertise, experience, and network can help provide the most practical advice and bring value to your organization.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function App(){
+  return (
+    <div>
+      <div className="navwrap"><Navbar logoSrc={A+"logo-bca.png"} active="About us" links={["Home","About us","Our services","Projects","Research","News","Career","Contact us"]} /></div>
+      <Hero />
+      <Strengths />
+      <Belief />
+      <VisionMission />
+      <ContactBand image={A+"contact-bg.jpg"} />
+      <Footer />
+    </div>
+  );
+}
+// route Home back to the homepage
+const PAGES={"Home":"index.html","About us":"about.html","Our services":"services.html","Projects":"projects.html","Research":"research.html","News":"news.html","Career":"career.html","Contact us":"contact.html","Our team":"leadership.html","Privacy Policy":"privacy.html","Terms of Use":"privacy.html"};document.addEventListener('click',(e)=>{const a=e.target.closest('a');if(!a)return;const t=(a.textContent||'').trim();if(PAGES[t]){e.preventDefault();location.href=PAGES[t];}});
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
