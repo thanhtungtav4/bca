@@ -1,0 +1,207 @@
+/* BCA Partners — site layout (header, footer, common)
+   Sử dụng design system tokens từ assets/css/tokens/*.css
+   File này KHÔNG hardcode data — chỉ layout, dùng Theme Settings. */
+
+.bca-site-header { background: var(--bca-white); box-shadow: var(--shadow-nav, 0 1px 4px rgba(0,0,0,0.15)); }
+.bca-navbar { position: sticky; top: 0; z-index: 50; background: var(--bca-white); }
+.bca-navbar-inner { max-width: var(--content-max); margin: 0 auto; padding: 0 var(--gutter); height: 80px; display: flex; align-items: center; gap: 24px; }
+.bca-navbar-logo { display: inline-flex; align-items: center; flex-shrink: 0; min-height: 44px; position: relative; z-index: 60; }
+.bca-navbar-logo .bca-logo-img, .bca-navbar-logo .bca-logo-fallback { max-height: 50px; width: auto; }
+.bca-logo-fallback { font-weight: var(--fw-bold, 700); font-size: 18px; color: var(--bca-navy); letter-spacing: -0.01em; }
+.bca-navbar-nav { margin-left: auto; display: flex; justify-content: flex-end; }
+.bca-navbar-menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 32px; align-items: center; }
+.bca-navbar-menu li { position: relative; }
+.bca-navbar-link { text-decoration: none; color: var(--bca-ink); font-weight: var(--fw-semibold, 600); font-size: 15.008px; line-height: 1.2; padding: 8px 0; transition: color 160ms ease; min-height: 44px; display: inline-flex; align-items: center; }
+.bca-navbar-link:hover, .bca-navbar-link:focus { color: var(--bca-navy); }
+.bca-navbar-menu .current-menu-item > .bca-navbar-link,
+.bca-navbar-menu .current-menu-ancestor > .bca-navbar-link { color: var(--bca-blue); }
+.bca-navbar-cta { display: none; /* hidden on desktop — Contact us is a regular nav link per design */ }
+
+/* Footer */
+.bca-site-footer { background: var(--bca-black); color: var(--bca-white); padding: 64px var(--gutter) 24px; }
+.bca-footer-inner { max-width: var(--content-max); margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; }
+.bca-footer-col h4.bca-footer-heading { font-size: 14px; font-weight: var(--fw-semibold, 600); color: var(--bca-white); margin: 0 0 16px; letter-spacing: 0.05em; text-transform: uppercase; }
+.bca-footer-logo { min-height: 44px; display: inline-flex; align-items: center; }
+.bca-footer-logo .bca-logo-img { max-height: 38px; width: auto; }
+.bca-footer-logo-text { color: var(--bca-white); font-size: 20px; font-weight: var(--fw-bold, 700); text-decoration: none; }
+.bca-footer-desc { font-size: 14px; line-height: 22px; color: rgba(255,255,255,0.7); margin: 16px 0 0; }
+.bca-footer-address { font-size: 14px; line-height: 22px; color: rgba(255,255,255,0.85); margin: 0 0 12px; white-space: pre-line; }
+.bca-footer-line { font-size: 14px; color: rgba(255,255,255,0.85); margin: 0 0 6px; }
+.bca-footer-label { color: rgba(255,255,255,0.55); margin-right: 6px; }
+.bca-footer-line a { color: var(--bca-white); text-decoration: none; }
+.bca-footer-line a:hover { text-decoration: underline; }
+.bca-footer-social-list { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; flex-wrap: wrap; }
+.bca-social-chip { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--radius-pill); background: rgba(255,255,255,0.12); color: var(--bca-white); text-decoration: none; font-size: 12px; font-weight: var(--fw-bold, 700); transition: background 160ms ease; }
+.bca-social-chip:hover { background: var(--bca-blue); }
+.bca-footer-bottom { max-width: var(--content-max); margin: 48px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+.bca-footer-copy { font-size: 12.992px; color: rgba(255,255,255,0.55); margin: 0; }
+
+@media (max-width: 900px) {
+  .bca-site-footer { padding: 40px var(--gutter-mobile) 20px; }
+  .bca-footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .bca-footer-bottom { margin-top: 24px; padding-top: 16px; }
+}
+
+/* Common page container */
+.bca-section { padding: 80px var(--gutter); background: var(--bca-white); }
+.bca-section--muted { background: var(--bca-surface-muted); }
+.bca-section--section { background: var(--bca-surface-section); }
+.bca-section-inner { max-width: var(--content-max); margin: 0 auto; }
+.bca-section-heading { margin: 0 0 48px; font-size: 40px; line-height: var(--lh-h2, 1.2); letter-spacing: -0.025em; font-weight: var(--fw-bold, 700); color: var(--bca-navy); }
+.bca-section-heading--center { text-align: center; }
+.bca-section-sub { margin: -32px 0 48px; font-size: var(--fs-lead, 18px); line-height: var(--lh-lead, 28px); color: var(--bca-ink-2, #374151); max-width: 764px; }
+.bca-section-sub--center { margin-left: auto; margin-right: auto; text-align: center; }
+
+@media (max-width: 900px) {
+  .bca-section { padding: 40px var(--gutter-mobile); }
+  .bca-section-heading { font-size: 28px; margin-bottom: 24px; }
+  .bca-section-sub { font-size: 16px; line-height: 24px; margin-bottom: 24px; }
+}
+
+/* ===== Mobile menu toggle ===== */
+/* Right-side actions group — holds CTA + hamburger on desktop, just hamburger on mobile */
+.bca-navbar-actions,
+.hdr-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;  /* push to the right */
+    position: relative;
+    z-index: 60;  /* above the mobile overlay (z 49) so X stays tappable */
+}
+.bca-navbar-toggle,
+.hdr-burger {
+    display: inline-flex;  /* visible on desktop too (will hide via media query if needed) */
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    color: var(--bca-navy, #003f6f);
+    border-radius: var(--radius, 4px);
+    transition: background var(--transition, 160ms ease);
+    flex-shrink: 0;
+}
+.bca-navbar-toggle:hover,
+.bca-navbar-toggle:focus,
+.hdr-burger:hover,
+.hdr-burger:focus {
+    background: var(--bca-surface-section, #e9ecf2);
+}
+.bca-navbar-toggle-icon,
+.hdr-burger-icon {
+    display: inline-block;
+    width: 22px;
+    height: 16px;
+    position: relative;
+}
+.bca-navbar-toggle-icon span,
+.hdr-burger-icon span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform 200ms ease, top 200ms ease, opacity 200ms ease;
+}
+.bca-navbar-toggle-icon span:nth-child(1),
+.hdr-burger-icon span:nth-child(1) { top: 0; }
+.bca-navbar-toggle-icon span:nth-child(2),
+.hdr-burger-icon span:nth-child(2) { top: 7px; }
+.bca-navbar-toggle-icon span:nth-child(3),
+.hdr-burger-icon span:nth-child(3) { top: 14px; }
+
+/* Hamburger → X when menu open */
+.bca-navbar-toggle[aria-expanded="true"] .bca-navbar-toggle-icon span:nth-child(1),
+.hdr-burger[aria-expanded="true"] .hdr-burger-icon span:nth-child(1) {
+    top: 7px;
+    transform: rotate(45deg);
+}
+.bca-navbar-toggle[aria-expanded="true"] .bca-navbar-toggle-icon span:nth-child(2),
+.hdr-burger[aria-expanded="true"] .hdr-burger-icon span:nth-child(2) {
+    opacity: 0;
+}
+.bca-navbar-toggle[aria-expanded="true"] .bca-navbar-toggle-icon span:nth-child(3),
+.hdr-burger[aria-expanded="true"] .hdr-burger-icon span:nth-child(3) {
+    top: 7px;
+    transform: rotate(-45deg);
+}
+
+/* Desktop: hide hamburger + actions wrapper — design shows only nav links on ≥901px */
+@media (min-width: 901px) {
+    .bca-navbar-toggle,
+    .hdr-burger { display: none !important; }
+    .bca-navbar-actions,
+    .hdr-actions { display: none !important; }
+}
+
+/* === Mobile (≤900px) — hamburger visible, menu is a full-screen overlay === */
+@media (max-width: 900px) {
+    .bca-navbar-cta { display: none; }  /* hide desktop CTA on mobile */
+    .bca-navbar-actions { gap: 8px; }
+
+    /* Full-screen overlay — covers the entire viewport, sits just below the
+       navbar (z-index 50) so the X (close) button in the navbar stays visible
+       and tappable. */
+    .bca-navbar-nav {
+        position: fixed;
+        inset: 0;
+        background: var(--bca-white, #ffffff);
+        z-index: 49;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-12px);
+        transition: opacity 240ms ease, transform 280ms ease, visibility 0s linear 240ms;
+        overflow-y: auto;
+        padding: calc(64px + 24px) var(--gutter-mobile, 20px) 32px;
+    }
+    .bca-navbar-nav.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: opacity 240ms ease, transform 280ms ease, visibility 0s linear 0s;
+    }
+
+    .bca-navbar-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    .bca-navbar-menu li {
+        width: 100%;
+    }
+    .bca-navbar-menu .bca-navbar-link,
+    .bca-navbar-menu a {
+        display: block;
+        padding: 18px 0;
+        font-size: 20px;
+        min-height: 56px;
+        color: var(--bca-ink, #111827);
+    }
+    /* Divider between items — sibling combinator adds a border only when a
+       previous <li> exists, so the first and last item are clean by design. */
+    .bca-navbar-menu li + li .bca-navbar-link,
+    .bca-navbar-menu li + li a {
+        border-top: 1px solid var(--bca-border, #e0e1e5);
+    }
+
+    /* Body scroll lock when menu is open */
+    body.bca-menu-open {
+        overflow: hidden;
+    }
+}
+
+/* === Small phone (≤480px) — tighten nav === */
+@media (max-width: 480px) {
+    .bca-navbar-inner { padding: 0 12px; }
+    .bca-navbar-logo .bca-logo-img, .bca-navbar-logo .bca-logo-fallback { max-height: 32px; }
+    .bca-navbar-nav { padding-top: calc(56px + 24px); }
+}

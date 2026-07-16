@@ -1,0 +1,1426 @@
+{
+  "key": "group_page_home",
+  "fields": [
+    {
+      "key": "field_home_tab_hero",
+      "label": "Hero",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_hero",
+      "label": "Hero Section",
+      "name": "hero_settings",
+      "aria-label": "",
+      "type": "group",
+      "instructions": "",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_home_hero_is_show",
+          "label": "Show section",
+          "name": "is_show",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": 1,
+          "ui": 1,
+          "message": "",
+          "ui_on_text": "",
+          "ui_off_text": ""
+        },
+        {
+          "key": "field_home_hero_heading",
+          "label": "Heading",
+          "name": "heading",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "VD: Fostering Business Evolution",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_home_hero_subheading",
+          "label": "Subheading",
+          "name": "subheading",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "VD: Trusted partner for your most important business challenges",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "rows": 2,
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": ""
+        },
+        {
+          "key": "field_home_hero_image",
+          "label": "Background Image",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "Ảnh nền full-bleed.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": ""
+        },
+        {
+          "key": "field_home_hero_cta",
+          "label": "CTA (Link)",
+          "name": "cta",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array"
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_insights",
+      "label": "Insights",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_insights",
+      "label": "Insights Section",
+      "name": "insights_settings",
+      "aria-label": "",
+      "type": "group",
+      "instructions": "",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_home_insights_is_show",
+          "label": "Show section",
+          "name": "is_show",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": 1,
+          "ui": 1,
+          "message": "",
+          "ui_on_text": "",
+          "ui_off_text": ""
+        },
+        {
+          "key": "field_home_insights_heading",
+          "label": "Heading",
+          "name": "heading",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "VD: Insights",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_home_insights_subheading",
+          "label": "Subheading",
+          "name": "subheading",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "rows": 2,
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": ""
+        },
+        {
+          "key": "field_home_insights_items",
+          "label": "Insight cards",
+          "name": "items",
+          "aria-label": "",
+          "type": "repeater",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "layout": "table",
+          "button_label": "Add row",
+          "sub_fields": [
+            {
+              "key": "field_home_insights_item_image",
+              "label": "Image",
+              "name": "image",
+              "aria-label": "",
+              "type": "image",
+              "instructions": "Horizontal card image",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "id",
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": 0,
+              "min_height": 0,
+              "min_size": 0,
+              "max_width": 0,
+              "max_height": 0,
+              "max_size": 0,
+              "mime_types": ""
+            },
+            {
+              "key": "field_home_insights_item_eyebrow",
+              "label": "Eyebrow",
+              "name": "eyebrow",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "VD: FINTECH",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": "",
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_home_insights_item_title",
+              "label": "Title",
+              "name": "title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Card heading",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": "",
+              "placeholder": "",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_home_insights_item_body",
+              "label": "Body",
+              "name": "body",
+              "aria-label": "",
+              "type": "textarea",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "rows": 3,
+              "default_value": "",
+              "new_lines": "",
+              "maxlength": "",
+              "placeholder": ""
+            },
+            {
+              "key": "field_home_insights_item_cta",
+              "label": "CTA (Link)",
+              "name": "cta",
+              "aria-label": "",
+              "type": "link",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array"
+            }
+          ],
+          "min": 0,
+          "max": 0,
+          "collapsed": ""
+        },
+        {
+          "key": "field_home_insights_cta",
+          "label": "CTA (Link)",
+          "name": "cta",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array"
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_about_teaser",
+      "label": "About Teaser",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_about_teaser",
+      "label": "About Teaser",
+      "name": "about_teaser_settings",
+      "aria-label": "",
+      "type": "group",
+      "instructions": "",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_home_about_teaser_is_show",
+          "label": "Show section",
+          "name": "is_show",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": 1,
+          "ui": 1,
+          "message": "",
+          "ui_on_text": "",
+          "ui_off_text": ""
+        },
+        {
+          "key": "field_home_about_teaser_image",
+          "label": "Image",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": ""
+        },
+        {
+          "key": "field_home_about_teaser_eyebrow",
+          "label": "Eyebrow",
+          "name": "eyebrow",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "VD: About Us",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_home_about_teaser_heading",
+          "label": "Heading",
+          "name": "heading",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "VD: Who we are",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_home_about_teaser_body",
+          "label": "Body",
+          "name": "body",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "rows": 3,
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": ""
+        },
+        {
+          "key": "field_home_about_teaser_mission_heading",
+          "label": "Mission Heading",
+          "name": "mission_heading",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "VD: Mission",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_home_about_teaser_mission_body",
+          "label": "Mission body",
+          "name": "mission_body",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "rows": 2,
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": ""
+        },
+        {
+          "key": "field_home_about_teaser_value_heading",
+          "label": "Value Heading",
+          "name": "value_heading",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "VD: Value",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_home_about_teaser_value_body",
+          "label": "Value body",
+          "name": "value_body",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "rows": 2,
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": ""
+        },
+        {
+          "key": "field_home_about_teaser_cta",
+          "label": "CTA (Link)",
+          "name": "cta",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array"
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_services",
+      "label": "Services Teaser",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_services",
+      "label": "Services Teaser",
+      "name": "services_settings",
+      "aria-label": "",
+      "type": "group",
+      "instructions": "",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_home_services_is_show",
+          "label": "Show section",
+          "name": "is_show",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": 1,
+          "ui": 1,
+          "message": "",
+          "ui_on_text": "",
+          "ui_off_text": ""
+        },
+        {
+          "key": "field_home_services_heading",
+          "label": "Heading",
+          "name": "heading",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "VD: Our Services",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_home_services_subheading",
+          "label": "Subheading",
+          "name": "subheading",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "rows": 2,
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": ""
+        },
+        {
+          "key": "field_home_services_items",
+          "label": "Services to show",
+          "name": "service_ids",
+          "aria-label": "",
+          "type": "relationship",
+          "instructions": "Chọn tối đa 6 service. Để trống = hiển thị tất cả service mới nhất.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "post_type": [
+            "service"
+          ],
+          "filters": [
+            "search"
+          ],
+          "max": 6,
+          "return_format": "id",
+          "taxonomy": [],
+          "min": 0,
+          "elements": [],
+          "bidirectional_target": []
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_partners",
+      "label": "Partners",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_partners",
+      "label": "Partners Section",
+      "name": "partners_settings",
+      "aria-label": "",
+      "type": "group",
+      "instructions": "",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_home_partners_is_show",
+          "label": "Show section",
+          "name": "is_show",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": 1,
+          "ui": 1,
+          "message": "",
+          "ui_on_text": "",
+          "ui_off_text": ""
+        },
+        {
+          "key": "field_home_partners_heading",
+          "label": "Heading",
+          "name": "heading",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "VD: Key Partners",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_home_partners_items",
+          "label": "Partner logos",
+          "name": "items",
+          "aria-label": "",
+          "type": "repeater",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "layout": "table",
+          "button_label": "Add row",
+          "sub_fields": [
+            {
+              "key": "field_home_partners_item_logo",
+              "label": "Logo",
+              "name": "logo",
+              "aria-label": "",
+              "type": "image",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "id",
+              "preview_size": "medium",
+              "library": "all",
+              "min_width": 0,
+              "min_height": 0,
+              "min_size": 0,
+              "max_width": 0,
+              "max_height": 0,
+              "max_size": 0,
+              "mime_types": ""
+            },
+            {
+              "key": "field_home_partners_item_url",
+              "label": "URL (optional)",
+              "name": "url",
+              "aria-label": "",
+              "type": "link",
+              "instructions": "",
+              "required": false,
+              "conditional_logic": false,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "return_format": "array"
+            }
+          ],
+          "min": 0,
+          "max": 0,
+          "collapsed": ""
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_highlights",
+      "label": "Highlights",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_highlights",
+      "label": "Project Highlights",
+      "name": "highlights_settings",
+      "aria-label": "",
+      "type": "group",
+      "instructions": "",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_home_highlights_is_show",
+          "label": "Show section",
+          "name": "is_show",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": 1,
+          "ui": 1,
+          "message": "",
+          "ui_on_text": "",
+          "ui_off_text": ""
+        },
+        {
+          "key": "field_home_highlights_heading",
+          "label": "Heading",
+          "name": "heading",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "VD: Highlighted Projects",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_home_highlights_subheading",
+          "label": "Subheading",
+          "name": "subheading",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "rows": 2,
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": ""
+        },
+        {
+          "key": "field_home_highlights_big",
+          "label": "Big project (left, full image)",
+          "name": "big_project_id",
+          "aria-label": "",
+          "type": "relationship",
+          "instructions": "Pick 1 project to show as the big featured card.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "post_type": [
+            "project"
+          ],
+          "filters": [
+            "search"
+          ],
+          "max": 1,
+          "return_format": "id",
+          "taxonomy": [],
+          "min": 0,
+          "elements": [],
+          "bidirectional_target": []
+        },
+        {
+          "key": "field_home_highlights_small",
+          "label": "Small projects (right, stacked)",
+          "name": "small_project_ids",
+          "aria-label": "",
+          "type": "relationship",
+          "instructions": "Pick 2 projects to stack on the right column.",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "post_type": [
+            "project"
+          ],
+          "filters": [
+            "search"
+          ],
+          "max": 2,
+          "return_format": "id",
+          "taxonomy": [],
+          "min": 0,
+          "elements": [],
+          "bidirectional_target": []
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_projects",
+      "label": "Projects Teaser",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_projects",
+      "label": "Projects Teaser",
+      "name": "projects_settings",
+      "aria-label": "",
+      "type": "group",
+      "instructions": "",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_home_projects_is_show",
+          "label": "Show section",
+          "name": "is_show",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": 1,
+          "ui": 1,
+          "message": "",
+          "ui_on_text": "",
+          "ui_off_text": ""
+        },
+        {
+          "key": "field_home_projects_heading",
+          "label": "Heading",
+          "name": "heading",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "VD: Highlighted Projects",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_home_projects_subheading",
+          "label": "Subheading",
+          "name": "subheading",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "rows": 2,
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": ""
+        },
+        {
+          "key": "field_home_projects_items",
+          "label": "Projects to show",
+          "name": "project_ids",
+          "aria-label": "",
+          "type": "relationship",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "post_type": [
+            "project"
+          ],
+          "filters": [
+            "search"
+          ],
+          "max": 4,
+          "return_format": "id",
+          "taxonomy": [],
+          "min": 0,
+          "elements": [],
+          "bidirectional_target": []
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_leadership",
+      "label": "Leadership Teaser",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_leadership",
+      "label": "Leadership Teaser",
+      "name": "leadership_settings",
+      "aria-label": "",
+      "type": "group",
+      "instructions": "",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_home_leadership_is_show",
+          "label": "Show section",
+          "name": "is_show",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": 1,
+          "ui": 1,
+          "message": "",
+          "ui_on_text": "",
+          "ui_off_text": ""
+        },
+        {
+          "key": "field_home_leadership_heading",
+          "label": "Heading",
+          "name": "heading",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "VD: Our Leadership",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_home_leadership_subheading",
+          "label": "Subheading",
+          "name": "subheading",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "rows": 2,
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": ""
+        },
+        {
+          "key": "field_home_leadership_items",
+          "label": "Leaders to show",
+          "name": "leader_ids",
+          "aria-label": "",
+          "type": "relationship",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "post_type": [
+            "leader"
+          ],
+          "filters": [
+            "search"
+          ],
+          "max": 3,
+          "return_format": "id",
+          "taxonomy": [],
+          "min": 0,
+          "elements": [],
+          "bidirectional_target": []
+        }
+      ]
+    },
+    {
+      "key": "field_home_tab_contact",
+      "label": "Contact Band",
+      "name": "",
+      "aria-label": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "left",
+      "endpoint": 0,
+      "selected": 0
+    },
+    {
+      "key": "field_home_contact",
+      "label": "Contact Band",
+      "name": "contact_band_settings",
+      "aria-label": "",
+      "type": "group",
+      "instructions": "",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_home_contact_is_show",
+          "label": "Show section",
+          "name": "is_show",
+          "aria-label": "",
+          "type": "true_false",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": 1,
+          "ui": 1,
+          "message": "",
+          "ui_on_text": "",
+          "ui_off_text": ""
+        },
+        {
+          "key": "field_home_contact_heading",
+          "label": "Heading",
+          "name": "heading",
+          "aria-label": "",
+          "type": "text",
+          "instructions": "VD: How can we help you succeed?",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_home_contact_subheading",
+          "label": "Subheading",
+          "name": "subheading",
+          "aria-label": "",
+          "type": "textarea",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "rows": 2,
+          "default_value": "",
+          "new_lines": "",
+          "maxlength": "",
+          "placeholder": ""
+        },
+        {
+          "key": "field_home_contact_image",
+          "label": "Background Image",
+          "name": "image",
+          "aria-label": "",
+          "type": "image",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "id",
+          "preview_size": "medium",
+          "library": "all",
+          "min_width": 0,
+          "min_height": 0,
+          "min_size": 0,
+          "max_width": 0,
+          "max_height": 0,
+          "max_size": 0,
+          "mime_types": ""
+        },
+        {
+          "key": "field_home_contact_cta",
+          "label": "CTA (Link)",
+          "name": "cta",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array"
+        }
+      ]
+    }
+  ],
+  "title": "Home Page",
+  "location": [
+    [
+      {
+        "param": "page_type",
+        "operator": "==",
+        "value": "front_page"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "modified": 1784164222
+}

@@ -24,23 +24,33 @@ pnpm-debug.log*
 # OS thumbnails (do Figma mount)
 .thumbnail
 
-# Local WordPress runtime (không commit — sinh lại từ bản này)
-wp/
-wp-content/
+# WordPress core + runtime (KHÔNG track)
+# Track work product dưới đây (chỉ track theme code + mu-plugins + ACF JSON)
 
-# WP debug + uploads + cache
-wp-content/uploads/
-wp-content/cache/
-wp-content/upgrade/
-wp-content/debug.log
-wp-content/plugins/advanced-custom-fields-pro/
-wp-content/plugins/advanced-custom-fields/
-wp-content/themes/*/node_modules/
-wp-content/themes/*/vendor/
-wp-content/themes/*/package-lock.json
+# WP core files
+wp/wp-admin/
+wp/wp-includes/
+wp/*.php
+wp/license.txt
+wp/readme.html
 
 # Local env config
 wp-config.php
 wp-config-local.php
 .htaccess
 
+# WP runtime data
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/debug.log
+wp-content/debug-acf.php
+wp-content/plugins/                       # plugins install qua WP admin (không commit)
+
+# Theme build artifacts (chỉ track source)
+wp-content/themes/*/node_modules/
+wp-content/themes/*/vendor/
+wp-content/themes/*/package-lock.json
+
+# Local env config
+.deploy.env

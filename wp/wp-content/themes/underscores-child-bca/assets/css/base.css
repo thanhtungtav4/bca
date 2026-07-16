@@ -1,0 +1,204 @@
+/* BCA Partners — base/reset layer.
+   Applies the Inter font and design-system colors globally so the body text
+   matches the Figma file. Loaded BEFORE site.css + sections.css.
+   Tokens are read from assets/css/tokens/*.css. */
+
+/* === Reset === */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* === Body / HTML — global font + color === */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+    margin: 0;
+    font-family: var(--font-sans, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif);
+    font-size: var(--fs-body, 16px);
+    line-height: var(--lh-body, 1.5);   /* 1.5 for body copy; headings + small UI override to 1.2 */
+    font-weight: var(--fw-regular, 400);
+    color: var(--bca-ink-2, #374151);
+    background-color: var(--bca-surface, #ffffff);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* === Headings — use design-system ink + weights === */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 0.5em;
+    color: var(--bca-ink, #111827);
+    font-family: var(--font-sans, "Inter", sans-serif);
+    font-weight: var(--fw-bold, 700);
+    line-height: 1.2;
+    letter-spacing: var(--tracking-tight, -0.025em);
+}
+
+h1 { font-size: var(--fs-h1, 48px); line-height: var(--lh-h1, 1.2); }
+h2 { font-size: var(--fs-h2, 40px); line-height: var(--lh-h2, 1.2); }
+h3 { font-size: var(--fs-h3, 30px); line-height: var(--lh-h3, 1.2); }
+h4 { font-size: var(--fs-h4, 24px); line-height: var(--lh-h4, 1.2); font-weight: var(--fw-semibold, 600); letter-spacing: 0; }
+h5 { font-size: var(--fs-title, 20px); line-height: var(--lh-title, 1.2); font-weight: var(--fw-semibold, 600); letter-spacing: 0; }
+h6 { font-size: var(--fs-body, 16px); line-height: var(--lh-body, 1.2); font-weight: var(--fw-semibold, 600); letter-spacing: 0; }
+
+/* === Body copy ===
+   Spacing handled by sibling combinator: only add top margin when a previous
+   <p> exists. The first paragraph has no top margin and the last has no bottom
+   margin by design — no :last-child cleanup needed. */
+p {
+    margin: 0;
+    color: var(--bca-ink-2, #374151);
+}
+p + p {
+    margin-top: 1em;
+}
+
+/* === Links === */
+a {
+    color: var(--bca-blue, #0079a6);
+    text-decoration: none;
+    transition: color var(--transition, 160ms ease);
+}
+a:hover, a:focus {
+    color: var(--bca-navy, #003f6f);
+    text-decoration: underline;
+}
+
+/* === Images === */
+img, svg, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* === Lists inside body copy === */
+ul, ol {
+    margin: 0 0 1em 1.5em;
+    padding: 0;
+}
+li { margin: 0 0 0.25em; }
+
+/* === Form basics === */
+input, textarea, select, button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* === WP block fallback — align with design system === */
+.entry-content > * { margin-block: 1em; }
+.entry-content h2 { margin-top: 1.5em; margin-bottom: 0.5em; }
+.entry-content h3 { margin-top: 1.25em; margin-bottom: 0.5em; }
+.entry-content a { color: var(--bca-blue, #0079a6); }
+.entry-content code {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", monospace;
+    background: var(--bca-surface-section, #e9ecf2);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+.entry-content pre {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", monospace;
+    background: var(--bca-surface-section, #e9ecf2);
+    padding: 16px;
+    border-radius: var(--radius, 4px);
+    overflow-x: auto;
+}
+.entry-content blockquote {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+    border-left: 3px solid var(--bca-navy, #003f6f);
+    color: var(--bca-ink-2, #374151);
+    font-style: italic;
+}
+
+/* === Content-area headings (smaller than display headings) ===
+   These apply to plain h2/h3 inside BCA content body wrappers —
+   they should look like article sub-heads, not the global page headings. */
+.bca-wysiwyg h2,
+.bca-news-body h2,
+.bca-research-body h2,
+.bca-service-detail-body h2,
+.bca-leader-body h2,
+.bca-project-detail-body h2,
+.bca-vision-mission-body h2 {
+    margin: 40px 0 12px;
+    font-size: 24px;
+    color: var(--bca-navy, #003f6f);
+    font-weight: var(--fw-bold, 700);
+    letter-spacing: 0;
+}
+.bca-wysiwyg h3,
+.bca-news-body h3,
+.bca-research-body h3,
+.bca-service-detail-body h3,
+.bca-leader-body h3,
+.bca-project-detail-body h3,
+.bca-vision-mission-body h3 {
+    margin: 24px 0 8px;
+    font-size: 20px;
+    color: var(--bca-ink, #111827);
+    font-weight: var(--fw-bold, 700);
+    letter-spacing: 0;
+}
+.bca-wysiwyg p,
+.bca-news-body p,
+.bca-research-body p,
+.bca-service-detail-body p,
+.bca-leader-body p,
+.bca-project-detail-body p,
+.bca-vision-mission-body p {
+    margin: 0;
+}
+.bca-wysiwyg p + p,
+.bca-news-body p + p,
+.bca-research-body p + p,
+.bca-service-detail-body p + p,
+.bca-leader-body p + p,
+.bca-project-detail-body p + p,
+.bca-vision-mission-body p + p {
+    margin-top: 1em;
+}
+.bca-wysiwig ul, .bca-wysiwyg ul,
+.bca-news-body ul, .bca-research-body ul,
+.bca-service-detail-body ul, .bca-leader-body ul,
+.bca-project-detail-body ul, .bca-vision-mission-body ul {
+    margin: 0 0 1em 1.5em;
+    padding: 0;
+}
+.bca-wysiwyg li, .bca-news-body li, .bca-research-body li,
+.bca-service-detail-body li, .bca-leader-body li,
+.bca-project-detail-body li, .bca-vision-mission-body li {
+    margin: 0 0 0.5em;
+}
+
+/* === Accessibility — hide screen-reader text / skip-link offscreen,
+   reveal on keyboard focus. Standard _s (Underscores) rule. === */
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+}
+.screen-reader-text:focus {
+    background-color: var(--bca-surface, #fff);
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: var(--bca-navy, #003f6f);
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+}

@@ -1,0 +1,24 @@
+/* BCA Partners — spacing, radius & layout tokens.
+   The site is built on a 1440px canvas with a 112px outer gutter and an 8px gap rhythm. */
+:root{
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:24px;
+  --space-6:32px;
+  --space-7:48px;
+  --space-8:80px;      /* section top padding */
+
+  --gutter:112px;      /* desktop outer page margin */
+  --gutter-mobile:20px;
+  --content-max:1440px;
+
+  --radius:4px;        /* cards, buttons, images — the single brand radius */
+  --radius-pill:154px; /* circular social/icon chips */
+
+  /* Button padding from source: 16px 24px */
+  --btn-pad-y:16px;
+  --btn-pad-x:24px;
+  --btn-gap:16px;
+}

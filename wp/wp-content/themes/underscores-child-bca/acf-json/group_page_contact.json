@@ -1,0 +1,121 @@
+{
+    "key": "group_page_contact",
+    "title": "Contact Page",
+    "fields": [
+        {
+            "key": "field_contact_tab_hero",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_contact_hero",
+            "label": "Hero Section",
+            "name": "hero_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_contact_hero_is_show",
+                    "label": "Show section",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "default_value": 1,
+                    "ui": 1
+                },
+                {
+                    "key": "field_contact_hero_heading",
+                    "label": "Heading",
+                    "name": "heading",
+                    "type": "text",
+                    "instructions": "VD: Contact Us"
+                },
+                {
+                    "key": "field_contact_hero_subheading",
+                    "label": "Subheading",
+                    "name": "subheading",
+                    "type": "textarea",
+                    "rows": 2
+                },
+                {
+                    "key": "field_contact_hero_image",
+                    "label": "Background Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "id"
+                }
+            ]
+        },
+        {
+            "key": "field_contact_tab_form",
+            "label": "Form & Details",
+            "name": "",
+            "type": "tab",
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_contact_form",
+            "label": "Contact Form",
+            "name": "form_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_contact_form_is_show",
+                    "label": "Show form",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "default_value": 1,
+                    "ui": 1
+                },
+                {
+                    "key": "field_contact_form_heading",
+                    "label": "Form Heading",
+                    "name": "heading",
+                    "type": "text",
+                    "instructions": "VD: Get in touch"
+                },
+                {
+                    "key": "field_contact_form_intro",
+                    "label": "Intro",
+                    "name": "intro",
+                    "type": "textarea",
+                    "rows": 2
+                },
+                {
+                    "key": "field_contact_form_recipient",
+                    "label": "Recipient Email",
+                    "name": "recipient_email",
+                    "type": "email",
+                    "instructions": "Form submissions go here. VD: info@bcapartners.com.vn"
+                },
+                {
+                    "key": "field_contact_form_success",
+                    "label": "Success Message",
+                    "name": "success_message",
+                    "type": "textarea",
+                    "rows": 2,
+                    "instructions": "VD: Thank you — your message has been sent."
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-template\/template-contact.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

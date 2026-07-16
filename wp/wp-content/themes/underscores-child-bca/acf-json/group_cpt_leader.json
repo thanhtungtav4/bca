@@ -1,0 +1,92 @@
+{
+  "key": "group_cpt_leader",
+  "title": "Leader",
+  "fields": [
+    {
+      "key": "field_leader_role",
+      "label": "Role",
+      "name": "role",
+      "type": "text",
+      "wrapper": {
+        "width": "50"
+      },
+      "instructions": "VD: Managing Director, Advisor — Financial Market & Strategy"
+    },
+    {
+      "key": "field_leader_credentials",
+      "label": "Credentials",
+      "name": "credentials",
+      "type": "text",
+      "wrapper": {
+        "width": "50"
+      },
+      "instructions": "VD: MBA, CFA, PhD (hiển thị dưới tên)"
+    },
+    {
+      "key": "field_leader_photo",
+      "label": "Photo",
+      "name": "photo",
+      "type": "image",
+      "return_format": "id"
+    },
+    {
+      "key": "field_leader_bio",
+      "label": "Bio",
+      "name": "bio",
+      "type": "wysiwyg",
+      "media_upload": 0
+    },
+    {
+      "key": "field_leader_order",
+      "label": "Display Order",
+      "name": "display_order",
+      "type": "number",
+      "wrapper": {
+        "width": "30"
+      },
+      "instructions": "Số nhỏ hiển thị trước."
+    },
+    {
+      "key": "field_leader_related",
+      "label": "Related leaders",
+      "name": "related_leaders",
+      "aria-label": "",
+      "type": "relationship",
+      "instructions": "Pick up to 4 leaders to show in the \"Other leaders\" section at the bottom of the single leader page.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "leader"
+      ],
+      "filters": [
+        "search"
+      ],
+      "max": 4,
+      "return_format": "id",
+      "taxonomy": [],
+      "min": 0,
+      "elements": [],
+      "bidirectional_target": []
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "leader"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true
+}

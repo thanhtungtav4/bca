@@ -1,0 +1,29 @@
+/* BCA Partners — typography tokens. One family (Inter) across the whole product.
+   Sizes transcribed from the Figma file; large display sizes carry -0.025em tracking. */
+:root{
+  --font-sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+
+  /* Weights */
+  --fw-regular:400; /* @kind font */
+  --fw-medium:500; /* @kind font */
+  --fw-semibold:600; /* @kind font */
+  --fw-bold:700; /* @kind font */
+  --fw-extrabold:800; /* @kind font */
+
+  /* Type scale — size / line-height.
+     Headings + UI = 1.2 (tight, dramatic).
+     Body copy (lead, body) = 1.5 (breathable, easy to read).
+     Small (nav, button, eyebrow) = 1.2 (compact UI). */
+  --fs-hero:59px;        --lh-hero:1.1;        /* homepage hero H1, 800 */
+  --fs-display:60px;     --lh-display:1.1;     /* page hero, 700 */
+  --fs-h1:48px;          --lh-h1:1.2;          /* section title, 700 */
+  --fs-h2:40px;          --lh-h2:1.2;          /* section title, 700 */
+  --fs-h3:30px;          --lh-h3:1.2;          /* CTA / sub-hero, 700 */
+  --fs-h4:24px;          --lh-h4:1.2;          /* card headline, 700 */
+  --fs-title:20px;       --lh-title:1.2;       /* small card headline, 500 */
+  --fs-lead:18px;        --lh-lead:1.5;        /* intro / lead paragraph */
+  --fs-body:16px;        --lh-body:1.5;        /* body + button label, 400/600 */
+  --fs-small:14px;       --lh-small:1.2;       /* nav item, footer, eyebrow */
+
+  --tracking-tight:-0.025em;  /* applied to display/section headings */
+}

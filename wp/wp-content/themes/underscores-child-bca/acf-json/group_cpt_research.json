@@ -1,0 +1,59 @@
+{
+    "key": "group_cpt_research",
+    "title": "Research",
+    "fields": [
+        {
+            "key": "field_research_eyebrow",
+            "label": "Eyebrow",
+            "name": "eyebrow",
+            "type": "text",
+            "instructions": "VD: FINTECH, MSME FINANCE, AGRICULTURE"
+        },
+        {
+            "key": "field_research_excerpt",
+            "label": "Excerpt",
+            "name": "excerpt",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "field_research_hero_image",
+            "label": "Hero Image",
+            "name": "hero_image",
+            "type": "image",
+            "return_format": "id"
+        },
+        {
+            "key": "field_research_body",
+            "label": "Body",
+            "name": "body",
+            "type": "wysiwyg",
+            "media_upload": 1
+        },
+        {
+            "key": "field_research_related",
+            "label": "Related Services",
+            "name": "related_services",
+            "type": "relationship",
+            "post_type": ["service"],
+            "filters": ["search"],
+            "max": 3,
+            "return_format": "id"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "research"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

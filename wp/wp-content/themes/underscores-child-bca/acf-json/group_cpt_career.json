@@ -1,0 +1,66 @@
+{
+    "key": "group_cpt_career",
+    "title": "Career",
+    "fields": [
+        {
+            "key": "field_career_type",
+            "label": "Employment Type",
+            "name": "type",
+            "type": "text",
+            "wrapper": { "width": "50" },
+            "instructions": "VD: Full-time, Part-time, Internship, Contract"
+        },
+        {
+            "key": "field_career_location",
+            "label": "Location",
+            "name": "location",
+            "type": "text",
+            "wrapper": { "width": "50" },
+            "instructions": "VD: District 1, HCMC"
+        },
+        {
+            "key": "field_career_short_desc",
+            "label": "Short Description",
+            "name": "short_description",
+            "type": "textarea",
+            "rows": 3,
+            "instructions": "Mô tả ngắn hiển thị trong list."
+        },
+        {
+            "key": "field_career_responsibilities",
+            "label": "Responsibilities",
+            "name": "responsibilities",
+            "type": "wysiwyg",
+            "media_upload": 0
+        },
+        {
+            "key": "field_career_requirements",
+            "label": "Requirements",
+            "name": "requirements",
+            "type": "wysiwyg",
+            "media_upload": 0
+        },
+        {
+            "key": "field_career_apply_email",
+            "label": "Apply Recipient Email",
+            "name": "apply_email",
+            "type": "email",
+            "instructions": "Để trống = dùng email mặc định ở Theme Settings."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "career"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

@@ -1,0 +1,85 @@
+{
+    "key": "group_page_privacy",
+    "title": "Privacy Page",
+    "fields": [
+        {
+            "key": "field_privacy_tab_hero",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_privacy_hero",
+            "label": "Hero Section",
+            "name": "hero_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_privacy_hero_is_show",
+                    "label": "Show section",
+                    "name": "is_show",
+                    "type": "true_false",
+                    "default_value": 1,
+                    "ui": 1
+                },
+                {
+                    "key": "field_privacy_hero_heading",
+                    "label": "Heading",
+                    "name": "heading",
+                    "type": "text",
+                    "instructions": "VD: Privacy Policy"
+                },
+                {
+                    "key": "field_privacy_hero_last_updated",
+                    "label": "Last Updated Label",
+                    "name": "last_updated",
+                    "type": "text",
+                    "wrapper": { "width": "50" }
+                }
+            ]
+        },
+        {
+            "key": "field_privacy_tab_content",
+            "label": "Content",
+            "name": "",
+            "type": "tab",
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_privacy_content",
+            "label": "Privacy Content",
+            "name": "content_settings",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_privacy_content_body",
+                    "label": "Body",
+                    "name": "body",
+                    "type": "wysiwyg",
+                    "media_upload": 0,
+                    "instructions": "Toàn bộ nội dung Privacy Policy."
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-template\/template-privacy.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

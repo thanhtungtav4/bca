@@ -1,0 +1,59 @@
+{
+  "key": "group_cpt_service",
+  "title": "Service",
+  "fields": [
+    {
+      "key": "field_service_hero_image",
+      "label": "Hero Image",
+      "name": "hero_image",
+      "type": "image",
+      "return_format": "id"
+    },
+    {
+      "key": "field_service_items",
+      "label": "Capability Items",
+      "name": "items",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Add Item",
+      "sub_fields": [
+        {
+          "key": "field_service_items_label",
+          "label": "Item",
+          "name": "label",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "key": "field_service_related",
+      "label": "Related services",
+      "name": "related_projects",
+      "type": "relationship",
+      "post_type": [
+        "service"
+      ],
+      "filters": [
+        "search"
+      ],
+      "max": 3,
+      "return_format": "id",
+      "instructions": "Pick up to 3 related services to show on the single service page."
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "service"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true
+}

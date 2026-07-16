@@ -1,0 +1,92 @@
+{
+  "key": "group_cpt_project",
+  "title": "Project",
+  "fields": [
+    {
+      "key": "field_project_eyebrow",
+      "label": "Eyebrow",
+      "name": "eyebrow",
+      "type": "text",
+      "instructions": "VD: FINTECH PROJECTS, MARKET ENTRY, CORPORATE RESTRUCTURING"
+    },
+    {
+      "key": "field_project_client",
+      "label": "Client",
+      "name": "client",
+      "type": "text",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_project_hero_image",
+      "label": "Hero Image",
+      "name": "hero_image",
+      "type": "image",
+      "return_format": "id"
+    },
+    {
+      "key": "field_project_challenge",
+      "label": "Challenge",
+      "name": "challenge",
+      "type": "textarea",
+      "rows": 4
+    },
+    {
+      "key": "field_project_approach",
+      "label": "Approach",
+      "name": "approach",
+      "type": "textarea",
+      "rows": 4
+    },
+    {
+      "key": "field_project_outcome",
+      "label": "Outcome",
+      "name": "outcome",
+      "type": "textarea",
+      "rows": 4
+    },
+    {
+      "key": "field_project_related_research",
+      "label": "Related research",
+      "name": "related_research",
+      "aria-label": "",
+      "type": "relationship",
+      "instructions": "Pick up to 3 research articles to show in the \"Related research\" section at the bottom of the single project page.",
+      "required": false,
+      "conditional_logic": false,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "post_type": [
+        "research"
+      ],
+      "filters": [
+        "search"
+      ],
+      "max": 3,
+      "return_format": "id",
+      "taxonomy": [],
+      "min": 0,
+      "elements": [],
+      "bidirectional_target": []
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "project"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true
+}

@@ -1,0 +1,275 @@
+{
+  "key": "group_theme_settings",
+  "title": "Theme Settings",
+  "fields": [
+    {
+      "key": "field_ts_tab_general",
+      "label": "General",
+      "name": "",
+      "type": "tab",
+      "placement": "left",
+      "endpoint": 0
+    },
+    {
+      "key": "field_ts_general_section",
+      "label": "General Section",
+      "name": "general_section",
+      "type": "group",
+      "instructions": "Liên hệ toàn site. Logo/Tên/Slogan/Favicon dùng WP core: Settings → General (tên, slogan) và Customizer → Site Identity (logo, favicon).",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_ts_general_logo_white",
+          "label": "Logo (White)",
+          "name": "logo_white",
+          "type": "image",
+          "return_format": "id",
+          "instructions": "Logo trắng dùng trên nền tối (footer, hero overlay). Logo chính = Customizer → Site Identity."
+        },
+        {
+          "key": "field_ts_general_hotline",
+          "label": "Hotline",
+          "name": "hotline",
+          "type": "text",
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_ts_general_email",
+          "label": "Email",
+          "name": "email",
+          "type": "email",
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_ts_general_address",
+          "label": "Address",
+          "name": "address",
+          "type": "textarea",
+          "rows": 3
+        },
+        {
+          "key": "field_ts_general_copyright",
+          "label": "Copyright",
+          "name": "copyright",
+          "type": "text",
+          "wrapper": {
+            "width": "50"
+          }
+        }
+      ]
+    },
+    {
+      "key": "field_ts_tab_header",
+      "label": "Header",
+      "name": "",
+      "type": "tab",
+      "placement": "left",
+      "endpoint": 0
+    },
+    {
+      "key": "field_ts_header_section",
+      "label": "Header Section",
+      "name": "header_section",
+      "type": "group",
+      "instructions": "Cấu hình phần header — CTA button (vd 'Contact us').",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_ts_header_cta",
+          "label": "CTA (Link)",
+          "name": "cta",
+          "aria-label": "",
+          "type": "link",
+          "instructions": "",
+          "required": false,
+          "conditional_logic": false,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array"
+        }
+      ]
+    },
+    {
+      "key": "field_ts_tab_footer",
+      "label": "Footer",
+      "name": "",
+      "type": "tab",
+      "placement": "left",
+      "endpoint": 0
+    },
+    {
+      "key": "field_ts_footer_section",
+      "label": "Footer Section",
+      "name": "footer_section",
+      "type": "group",
+      "instructions": "Cấu hình footer — mô tả, navigation menu, thông tin liên hệ.",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_ts_footer_description",
+          "label": "Footer Description",
+          "name": "description",
+          "type": "textarea",
+          "rows": 3
+        },
+        {
+          "key": "field_ts_footer_office_label",
+          "label": "Office Label",
+          "name": "office_label",
+          "type": "text",
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_ts_footer_office_address",
+          "label": "Office Address",
+          "name": "office_address",
+          "type": "textarea",
+          "rows": 3,
+          "wrapper": {
+            "width": "50"
+          }
+        }
+      ]
+    },
+    {
+      "key": "field_ts_forms_tab",
+      "label": "Forms (CF7)",
+      "name": "",
+      "type": "tab",
+      "placement": "left",
+      "endpoint": 0
+    },
+    {
+      "key": "field_ts_cf7_shortcodes",
+      "label": "Contact Form 7 Shortcodes",
+      "name": "cf7_shortcodes",
+      "type": "group",
+      "instructions": "Shortcode Contact Form 7 cho Contact page và Career Apply. Để trống = dùng form mặc định id 84/85.",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_ts_cf7_contact",
+          "label": "Contact Form Shortcode",
+          "name": "contact",
+          "type": "text",
+          "instructions": "VD: [contact-form-7 id=\"84\" title=\"Contact\"]. Để trống = dùng form mặc định."
+        },
+        {
+          "key": "field_ts_cf7_career",
+          "label": "Career Apply Shortcode",
+          "name": "career",
+          "type": "text",
+          "instructions": "VD: [contact-form-7 id=\"85\" title=\"Career Apply\"]. Để trống = dùng form mặc định."
+        }
+      ]
+    },
+    {
+      "key": "field_ts_tab_social",
+      "label": "Social",
+      "name": "",
+      "type": "tab",
+      "placement": "left",
+      "endpoint": 0
+    },
+    {
+      "key": "field_ts_social_links",
+      "label": "Social Links",
+      "name": "social_links",
+      "type": "repeater",
+      "instructions": "Link mạng xã hội — render trong Footer (round chip).",
+      "layout": "table",
+      "button_label": "Add Social",
+      "sub_fields": [
+        {
+          "key": "field_ts_social_platform",
+          "label": "Platform",
+          "name": "platform",
+          "type": "text",
+          "instructions": "VD: linkedin, facebook, instagram, youtube, zalo"
+        },
+        {
+          "key": "field_ts_social_url",
+          "label": "URL",
+          "name": "url",
+          "type": "link",
+          "return_format": "array"
+        }
+      ]
+    },
+    {
+      "key": "field_ts_tab_scripts",
+      "label": "Scripts / Tracking",
+      "name": "",
+      "type": "tab",
+      "placement": "left",
+      "endpoint": 0
+    },
+    {
+      "key": "field_ts_scripts_section",
+      "label": "Scripts Section",
+      "name": "scripts_section",
+      "type": "group",
+      "instructions": "Mã tracking và script chèn vào head/body.",
+      "layout": "block",
+      "sub_fields": [
+        {
+          "key": "field_ts_scripts_ga_id",
+          "label": "Google Analytics ID",
+          "name": "ga_id",
+          "type": "text",
+          "wrapper": {
+            "width": "50"
+          },
+          "instructions": "VD: G-XXXXXXXXXX"
+        },
+        {
+          "key": "field_ts_scripts_fb_pixel",
+          "label": "Facebook Pixel ID",
+          "name": "fb_pixel",
+          "type": "text",
+          "wrapper": {
+            "width": "50"
+          }
+        },
+        {
+          "key": "field_ts_scripts_header",
+          "label": "Header Scripts",
+          "name": "header_scripts",
+          "type": "textarea",
+          "instructions": "Chèn vào trước </head>."
+        },
+        {
+          "key": "field_ts_scripts_footer",
+          "label": "Footer Scripts",
+          "name": "footer_scripts",
+          "type": "textarea",
+          "instructions": "Chèn vào trước </body>."
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "theme-setting"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "acf_after_title",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true
+}
