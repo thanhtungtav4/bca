@@ -53,16 +53,25 @@ add_filter('wp_resource_hints', 'bca_remove_google_fonts_preconnect', 10, 2);
 if (!function_exists('bca_enqueue_design_system_assets')) {
     function bca_enqueue_design_system_assets(): void
     {
-        // Tokens (single-file per group: colors, typography, spacing, effects, icons, fonts).
-        $tokens = [
-            'colors',
-            'typography',
-            'spacing',
-            'effects',
-            'icons',
-            'fonts',
-        ];
+        // Single bundled CSS file (tokens + base + site + sections + pages).
+        // Source files in assets/css/ stay readable for editing; the bundle
+        // is rebuilt by bin/build-css.sh. Cuts ~11 HTTP requests to 1 and
+        // shaves FCP by 200-300ms. We always enqueue this single file.
+        $bundle = BCA_CHILD_THEME_PATH . '/assets/dist/bca.bundle.css';
+        if (file_exists($bundle)) {
+            wp_enqueue_style(
+                'bca',
+                BCA_CHILD_THEME_URI . '/assets/dist/bca.bundle.css',
+                [],
+                (string) filemtime($bundle)
+            );
+            return;
+        }
 
+        // Fallback for first install (bundle hasn't been built yet) — enqueue
+        // source files individually. Run ./bin/build-css.sh to generate the
+        // bundle and drop back to the fast path above.
+        $tokens = ['colors', 'typography', 'spacing', 'effects', 'icons', 'fonts'];
         foreach ($tokens as $token) {
             $path = BCA_CHILD_THEME_PATH . "/assets/css/tokens/{$token}.css";
             if (file_exists($path)) {
@@ -74,50 +83,11 @@ if (!function_exists('bca_enqueue_design_system_assets')) {
                 );
             }
         }
-
-        // Main stylesheet (design-system entry point).
-        $main_css = BCA_CHILD_THEME_PATH . '/assets/css/main.css';
-        if (file_exists($main_css)) {
-            wp_enqueue_style(
-                'bca-main',
-                BCA_CHILD_THEME_URI . '/assets/css/main.css',
-                ['bca-tokens-colors', 'bca-tokens-typography'],
-                filemtime($main_css)
-            );
-        }
-
-        // Base layer — applies Inter font + design-system colors to body.
-        // MUST load before site.css / sections.css.
-        $base_css = BCA_CHILD_THEME_PATH . '/assets/css/base.css';
-        if (file_exists($base_css)) {
-            wp_enqueue_style(
-                'bca-base',
-                BCA_CHILD_THEME_URI . '/assets/css/base.css',
-                ['bca-main'],
-                filemtime($base_css)
-            );
-        }
-
-        // Site layout (header, footer, common).
-        $site_css = BCA_CHILD_THEME_PATH . '/assets/css/site.css';
-        if (file_exists($site_css)) {
-            wp_enqueue_style(
-                'bca-site',
-                BCA_CHILD_THEME_URI . '/assets/css/site.css',
-                ['bca-base'],
-                filemtime($site_css)
-            );
-        }
-
-        // Section + component layouts.
-        $sections_css = BCA_CHILD_THEME_PATH . '/assets/css/sections.css';
-        if (file_exists($sections_css)) {
-            wp_enqueue_style(
-                'bca-sections',
-                BCA_CHILD_THEME_URI . '/assets/css/sections.css',
-                ['bca-site'],
-                filemtime($sections_css)
-            );
+        foreach (['main.css' => 'bca-main', 'base.css' => 'bca-base', 'site.css' => 'bca-site', 'sections.css' => 'bca-sections'] as $file => $handle) {
+            $path = BCA_CHILD_THEME_PATH . "/assets/css/{$file}";
+            if (file_exists($path)) {
+                wp_enqueue_style($handle, BCA_CHILD_THEME_URI . "/assets/css/{$file}", [], filemtime($path));
+            }
         }
 
         // Site interaction JS (mobile menu toggle). Loaded in footer for speed.
