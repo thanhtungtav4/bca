@@ -111,6 +111,7 @@
 .bca-belief-heading { margin: 0 0 16px; font-size: 40px; line-height: 1.2; font-weight: var(--fw-bold, 700); letter-spacing: -0.025em; }
 .bca-belief-quote { margin: 0; padding: 0; position: relative; }
 .bca-belief-quote p { margin: 0; font-size: 18px; line-height: 1.2 }
+@media (max-width: 900px) {
   .bca-belief-content { padding: 32px; }
   .bca-belief-heading { font-size: 28px; }
 }
@@ -123,6 +124,7 @@
 .bca-vmcv-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .bca-vmcv-title { margin: 0; font-size: 24px; font-weight: var(--fw-bold, 700); color: var(--bca-navy); }
 .bca-vmcv-body { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+@media (max-width: 900px) {
   .bca-vmcv-grid { grid-template-columns: 1fr; }
 }
 
@@ -154,6 +156,7 @@
 .bca-project-card-title a:hover { color: var(--bca-navy); }
 .bca-project-card-client { font-size: 16px; font-weight: var(--fw-semibold, 600); color: var(--bca-black); }
 .bca-project-card-body { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+@media (max-width: 900px) {
   .bca-project-card, .bca-project-card--flip { flex-direction: column; }
   .bca-project-card-media { flex: 1 1 auto; max-width: 100%; }
   .bca-projects-list { gap: 40px; }
@@ -173,6 +176,7 @@
 .bca-leader-card:hover .bca-leader-card-img img { transform: scale(1.03); }
 .bca-leader-card-name { margin: 0; font-size: 24px; line-height: 1.2; font-weight: var(--fw-bold, 700); color: var(--bca-ink); }
 .bca-leader-card-role { margin: 0; font-size: 16px; line-height: 1.5; font-weight: var(--fw-bold, 700); color: var(--bca-ink-2, #374151); }
+@media (max-width: 900px) {
   .bca-leaders-grid { grid-template-columns: 1fr; }
 }
 
@@ -187,6 +191,7 @@
 .bca-news-card-date { font-size: 12.992px; color: var(--bca-muted); }
 .bca-news-card-title { margin: 0; font-size: 20px; line-height: 1.2; font-weight: var(--fw-bold, 700); color: var(--bca-ink); }
 .bca-news-card-excerpt { margin: 0; font-size: 15.008px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+@media (max-width: 900px) {
   .bca-news-grid { grid-template-columns: 1fr; }
 }
 
@@ -200,6 +205,7 @@
 .bca-research-card-title { margin: 0; font-size: 32px; line-height: 1.2; font-weight: var(--fw-bold, 700); color: var(--bca-ink); }
 .bca-research-card-title a { color: inherit; text-decoration: none; }
 .bca-research-card-excerpt { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+@media (max-width: 900px) {
   .bca-research-card, .bca-research-card--flip { flex-direction: column; }
   .bca-research-card-media { flex: 1 1 auto; max-width: 100%; }
 }
