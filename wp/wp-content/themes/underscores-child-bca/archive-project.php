@@ -18,7 +18,8 @@ get_header();
 <main id="main" <?php bca_main_class(); ?>>
     <section class="bca-section bca-archive-header">
         <div class="bca-section-inner">
-            <h1 class="bca-section-heading bca-section-heading--center"><?php post_type_archive_title(); ?></h1>
+            <h1 class="bca-section-heading bca-section-heading--center"><?php esc_html_e('Highlighted Projects', 'bca'); ?></h1>
+            <p class="bca-section-sub bca-section-sub--center"><?php esc_html_e('A selection of engagements where BCA Partners turned complex business challenges into practical, measurable outcomes.', 'bca'); ?></p>
         </div>
     </section>
 

@@ -22,14 +22,24 @@ $groups = get_terms([
     'orderby'    => 'term_order',
     'order'      => 'ASC',
 ]);
+
+// Hero data — hardcoded (no ACF for archives). Matches design.
+$hero_settings = [
+    'is_show'    => 1,
+    'heading'    => 'Our Leadership',
+    'subheading' => "People are our most valuable asset. We recruit and develop our team from different backgrounds and experiences so that we can deliver the right team, with the right experience and expertise, to our client.",
+    'image'      => 0,
+];
 ?>
 
 <main id="main" <?php bca_main_class(); ?>>
-    <section class="bca-section bca-archive-header">
-        <div class="bca-section-inner">
-            <h1 class="bca-section-heading bca-section-heading--center"><?php post_type_archive_title(); ?></h1>
-        </div>
-    </section>
+
+    <?php
+    bca_render_section($hero_settings, 'partials/sections/hero', [
+        'section_id' => 'leadership-hero',
+        'variant'    => 'page',
+    ]);
+    ?>
 
     <section class="bca-section">
         <div class="bca-section-inner">

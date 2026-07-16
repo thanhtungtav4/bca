@@ -19,6 +19,7 @@ get_header();
     <section class="bca-section bca-archive-header">
         <div class="bca-section-inner">
             <h1 class="bca-section-heading bca-section-heading--center"><?php post_type_archive_title(); ?></h1>
+            <p class="bca-section-sub bca-section-sub--center"><?php esc_html_e('Explore up-to-date content on the trending topics, industry data, and concepts that are shaping business and society today.', 'bca'); ?></p>
         </div>
     </section>
 

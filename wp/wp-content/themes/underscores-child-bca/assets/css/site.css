@@ -19,7 +19,11 @@
 
 /* Footer */
 .bca-site-footer { background: var(--bca-black); color: var(--bca-white); padding: 64px var(--gutter) 24px; }
-.bca-footer-inner { max-width: var(--content-max); margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; }
+.bca-footer-inner { max-width: var(--content-max); margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 48px; }
+.bca-footer-links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.bca-footer-links li + li { margin-top: 0; }
+.bca-footer-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; line-height: 1.5; }
+.bca-footer-links a:hover { color: var(--bca-white); text-decoration: underline; }
 .bca-footer-col h4.bca-footer-heading { font-size: 14px; font-weight: var(--fw-semibold, 600); color: var(--bca-white); margin: 0 0 16px; letter-spacing: 0.05em; text-transform: uppercase; }
 .bca-footer-logo { min-height: 44px; display: inline-flex; align-items: center; }
 .bca-footer-logo .bca-logo-img { max-height: 38px; width: auto; }
@@ -38,8 +42,11 @@
 
 @media (max-width: 900px) {
   .bca-site-footer { padding: 40px var(--gutter-mobile) 20px; }
-  .bca-footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .bca-footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
   .bca-footer-bottom { margin-top: 24px; padding-top: 16px; }
+}
+@media (max-width: 560px) {
+  .bca-footer-inner { grid-template-columns: 1fr; }
 }
 
 /* Common page container */

@@ -5,6 +5,9 @@ declare(strict_types=1);
 /**
  * Archive: Service — list of all services.
  *
+ * Pulls hero from page id 53 (Services overview page) since the CPT
+ * archive URL shadows the page at /services/.
+ *
  * @package BCA_Child
  */
 
@@ -13,16 +16,23 @@ defined('ABSPATH') || exit;
 bca_set_main_class('archive-service');
 
 get_header();
+
+// Pull hero data from the Services overview page (id 53) so the same
+// content the user authored appears here too.
+$hero_settings         = function_exists('get_field') ? (get_field('hero_settings', 53) ?: []) : [];
+$contact_band_settings = function_exists('get_field') ? (get_field('contact_band_settings', 53) ?: []) : [];
 ?>
 
 <main id="main" <?php bca_main_class(); ?>>
-    <section class="bca-section bca-archive-header">
-        <div class="bca-section-inner">
-            <h1 class="bca-section-heading bca-section-heading--center"><?php post_type_archive_title(); ?></h1>
-        </div>
-    </section>
 
-    <section class="bca-section">
+    <?php
+    bca_render_section($hero_settings, 'partials/sections/hero', [
+        'section_id' => 'services-hero',
+        'variant'    => 'page',
+    ]);
+    ?>
+
+    <section class="bca-section" id="services-list">
         <div class="bca-section-inner">
             <?php if (have_posts()): ?>
             <div class="bca-services-grid">
@@ -48,6 +58,13 @@ get_header();
             <?php endif; ?>
         </div>
     </section>
+
+    <?php
+    bca_render_section($contact_band_settings, 'partials/sections/contact-band', [
+        'section_id' => 'services-contact',
+    ]);
+    ?>
+
 </main>
 
 <?php get_footer(); ?>

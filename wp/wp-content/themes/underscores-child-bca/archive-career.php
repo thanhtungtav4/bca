@@ -13,14 +13,24 @@ defined('ABSPATH') || exit;
 bca_set_main_class('archive-career');
 
 get_header();
+
+// Hero data — kept here (not ACF) since the design copy rarely changes.
+$hero_settings = [
+    'is_show'    => 1,
+    'heading'    => 'Career',
+    'subheading' => 'Join a team that turns complex business challenges into practical solutions. We recruit talent from diverse backgrounds and invest in their growth.',
+    'image'      => 0,
+];
 ?>
 
 <main id="main" <?php bca_main_class(); ?>>
-    <section class="bca-section bca-archive-header">
-        <div class="bca-section-inner">
-            <h1 class="bca-section-heading bca-section-heading--center"><?php post_type_archive_title(); ?></h1>
-        </div>
-    </section>
+
+    <?php
+    bca_render_section($hero_settings, 'partials/sections/hero', [
+        'section_id' => 'career-hero',
+        'variant'    => 'page',
+    ]);
+    ?>
 
     <section class="bca-section">
         <div class="bca-section-inner">

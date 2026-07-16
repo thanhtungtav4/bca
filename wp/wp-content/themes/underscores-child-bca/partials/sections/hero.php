@@ -35,6 +35,12 @@ $cta_label  = is_array($cta) ? ($cta['title'] ?? '') : '';
 $cta_target = is_array($cta) && !empty($cta['target']) ? $cta['target'] : '';
 $has_cta  = $cta_url !== '' && $cta_label !== '';
 $has_img  = $image_id > 0;
+// If a page hero is requested with 'image' tone but no image was supplied,
+// fall back to 'gradient' so we get a dark gradient background instead of an
+// invisible white-on-white section.
+if ($variant === 'page' && $tone === 'image' && !$has_img) {
+    $tone = 'gradient';
+}
 $section_class = 'bca-hero bca-hero--' . sanitize_html_class($variant) . ' bca-hero--' . sanitize_html_class($tone);
 ?>
 <section class="<?php echo esc_attr($section_class); ?>" <?php echo $has_img ? 'data-has-image="true"' : ''; ?>>
@@ -43,6 +49,8 @@ $section_class = 'bca-hero bca-hero--' . sanitize_html_class($variant) . ' bca-h
             <?php echo wp_get_attachment_image($image_id, 'full', false, ['class' => 'bca-hero-bg-img', 'loading' => 'eager', 'fetchpriority' => 'high']); ?>
             <div class="bca-hero-scrim"></div>
         </div>
+    <?php else: ?>
+        <div class="bca-hero-bg bca-hero-bg--gradient" aria-hidden="true"></div>
     <?php endif; ?>
 
     <div class="bca-hero-inner">

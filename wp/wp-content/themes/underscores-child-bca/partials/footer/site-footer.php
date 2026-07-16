@@ -5,17 +5,17 @@ declare(strict_types=1);
 defined('ABSPATH') || exit;
 
 /**
- * Site Footer — BCA Partners.
+ * Site Footer — BCA Partners (4-col layout matching ui_kits design).
  *
- * Data:
- *   - Logo (white): Theme Settings > general_section.logo_white
- *   - Description: Theme Settings > footer_section.description
- *   - Office label + address: Theme Settings > footer_section
- *   - Hotline / Email: Theme Settings > general_section
- *   - Social: Theme Settings > social_links (repeater)
- *   - Copyright: Theme Settings > general_section.copyright
+ * Columns:
+ *   1. BCA brand   → logo (white) + description + LinkedIn social chip
+ *   2. COMPANY     → About us / Our team / Projects / Career
+ *   3. SERVICES    → auto from CPT 'service' (Mergers & Acquisitions, Strategy, …)
+ *   4. GET IN TOUCH → address + tel + email
  *
- * No hardcoded text — everything from Theme Settings.
+ * All data from Theme Settings + CPT 'service'. No hardcoded labels/URLs.
+ *
+ * @package BCA_Child
  */
 
 $general = function_exists('underscores_get_option') ? underscores_get_option('general_section') : [];
@@ -31,11 +31,37 @@ $email        = is_array($general) ? ($general['email'] ?? '') : '';
 $copyright    = is_array($general) ? ($general['copyright'] ?? '') : '';
 $social       = is_array($social) ? $social : [];
 
-$has_any_footer_data = $logo_id || $description || $office_addr || $hotline || $email || $copyright || !empty($social);
+/* COMPANY links: hardcoded page IDs (About=52, Leadership archive, Projects archive, Career archive). */
+$company_pages = [
+    ['label' => __('About us', 'bca'),      'url' => get_permalink(52)],
+    ['label' => __('Our team', 'bca'),      'url' => get_post_type_archive_link('leader') ?: home_url('/leadership/')],
+    ['label' => __('Projects', 'bca'),      'url' => get_post_type_archive_link('project') ?: home_url('/projects/')],
+    ['label' => __('Career', 'bca'),        'url' => get_post_type_archive_link('career') ?: home_url('/career/')],
+];
+
+/* SERVICES: auto-pull from CPT 'service' (admin can change order via menu_order). */
+$service_links = [];
+$service_q = new WP_Query([
+    'post_type'      => 'service',
+    'posts_per_page' => -1,
+    'orderby'        => 'menu_order title',
+    'order'          => 'ASC',
+    'no_found_rows'  => true,
+]);
+if ($service_q->have_posts()) {
+    while ($service_q->have_posts()) {
+        $service_q->the_post();
+        $service_links[] = ['label' => get_the_title(), 'url' => get_permalink()];
+    }
+    wp_reset_postdata();
+}
+
+$has_any_footer_data = $logo_id || $description || $office_addr || $hotline || $email || $copyright || !empty($social) || !empty($service_links);
 ?>
 <footer class="bca-site-footer" role="contentinfo">
     <?php if ($has_any_footer_data): ?>
     <div class="bca-footer-inner">
+
         <div class="bca-footer-col bca-footer-brand">
             <?php if ($logo_id): ?>
                 <a class="bca-footer-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>">
@@ -48,13 +74,48 @@ $has_any_footer_data = $logo_id || $description || $office_addr || $hotline || $
             <?php if ($description): ?>
                 <p class="bca-footer-desc"><?php echo esc_html($description); ?></p>
             <?php endif; ?>
+
+            <?php if (!empty($social)): ?>
+            <ul class="bca-footer-social-list">
+                <?php foreach ($social as $item):
+                    $link = is_array($item) ? ($item['url'] ?? []) : [];
+                    $url = is_array($link) ? ($link['url'] ?? '') : (string) $link;
+                    $target = is_array($link) && !empty($link['target']) ? $link['target'] : '_blank';
+                    $platform = is_array($item) ? ($item['platform'] ?? '') : '';
+                    if ($url === '') {
+                        continue;
+                    }
+                ?>
+                    <li>
+                        <a class="bca-social-chip" href="<?php echo esc_url($url); ?>" target="<?php echo esc_attr($target); ?>" rel="noopener" aria-label="<?php echo esc_attr($platform ?: get_bloginfo('name')); ?>">
+                            <?php echo esc_html(strtoupper(substr($platform ?: '', 0, 2))); ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
         </div>
 
-        <div class="bca-footer-col bca-footer-contact">
-            <?php if ($office_label): ?>
-                <h4 class="bca-footer-heading"><?php echo esc_html($office_label); ?></h4>
-            <?php endif; ?>
+        <div class="bca-footer-col bca-footer-company">
+            <h4 class="bca-footer-heading"><?php esc_html_e('Company', 'bca'); ?></h4>
+            <ul class="bca-footer-links">
+                <?php foreach ($company_pages as $link): ?>
+                    <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['label']); ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
 
+        <div class="bca-footer-col bca-footer-services">
+            <h4 class="bca-footer-heading"><?php esc_html_e('Services', 'bca'); ?></h4>
+            <ul class="bca-footer-links">
+                <?php foreach ($service_links as $link): ?>
+                    <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['label']); ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+        <div class="bca-footer-col bca-footer-touch">
+            <h4 class="bca-footer-heading"><?php esc_html_e('Get in touch', 'bca'); ?></h4>
             <?php if ($office_addr): ?>
                 <p class="bca-footer-address"><?php echo nl2br(esc_html($office_addr)); ?></p>
             <?php endif; ?>
@@ -73,29 +134,6 @@ $has_any_footer_data = $logo_id || $description || $office_addr || $hotline || $
                 </p>
             <?php endif; ?>
         </div>
-
-        <?php if (!empty($social)): ?>
-        <div class="bca-footer-col bca-footer-social">
-            <h4 class="bca-footer-heading"><?php esc_html_e('Connect', 'bca'); ?></h4>
-            <ul class="bca-footer-social-list">
-                <?php foreach ($social as $item):
-                    $link = is_array($item) ? ($item['url'] ?? []) : [];
-                    $url = is_array($link) ? ($link['url'] ?? '') : (string) $link;
-                    $target = is_array($link) && !empty($link['target']) ? $link['target'] : '_blank';
-                    $platform = is_array($item) ? ($item['platform'] ?? '') : '';
-                    if ($url === '') {
-                        continue;
-                    }
-                ?>
-                    <li>
-                        <a class="bca-social-chip" href="<?php echo esc_url($url); ?>" target="<?php echo esc_attr($target); ?>" rel="noopener" aria-label="<?php echo esc_attr($platform ?: get_bloginfo('name')); ?>">
-                            <?php echo esc_html(strtoupper(substr($platform, 0, 2))); ?>
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-        <?php endif; ?>
     </div>
 
     <div class="bca-footer-bottom">

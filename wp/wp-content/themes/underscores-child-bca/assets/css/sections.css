@@ -4,6 +4,7 @@
 /* ===== Hero ===== */
 .bca-hero { position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center; color: var(--bca-white, #ffffff); }
 .bca-hero-bg { position: absolute; inset: 0; }
+.bca-hero-bg--gradient { background: linear-gradient(135deg, #001a2e 0%, #003f6f 50%, #001a2e 100%); }
 .bca-hero-bg-img { width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
 .bca-hero-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,26,46,0.85) 0%, rgba(0,26,46,0.5) 55%, rgba(0,26,46,0.1) 100%); }
 .bca-hero--home .bca-hero-inner { padding: 80px var(--gutter); }
@@ -16,6 +17,9 @@
 .bca-hero--page .bca-hero-heading { font-size: 44px; line-height: 1.2; font-weight: var(--fw-bold, 700); }
 .bca-hero--navy .bca-hero-bg { display: none; }
 .bca-hero--navy { background: var(--bca-navy); color: var(--bca-white); }
+/* gradient tone: dark gradient bg + white text (fallback when no image) */
+.bca-hero--gradient { background: var(--bca-navy); color: var(--bca-white); }
+.bca-hero--gradient .bca-hero-bg--gradient { display: block; }
 .bca-hero--blue { background: var(--bca-blue); color: var(--bca-white); }
 .bca-hero--blue .bca-hero-bg { display: none; }
 /* contact hero heading larger (prototype 48/56) */
@@ -108,9 +112,9 @@
 .bca-belief-img { width: 100%; height: 100%; object-fit: cover; }
 .bca-belief-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,63,111,0.9) 0%, rgba(0,63,111,0.6) 55%, rgba(0,63,111,0.15) 100%); }
 .bca-belief-content { position: relative; z-index: 1; padding: 64px; color: var(--bca-white); max-width: 720px; }
-.bca-belief-heading { margin: 0 0 16px; font-size: 40px; line-height: 1.2; font-weight: var(--fw-bold, 700); letter-spacing: -0.025em; }
+.bca-belief-heading { margin: 0 0 16px; font-size: 40px; line-height: 1.2; font-weight: var(--fw-bold, 700); letter-spacing: -0.025em; color: var(--bca-white); }
 .bca-belief-quote { margin: 0; padding: 0; position: relative; }
-.bca-belief-quote p { margin: 0; font-size: 18px; line-height: 1.2 }
+.bca-belief-quote p { margin: 0; font-size: 18px; line-height: 1.2; color: var(--bca-white); }
 @media (max-width: 900px) {
   .bca-belief-content { padding: 32px; }
   .bca-belief-heading { font-size: 28px; }
@@ -264,6 +268,7 @@ a.bca-contact-line-value:hover { text-decoration: underline; }
 
 /* ===== Archive header ===== */
 .bca-archive-header { padding: 56px var(--gutter); background: var(--bca-white); border-bottom: 1px solid var(--bca-border); }
+.bca-archive-header .bca-section-heading { color: var(--bca-ink); }
 @media (max-width: 900px) { .bca-archive-header { padding: 32px var(--gutter-mobile); } }
 
 /* ===== Pagination ===== */
