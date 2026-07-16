@@ -1,7 +1,8 @@
 # BCA Partners — HTML → WordPress Conversion Plan
 
 > Plan sinh bởi AI agent theo skill `convert-html-to-wp` (parent theme `.ai/skills/convert-html-to-wp/`).
-> Phase 1 = read-only plan. Phase 2 = build (chỉ chạy sau khi user duyệt).
+> **Phase 1 (plan) ✅ done** — 2026-07-15.
+> **Phase 2 (build) ✅ done** — 2026-07-16.
 > Nguồn HTML: `ui_kits/website/*.html` (18 files, bỏ `mobile.html`).
 > Mục tiêu: child theme `underscores-child-bca` tại `wp/wp-content/themes/underscores-child-bca/`.
 
@@ -36,8 +37,8 @@ projects.html          ─►  CPT 'project' archive-project.php
 project-detail.html    ─►  CPT 'project' single-project.php
 research.html          ─►  CPT 'research' archive-research.php
 research-detail.html   ─►  CPT 'research' single-research.php
-news.html              ─►  CPT 'news' (core 'post') archive-news.php
-news-detail.html       ─►  CPT 'news' single-news.php
+news.html              ─►  CPT 'news' (core 'post') home.php
+news-detail.html       ─►  CPT 'news' (core 'post') single.php
 career.html            ─►  CPT 'career' archive-career.php
 career-detail.html     ─►  CPT 'career' single-career.php
 leadership.html        ─►  CPT 'leader' archive-leader.php
@@ -64,10 +65,10 @@ Navbar (8 link)        ─►  wp_nav_menu('primary'), admin Appearance → Menu
 | Social icons | ACF Options (`social_section`) | toàn site | `repeater` platform/url | LinkedIn URL |
 | Footer © | ACF Options | toàn site | `text` | "© 2024 BCA Partners" |
 | **Home (index.html)** Hero | ACF page (`hero_settings`) | tĩnh 1 lần | heading, subheading, image, cta | "Fostering Business Evolution" / "Trusted partner..." |
-| Home services teaser | ACF page (`services_teaser`) + CPT 'service' | list + single | heading, list service IDs (relationship) | "Our Services" / Strategy, M&A... |
-| Home projects teaser | ACF page (`projects_teaser`) + CPT 'project' | tương tự | heading, list project IDs | — |
-| Home leadership teaser | ACF page (`leadership_teaser`) + CPT 'leader' | tương tự | — | — |
-| Home contact band | ACF page (`contact_band`) | tĩnh 1 lần | heading, image | "How can we help you succeed?" |
+| Home services teaser | ACF page (`services_settings`) + CPT 'service' | list + single | heading, list service IDs (relationship) | "Our Services" / Strategy, M&A... |
+| Home projects teaser | ACF page (`projects_settings`) + CPT 'project' | tương tự | heading, list project IDs | — |
+| Home leadership teaser | ACF page (`leadership_settings`) + CPT 'leader' | tương tự | — | — |
+| Home contact band | ACF page (`contact_band_settings`) | tĩnh 1 lần | heading, subheading, image, cta | "How can we help you succeed?" |
 | **About** Hero | ACF page (`hero_settings`) | tĩnh | heading, subheading, image | "Company Overview" |
 | About strengths (3 item) | ACF page (`strengths_settings`) — Group | 3 item cố định | `repeater` icon/title/body (max 3) | "Local market insights", "Strong expertise...", "Extensive relationships" |
 | About vision/mission/values (6) | ACF page (`vmcv_settings`) | list lặp | `repeater` image/title/body | "Vision", "Mission", "Integrity", "Social Responsibility"... |
@@ -102,13 +103,13 @@ Navbar (8 link)        ─►  wp_nav_menu('primary'), admin Appearance → Menu
 
 ### Custom Post Types (5)
 
-| CPT slug | Label | Supports | Archive | Single | Has archive |
-|---|---|---|---|---|---|
-| `service` | Services | title, editor, thumbnail, excerpt | `archive-service.php` | `single-service.php` | ✓ |
-| `project` | Projects | title, editor, thumbnail, excerpt | `archive-project.php` | `single-project.php` | ✓ |
-| `research` | Research | title, editor, thumbnail, excerpt | `archive-research.php` | `single-research.php` | ✓ |
-| `career` | Careers | title, editor, thumbnail, excerpt | `archive-career.php` | `single-career.php` | ✓ |
-| `leader` | Leadership | title, editor, thumbnail, excerpt | `archive-leader.php` | `single-leader.php` | ✓ |
+| CPT slug | Label | Supports | Archive | Single | Has archive | Rewrite |
+|---|---|---|---|---|---|---|
+| `service` | Services | title, editor, thumbnail, excerpt | `archive-service.php` | `single-service.php` | ✓ | slug `service`, archive `services` |
+| `project` | Projects | title, editor, thumbnail, excerpt | `archive-project.php` | `single-project.php` | ✓ | slug `project`, archive `projects` |
+| `research` | Research | title, editor, thumbnail, excerpt | `archive-research.php` | `single-research.php` | ✓ | slug `research`, archive `research` |
+| `career` | Careers | title, editor, thumbnail, excerpt | `archive-career.php` | `single-career.php` | ✓ | slug `career`, archive `career` |
+| `leader` | Leadership | title, editor, thumbnail, excerpt | `archive-leader.php` | `single-leader.php` | ✓ | slug `leader`, archive `leadership` |
 
 ### CPT dùng core `post` (theo `news-site.md`)
 - **News** = `post` core + `category` core + `tag` core → KHÔNG tạo CPT riêng.
@@ -156,6 +157,10 @@ partials/sections/
 ├── belief.php                  (about)
 └── vision-mission.php          (about)
 ```
+
+> **Note:** Teasers cho Services / Projects / Leadership (Home) đặt cùng cấp dưới `partials/sections/`:
+> `services-teaser.php`, `projects-teaser.php`, `leadership-teaser.php`,
+> `contact-form.php`, `privacy-content.php`.
 
 ### Partials — components (DRY)
 ```
@@ -217,70 +222,118 @@ acf-json/
 ├── group_cpt_research.json
 ├── group_cpt_career.json
 ├── group_cpt_leader.json
-└── group_theme_settings.json      (đã có — extend thêm social + footer + contact info)
+└── group_theme_settings.json      (đã có — extend thêm social + footer + contact info + Forms CF7)
 ```
 
 ---
 
-## 5. Câu hỏi mờ — cần user duyệt
+## 5. Câu hỏi mờ — đã quyết
 
-**Q1. Services: page tĩnh 6 item, hay CPT?**
-- HTML hiện có `services.html` (6) + `service-detail.html` (1 detail). Nếu CPT → admin tự thêm service mới. Nếu ACF repeater → cố định 6.
-- ✅ Recommend: **CPT** (vì đã có service-detail, có khả năng mở rộng).
-
-**Q2. Vision/Mission/Values: page riêng, hay section trong About?**
-- Có 2 file: `about.html` (section V/M/V) + `vision-mission-values.html` (full page).
-- ✅ Recommend: gộp vào About (1 page, 1 ACF group), bỏ page riêng.
-
-**Q3. Leadership taxonomy: 1 group 'leader_group' (Management vs Advisors), hay 2 group riêng, hay không taxonomy (lưu field)?**
-- HTML tách rõ 2 group. Taxonomy giúp admin tự sắp xếp + query đúng group.
-- ✅ Recommend: **taxonomy `leader_group`** với 2 terms.
-
-**Q4. News dùng `post` core, category admin tạo sao?**
-- Theo `news-site.md`: dùng `category` core. Admin tạo category trong Posts → Categories (DEAL / COMPANY / EVENT / PRESS RELEASE).
-- Eyebrow trong card = category name.
-
-**Q5. Apply form (Career modal): gửi email hay lưu DB?**
-- (a) `wp_mail()` gửi thẳng `info@bcapartners.com.vn`
-- (b) Lưu vào CPT `application` (admin xem trong wp-admin, tracking)
-- ✅ Recommend: (a) cho gọn, hoặc (b) nếu muốn tracking.
-
-**Q6. `page.php` (default page) dùng layout gì?**
-- 5 page template chuyên cho page có markup đặc biệt.
-- Page khác admin tạo → dùng `page.php` mặc định, render `the_content()`.
-- ✅ Recommend: tạo `page.php` minimal với `the_content()`.
-
-**Q7. Mobile preview (`mobile.html`) — có cần responsive riêng không?**
-- Recommend: **bỏ** `mobile.html` làm reference, để design tokens (spacing, type) responsive tự nhiên.
+| # | Câu hỏi | Quyết | Áp dụng |
+|---|---|---|---|
+| Q1 | Services: page tĩnh 6 item, hay CPT? | **CPT `service`** | ✅ Built — 6 service posts, archive + single |
+| Q2 | Vision/Mission/Values: page riêng, hay section trong About? | **Section trong About** | ✅ Built — `vision_mission` group trong `group_page_about.json` |
+| Q3 | Leadership: 1 taxonomy, 2 group riêng, hay không taxonomy? | **Taxonomy `leader_group`** | ✅ Built — terms: Management Team, Advisors |
+| Q4 | News category? | **Core `category`** | ✅ Built — 4 categories seeded: COMPANY / DEAL / EVENT / PRESS RELEASE |
+| Q5 | Apply form: email hay DB? | **CF7 → `wp_mail()`** | ✅ Built — form id 85, recipient `info@bcapartners.com.vn` |
+| Q6 | `page.php` default? | **Minimal + `the_content()`** | ✅ Built — `page.php` fallback cho page admin tạo mới |
+| Q7 | Mobile preview responsive riêng? | **Bỏ, dùng design tokens** | ✅ Built — CSS dùng design tokens, responsive tự nhiên |
 
 ---
 
-## Phase 2 — Build thứ tự (chỉ chạy sau khi user duyệt Phase 1)
+## Phase 2 — Build thứ tự (✅ done 2026-07-16)
 
-1. **CPT classes** (5) + **Taxonomy** (1) → `composer dump-autoload`
-2. **Theme Settings extend** — thêm `social_section`, `contact_section` (hotline/email/address)
-3. **ACF JSON** — 6 page groups + 5 CPT groups
-4. **Page templates** (5) + **partials** (sections, components, header, footer)
-5. **CPT archives + singles** (10 files)
-6. **Page hooks** (asset enqueue + body class)
-7. **Verify** — `php -l` mọi file PHP, ACF Sync, Settings → Permalinks flush, browser test
+1. ✅ **CPT classes** (5) + **Taxonomy** (1) → `composer dump-autoload`
+2. ✅ **Theme Settings extend** — `social_section`, `general_section`, `footer_section`, `cf7_shortcodes` (Forms CF7)
+3. ✅ **ACF JSON** — 6 page groups + 5 CPT groups + 1 theme settings
+4. ✅ **Page templates** (6: front-page + 4 page-template + page.php) + **partials** (10 sections, 7 components, 2 header/footer)
+5. ✅ **CPT archives + singles** (10 files)
+6. ✅ **Page hooks** — assets enqueue + body class
+7. ✅ **Verify** — 0 PHP warnings, all pages 200 OK, ACF JSON validates, forms render (7 wpcf7-form each)
 
 ---
 
-## Checklist Phase 1 (theo skill)
+## Phase 1 checklist
 
 - [x] Phase 1 KHÔNG tạo file code (chỉ plan)
 - [x] Đủ 5 phần (map, bảng, CPT/tax, mapping file, câu hỏi)
-- [x] Đã hỏi phần mơ hồ (7 câu hỏi)
-- [ ] **Chờ user duyệt trước Phase 2**
+- [x] Đã hỏi phần mơ hồ (7 câu hỏi) — đã quyết
+- [x] **User approved Phase 1** (Q1-Q7 default applied)
 - [x] Không tạo CPT/field cho vùng tĩnh (lazy-first)
-- [x] Markup lặp tách partial (đã liệt kê)
-- [x] Field toàn site → Theme Settings (general, footer, social)
+- [x] Markup lặp tách partial
+- [x] Field toàn site → Theme Settings (general, footer, social, forms)
+
+---
+
+## Phase 2 checklist
+
+- [x] CPT classes registered & autoloaded
+- [x] 1 taxonomy registered
+- [x] 11 ACF JSON field groups
+- [x] 6 page templates
+- [x] 10 section partials
+- [x] 7 component partials
+- [x] 10 CPT archive + single templates
+- [x] 4 News templates (post core)
+- [x] Header + Footer partials
+- [x] CSS: site.css + sections.css (using design tokens)
+- [x] Seed script `bin/seed-bca.php` (42 images + Theme Settings + 8 nav items + 5 pages + 6 services + 4 projects + 3 research + 2 careers + 5 leaders + 6 news posts)
+- [x] CF7 forms: 84=Contact, 85=Career Apply
+- [x] Permalinks: `/%postname%/`, `show_on_front=page`, `page_on_front=50`, `page_for_posts=51`
+- [x] 0 PHP warnings/deprecations on all pages (10 pages + 6 CPT singles)
+- [x] All return 200 OK
 
 ---
 
 ## Status
 
 - **Created:** 2026-07-15 (Phase 1)
-- **Status:** Awaiting user approval (Q1-Q7)
-- **Next step:** User approves → run Phase 2 build
+- **Phase 1 approved:** 2026-07-15 (Q1-Q7 default applied)
+- **Phase 2 complete:** 2026-07-16
+- **Tested:** 2026-07-16 — 0 PHP warnings, all pages 200 OK
+
+---
+
+## Known issues / next steps (sau khi go live)
+
+1. **Logo placeholder** — đang dùng `contact-form.jpg` (design system không có PNG logo). Cần upload logo thật vào Media Library, set trong Theme Settings > Header > Logo.
+2. **WP Mail SMTP** — `wp_mail()` từ CF7 chỉ gửi được khi host có sendmail. Cài plugin WP Mail SMTP + config SMTP thật (Gmail / SendGrid / Mailgun) để contact form + apply form gửi về `info@bcapartners.com.vn`.
+3. **Content review** — admin cần review text Anh/Việt trong từng page, tinh chỉnh nếu cần.
+4. **Production prep** — đổi DB credentials, set `WP_DEBUG=false`, bật SSL, cấu hình backup tự động.
+5. **ACF field key migration** — nếu thay đổi field key trong JSON sau khi đã có data, cần dùng `update_field('field_key', [...])` thay vì `update_field('field_name', ...)` để tránh orphan reference. Đã fix cho home page hero + contact_band.
+6. **No real `news.html` page** — News dùng WP blog index (`/news/` = `home.php`), không phải landing page riêng. Nếu cần landing page News riêng, tạo page mới dùng template `home.php` qua Page Attributes.
+
+---
+
+## Files changed during build (commit history tóm tắt)
+
+```
+# Core
+M  docs/conversion-plan.md                                  (this file)
+M  wp/wp-content/themes/underscores-child-bca/
+   ├── acf-json/group_*.json                                (11 field groups)
+   ├── app/PostTypes/{Service,Project,Research,Career,Leader}PostType.php
+   ├── app/Taxonomies/LeaderGroupTaxonomy.php
+   ├── app/Acf/LocalJson.php
+   ├── includes/bootstrap.php
+   ├── includes/functions/{bca-enqueue,common-functions,template-functions}.php
+   ├── includes/classes/class-child-cli.php
+   ├── functions.php                                        (bca_render_section)
+   ├── front-page.php
+   ├── home.php, single.php, category.php, tag.php
+   ├── page.php
+   ├── page-template/template-{about,services,contact,privacy}.php
+   ├── archive-{service,project,research,career,leader}.php
+   ├── single-{service,project,research,career,leader}.php
+   ├── header.php, footer.php
+   ├── partials/sections/{hero,contact-band,strengths,belief,vision-mission,
+   │                       services-teaser,projects-teaser,leadership-teaser,
+   │                       contact-form,privacy-content}.php
+   ├── partials/components/{card-{service,project,research,news,career,leader},
+   │                        apply-modal}.php
+   ├── partials/{header,footer}/{site-header,site-footer}.php
+   ├── assets/css/{site,sections}.css
+   └── bin/seed-bca.php                                     (one-shot seed)
+A  wp/wp-content/mu-plugins/debug-acf.php                   (diagnostic only)
+M  .gitignore
+```
