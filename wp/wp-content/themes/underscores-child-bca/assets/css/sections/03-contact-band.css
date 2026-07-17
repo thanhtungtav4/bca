@@ -1,9 +1,10 @@
 /* BCA Partners — 03-contact-band.css (auto-split from sections.css on 2026-07-16).
    Tokens from assets/css/tokens/*.css.
-   Source order preserved: Hero/Buttons/... — see top of each section. */
+   Scope all overrides under .bca-contact-band so they naturally beat
+   base.css's generic h1-h6 (color: ink) and a (color: blue) rules
+   without needing !important. */
 
 /* ===== Contact Band ===== */
-
 .bca-contact-band { position: relative; overflow: hidden; }
 .bca-contact-band-bg {
     position: absolute; inset: 0;
@@ -19,20 +20,28 @@
 /* flex row: text left, CTA right (matches design HTML — light bg + navy text) */
 .bca-contact-band-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; padding: 53px var(--gutter); min-height: 162px; box-sizing: border-box; max-width: var(--content-max); margin: 0 auto; color: var(--bca-ink, #111827); }
 .bca-contact-band-text { flex: 1 1 auto; min-width: 0; }
-.bca-contact-band-heading { margin: 0; font-size: 30px; line-height: 1.2; font-weight: var(--fw-bold, 700); letter-spacing: -0.025em; color: var(--bca-navy, #003f6f) !important; }
-.bca-contact-band-sub { margin: 8px 0 0; font-size: 18px; line-height: 1.5; max-width: 600px; color: var(--bca-ink-2, #374151); }
-.bca-contact-band-cta {
+.bca-contact-band .bca-contact-band-heading { margin: 0; font-size: 30px; line-height: 1.2; font-weight: var(--fw-bold, 700); letter-spacing: -0.025em; color: var(--bca-navy, #003f6f); }
+.bca-contact-band .bca-contact-band-sub { margin: 8px 0 0; font-size: 18px; line-height: 1.5; max-width: 600px; color: var(--bca-ink-2, #374151); }
+.bca-contact-band .bca-contact-band-cta {
     flex: 0 0 auto;
     background: var(--bca-white, #ffffff);
-    color: var(--bca-navy, #003f6f) !important;
+    color: var(--bca-navy, #003f6f);
     border: 0;
     padding: 14px 22px;
     font-weight: var(--fw-semibold, 600);
     font-size: 15.008px;
     text-decoration: none;
 }
-.bca-contact-band-cta:hover,
-.bca-contact-band-cta:focus {
+.bca-contact-band .bca-contact-band-cta:hover,
+.bca-contact-band .bca-contact-band-cta:focus {
     background: var(--bca-surface-section, #e9ecf2);
-    color: var(--bca-navy, #003f6f) !important;
+    color: var(--bca-navy, #003f6f);
+}
+
+/* Mobile-friendly pass — stops desktop padding overflowing ≤900 */
+@media (max-width: 900px) {
+    .bca-contact-band-inner { padding: 40px var(--gutter-mobile); min-height: 0; gap: 20px; }
+    .bca-contact-band .bca-contact-band-heading { font-size: 24px; line-height: 1.2; }
+    .bca-contact-band-inner { text-align: center; }
+    .bca-contact-band-inner > .bca-btn { width: 100%; }
 }

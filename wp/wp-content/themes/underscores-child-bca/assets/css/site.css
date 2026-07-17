@@ -142,9 +142,9 @@
 /* Desktop: hide hamburger + actions wrapper — design shows only nav links on ≥901px */
 @media (min-width: 901px) {
     .bca-navbar-toggle,
-    .hdr-burger { display: none !important; }
+    .hdr-burger { display: none; }
     .bca-navbar-actions,
-    .hdr-actions { display: none !important; }
+    .hdr-actions { display: none; }
 }
 
 /* === Mobile (≤900px) — hamburger visible, menu is a full-screen overlay === */
