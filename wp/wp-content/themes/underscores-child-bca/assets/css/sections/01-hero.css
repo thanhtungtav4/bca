@@ -29,6 +29,7 @@
 .bca-hero-inner { position: relative; z-index: 1; max-width: var(--content-max); margin: 0 auto; width: 100%; }
 .bca-hero-heading { margin: 0; font-size: var(--fs-hero, 59px); line-height: 1.2; font-weight: var(--fw-extrabold, 800); letter-spacing: -0.025em; color: inherit; }
 .bca-hero-sub { margin: 16px 0 0; font-size: var(--fs-lead, 18px); line-height: 1.5; font-weight: 400; max-width: 440px; color: var(--bca-white, #ffffff); }
+.bca-hero-cta { margin-top: 24px; }
 /* === Mobile hero === */
 @media (max-width: 900px) {
   .bca-hero { min-height: 280px; }
