@@ -27,6 +27,5 @@
 
 /* ===== Project detail ===== */
 
-.bca-project-detail-body { max-width: 820px; }
 .bca-project-detail-text { margin: 0 0 32px; font-size: var(--fs-detail-body, 17px); line-height: 1.2; color: var(--bca-ink-2, #374151); white-space: pre-line; }
 .bca-project-detail-content { margin-top: 32px; font-size: var(--fs-detail-body, 17px); line-height: 1.2; color: var(--bca-ink-2, #374151); }
