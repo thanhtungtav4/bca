@@ -1,0 +1,47 @@
+/* BCA Partners — 05-about.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Strengths ===== */
+
+.bca-strengths-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 48px; align-items: start; }
+.bca-strengths-list { display: flex; flex-direction: column; gap: 36px; }
+.bca-strength-item { display: grid; grid-template-columns: 56px 1fr; column-gap: 20px; row-gap: 8px; }
+.bca-strength-icon { width: 56px; height: 56px; background: var(--bca-surface-section); display: flex; align-items: center; justify-content: center; }
+.bca-strength-icon img { width: 30px; height: 30px; object-fit: contain; }
+.bca-strength-text { display: flex; flex-direction: column; gap: 8px; }
+.bca-strength-title { margin: 0; font-size: 24px; font-weight: var(--fw-bold, 700); color: var(--bca-ink); }
+.bca-strength-body { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+@media (max-width: 900px) {
+  .bca-strengths-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ===== Belief ===== */
+
+.bca-belief-card { position: relative; border-radius: var(--radius); overflow: hidden; min-height: 360px; }
+.bca-belief-bg { position: absolute; inset: 0; }
+.bca-belief-img { width: 100%; height: 100%; object-fit: cover; }
+.bca-belief-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,63,111,0.9) 0%, rgba(0,63,111,0.6) 55%, rgba(0,63,111,0.15) 100%); }
+.bca-belief-content { position: relative; z-index: 1; padding: 64px; color: var(--bca-white); max-width: 720px; }
+.bca-belief-heading { margin: 0 0 16px; font-size: 40px; line-height: 1.2; font-weight: var(--fw-bold, 700); letter-spacing: -0.025em; color: var(--bca-white); }
+.bca-belief-quote { margin: 0; padding: 0; position: relative; }
+.bca-belief-quote p { margin: 0; font-size: 18px; line-height: 1.2; color: var(--bca-white); }
+@media (max-width: 900px) {
+  .bca-belief-content { padding: 32px; }
+  .bca-belief-heading { font-size: 28px; }
+}
+
+
+/* ===== V/M/V ===== */
+
+.bca-vmcv-head { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; }
+.bca-vmcv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.bca-vmcv-card { display: flex; flex-direction: column; gap: 16px; }
+.bca-vmcv-img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 3 / 2; }
+.bca-vmcv-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bca-vmcv-title { margin: 0; font-size: 24px; font-weight: var(--fw-bold, 700); color: var(--bca-navy); }
+.bca-vmcv-body { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+@media (max-width: 900px) {
+  .bca-vmcv-grid { grid-template-columns: 1fr; }
+}

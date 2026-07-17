@@ -1,0 +1,38 @@
+/* BCA Partners — 12-contact-form.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Contact form ===== */
+
+.bca-contact-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: start; }
+.bca-contact-intro { margin: 0 0 24px; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+.bca-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.bca-field { display: flex; flex-direction: column; gap: 6px; }
+.bca-field-label { font-size: 12.992px; font-weight: var(--fw-semibold, 600); color: var(--bca-ink-2, #374151); }
+.bca-field-label em { color: var(--bca-blue); font-style: normal; }
+.bca-field input, .bca-field textarea { font-family: inherit; font-size: 15.008px; padding: 11px 14px; border: 1px solid var(--bca-border); border-radius: var(--radius); background: var(--bca-white); outline: none; box-sizing: border-box; width: 100%; color: var(--bca-ink); }
+.bca-field input:focus, .bca-field textarea:focus { border-color: var(--bca-blue); }
+.bca-form-actions { margin-top: 4px; }
+.bca-contact-success { margin-top: 16px; padding: 16px; border-radius: var(--radius); background: var(--bca-surface-section); font-weight: var(--fw-semibold, 600); color: var(--bca-navy); }
+.bca-contact-details { display: flex; flex-direction: column; gap: 28px; padding: 32px; border-radius: var(--radius); background: var(--bca-surface-section); }
+.bca-contact-details-heading { margin: 0; font-size: 20px; font-weight: var(--fw-bold, 700); color: var(--bca-navy); }
+.bca-contact-line { display: flex; flex-direction: column; gap: 4px; }
+.bca-contact-line-label { font-size: 14px; font-weight: var(--fw-bold, 700); color: var(--bca-ink); }
+.bca-contact-line-value { font-size: 16px; line-height: 1.2; color: var(--bca-ink-2, #374151); white-space: pre-line; }
+a.bca-contact-line-value { color: var(--bca-blue); text-decoration: none; }
+a.bca-contact-line-value:hover { text-decoration: underline; }
+@media (max-width: 900px) {
+  .bca-contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .bca-form-row { grid-template-columns: 1fr; }
+}
+
+
+/* ===== Apply modal ===== */
+
+.bca-apply-modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: flex-start; justify-content: center; padding: 48px 20px; overflow: auto; }
+.bca-apply-modal[hidden] { display: none; }
+.bca-apply-modal-overlay { position: fixed; inset: 0; background: rgba(0,26,46,0.55); z-index: 0; }
+.bca-apply-modal-card { position: relative; z-index: 1; width: 100%; max-width: 520px; background: var(--bca-white); border-radius: 6px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); padding: 28px; }
+.bca-apply-modal-close { position: absolute; top: 12px; right: 12px; border: none; background: none; font-size: 26px; line-height: 1 color: var(--bca-muted); cursor: pointer; }
+.bca-apply-modal-title { margin: 0; font-size: 22px; font-weight: var(--fw-bold, 700); color: var(--bca-navy); }
+.bca-apply-modal-sub { margin: 4px 0 20px; font-size: 14px; color: var(--bca-ink-2, #374151); }

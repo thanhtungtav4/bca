@@ -51,12 +51,15 @@ build() {
             printf '\n'
         fi
 
-        # 4) Sections — hero, contact-band, services, projects, leaders, etc.
-        local sections="$CSS_DIR/sections.css"
-        if [ -f "$sections" ]; then
-            printf '/* ===== sections.css ===== */\n'
-            cat "$sections"
-            printf '\n'
+        # 4) Sections — split into per-component files in sections/.
+        #    Concatenate in numerical order (01-hero, 02-buttons, …).
+        if [ -d "$CSS_DIR/sections" ]; then
+            for f in "$CSS_DIR"/sections/*.css; do
+                [ -f "$f" ] || continue
+                printf '/* ===== %s ===== */\n' "sections/$(basename "$f")"
+                cat "$f"
+                printf '\n'
+            done
         fi
 
         # 5) Page-specific overrides (currently near-empty stubs).

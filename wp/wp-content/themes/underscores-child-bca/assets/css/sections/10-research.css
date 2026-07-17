@@ -1,0 +1,19 @@
+/* BCA Partners — 10-research.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Research card (flip row) ===== */
+
+.bca-research-list { display: flex; flex-direction: column; gap: 64px; }
+.bca-research-card { display: flex; gap: 64px; align-items: stretch; }
+.bca-research-card--flip { flex-direction: row-reverse; }
+.bca-research-card-media { flex: 0 0 624px; max-width: 624px; border-radius: var(--radius); overflow: hidden; }
+.bca-research-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bca-research-card-text { flex: 1; display: flex; flex-direction: column; gap: 16px; justify-content: center; }
+.bca-research-card-title { margin: 0; font-size: 32px; line-height: 1.2; font-weight: var(--fw-bold, 700); color: var(--bca-ink); }
+.bca-research-card-title a { color: inherit; text-decoration: none; }
+.bca-research-card-excerpt { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+@media (max-width: 900px) {
+  .bca-research-card, .bca-research-card--flip { flex-direction: column; }
+  .bca-research-card-media { flex: 1 1 auto; max-width: 100%; }
+}

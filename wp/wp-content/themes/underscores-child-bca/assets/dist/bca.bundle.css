@@ -682,11 +682,13 @@ input, textarea, select, button {
     .bca-navbar-nav { padding-top: calc(56px + 24px); }
 }
 
-/* ===== sections.css ===== */
-/* BCA Partners — section styles (hero, contact-band, services, projects, leaders, etc.)
-   Tokens from assets/css/tokens/[file].css — không hardcode màu/size. */
+/* ===== sections/01-hero.css ===== */
+/* BCA Partners — 01-hero.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
 
 /* ===== Hero ===== */
+
 .bca-hero { position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center; color: var(--bca-white, #ffffff); }
 .bca-hero-bg { position: absolute; inset: 0; }
 .bca-hero-bg--gradient { background: linear-gradient(135deg, #001a2e 0%, #003f6f 50%, #001a2e 100%); }
@@ -725,7 +727,13 @@ input, textarea, select, button {
   .bca-hero-heading { font-size: 28px; }
 }
 
+/* ===== sections/02-buttons.css ===== */
+/* BCA Partners — 02-buttons.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== Buttons ===== */
+
 .bca-btn { display: inline-flex; align-items: center; gap: 10px; padding: var(--btn-pad-y, 16px) var(--btn-pad-x, 24px); font-weight: var(--fw-semibold, 600); font-size: 15.008px; line-height: 1.2; text-decoration: none; border-radius: var(--radius); border: 1px solid transparent; transition: background 160ms ease, color 160ms ease, border-color 160ms ease; cursor: pointer; font-family: inherit; min-height: 44px; }
 .bca-btn--filled { background: var(--bca-navy); color: var(--bca-white); }
 .bca-btn--filled:hover, .bca-btn--filled:focus { background: var(--bca-blue); }
@@ -737,7 +745,13 @@ input, textarea, select, button {
 .bca-btn--ghost:hover, .bca-btn--ghost:focus { color: var(--bca-blue); }
 .bca-btn-arrow { font-size: 1.1em; line-height: 1 }
 
+/* ===== sections/03-contact-band.css ===== */
+/* BCA Partners — 03-contact-band.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== Contact Band ===== */
+
 .bca-contact-band { position: relative; overflow: hidden; }
 .bca-contact-band-bg {
     position: absolute; inset: 0;
@@ -771,14 +785,26 @@ input, textarea, select, button {
     color: var(--bca-navy, #003f6f) !important;
 }
 
+/* ===== sections/04-common.css ===== */
+/* BCA Partners — 04-common.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== Section heading + sub ===== */
+
 .bca-section-heading { font-size: 48px; line-height: 1.2 }
 .bca-section-heading--sm { font-size: 32px; }
 .bca-section-sub--center { text-align: center; }
 .bca-teaser-foot { margin-top: 48px; }
 .bca-teaser-foot--center { text-align: center; }
 
+/* ===== sections/05-about.css ===== */
+/* BCA Partners — 05-about.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== Strengths ===== */
+
 .bca-strengths-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 48px; align-items: start; }
 .bca-strengths-list { display: flex; flex-direction: column; gap: 36px; }
 .bca-strength-item { display: grid; grid-template-columns: 56px 1fr; column-gap: 20px; row-gap: 8px; }
@@ -791,7 +817,9 @@ input, textarea, select, button {
   .bca-strengths-grid { grid-template-columns: 1fr; }
 }
 
+
 /* ===== Belief ===== */
+
 .bca-belief-card { position: relative; border-radius: var(--radius); overflow: hidden; min-height: 360px; }
 .bca-belief-bg { position: absolute; inset: 0; }
 .bca-belief-img { width: 100%; height: 100%; object-fit: cover; }
@@ -805,7 +833,9 @@ input, textarea, select, button {
   .bca-belief-heading { font-size: 28px; }
 }
 
+
 /* ===== V/M/V ===== */
+
 .bca-vmcv-head { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; }
 .bca-vmcv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .bca-vmcv-card { display: flex; flex-direction: column; gap: 16px; }
@@ -817,7 +847,13 @@ input, textarea, select, button {
   .bca-vmcv-grid { grid-template-columns: 1fr; }
 }
 
+/* ===== sections/06-services.css ===== */
+/* BCA Partners — 06-services.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== Services grid + card ===== */
+
 .bca-services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .bca-service-card { display: flex; flex-direction: column; gap: 24px; text-decoration: none; color: inherit; }
 .bca-service-card-img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; background: var(--bca-surface-section); }
@@ -831,7 +867,13 @@ input, textarea, select, button {
   .bca-services-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
+/* ===== sections/07-projects.css ===== */
+/* BCA Partners — 07-projects.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== Project card (flip row) ===== */
+
 .bca-projects-list { display: flex; flex-direction: column; gap: 64px; }
 .bca-project-card { display: flex; gap: 64px; align-items: stretch; }
 .bca-project-card--flip { flex-direction: row-reverse; }
@@ -852,7 +894,20 @@ input, textarea, select, button {
   .bca-project-card-title { font-size: 24px; }
 }
 
+
+/* ===== Project detail ===== */
+
+.bca-project-detail-body { max-width: 820px; }
+.bca-project-detail-text { margin: 0 0 32px; font-size: 16.992px; line-height: 1.2; color: var(--bca-ink-2, #374151); white-space: pre-line; }
+.bca-project-detail-content { margin-top: 32px; font-size: 16.992px; line-height: 1.2; color: var(--bca-ink-2, #374151); }
+
+/* ===== sections/08-leaders.css ===== */
+/* BCA Partners — 08-leaders.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== Leader card ===== */
+
 .bca-leaders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 /* home "Meet our team" shows 4 across (prototype Homepage.jsx) */
 #home-leadership .bca-leaders-grid { grid-template-columns: repeat(4, 1fr); }
@@ -869,7 +924,34 @@ input, textarea, select, button {
   .bca-leaders-grid { grid-template-columns: 1fr; }
 }
 
+
+/* ===== Leader single ===== */
+
+.bca-single-leader-hero { background: var(--bca-surface-section); }
+.bca-leader-hero-grid { display: grid; grid-template-columns: 1fr 400px; gap: 40px; align-items: center; min-height: 420px; padding: 64px 0; }
+.bca-leader-hero-text { display: flex; flex-direction: column; gap: 12px; }
+.bca-leader-hero-name { margin: 0; font-size: 52px; line-height: 1.2; font-weight: var(--fw-bold, 700); letter-spacing: -0.025em; color: var(--bca-ink); }
+.bca-leader-hero-role { font-size: 20px; color: var(--bca-ink-2, #374151); }
+.bca-leader-hero-img img { width: 400px; height: 420px; object-fit: cover; object-position: top center; display: block; border-radius: var(--radius); }
+.bca-leader-credentials { font-size: 16px; font-weight: var(--fw-semibold, 600); color: var(--bca-navy); margin: 0 0 24px; }
+@media (max-width: 900px) {
+  .bca-leader-hero-grid { grid-template-columns: 1fr; }
+  .bca-leader-hero-img img { width: 100%; height: auto; }
+  .bca-leader-hero-name { font-size: 36px; line-height: 1.2 }
+}
+
+
+/* ===== Leader group on archive ===== */
+
+.bca-leader-group { margin-bottom: 64px; }
+
+/* ===== sections/09-news.css ===== */
+/* BCA Partners — 09-news.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== News card ===== */
+
 .bca-news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .bca-news-card { display: flex; flex-direction: column; gap: 16px; text-decoration: none; color: inherit; }
 .bca-news-card-img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 10; background: var(--bca-surface-section); }
@@ -884,7 +966,13 @@ input, textarea, select, button {
   .bca-news-grid { grid-template-columns: 1fr; }
 }
 
+/* ===== sections/10-research.css ===== */
+/* BCA Partners — 10-research.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== Research card (flip row) ===== */
+
 .bca-research-list { display: flex; flex-direction: column; gap: 64px; }
 .bca-research-card { display: flex; gap: 64px; align-items: stretch; }
 .bca-research-card--flip { flex-direction: row-reverse; }
@@ -899,7 +987,13 @@ input, textarea, select, button {
   .bca-research-card-media { flex: 1 1 auto; max-width: 100%; }
 }
 
+/* ===== sections/11-career.css ===== */
+/* BCA Partners — 11-career.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== Career row ===== */
+
 .bca-career-list { display: flex; flex-direction: column; border-top: 1px solid var(--bca-border); }
 .bca-career-row { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; padding: 32px 0; border-bottom: 1px solid var(--bca-border); }
 .bca-career-row-text { display: flex; flex-direction: column; gap: 8px; max-width: 760px; }
@@ -914,7 +1008,13 @@ input, textarea, select, button {
   .bca-career-row { grid-template-columns: 1fr; gap: 16px; }
 }
 
+/* ===== sections/12-contact-form.css ===== */
+/* BCA Partners — 12-contact-form.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== Contact form ===== */
+
 .bca-contact-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 80px; align-items: start; }
 .bca-contact-intro { margin: 0 0 24px; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
 .bca-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -937,7 +1037,9 @@ a.bca-contact-line-value:hover { text-decoration: underline; }
   .bca-form-row { grid-template-columns: 1fr; }
 }
 
+
 /* ===== Apply modal ===== */
+
 .bca-apply-modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: flex-start; justify-content: center; padding: 48px 20px; overflow: auto; }
 .bca-apply-modal[hidden] { display: none; }
 .bca-apply-modal-overlay { position: fixed; inset: 0; background: rgba(0,26,46,0.55); z-index: 0; }
@@ -946,26 +1048,20 @@ a.bca-contact-line-value:hover { text-decoration: underline; }
 .bca-apply-modal-title { margin: 0; font-size: 22px; font-weight: var(--fw-bold, 700); color: var(--bca-navy); }
 .bca-apply-modal-sub { margin: 4px 0 20px; font-size: 14px; color: var(--bca-ink-2, #374151); }
 
+/* ===== sections/13-content.css ===== */
+/* BCA Partners — 13-content.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== Privacy body ===== */
+
 .bca-privacy-body { max-width: 820px; }
 .bca-privacy-body p { font-size: 16px; line-height: 1.2; color: var(--bca-ink-2, #374151); }
 .bca-privacy-body ul { margin: 0 0 16px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
 
-/* ===== Archive header ===== */
-.bca-archive-header { padding: 56px var(--gutter); background: var(--bca-white); border-bottom: 1px solid var(--bca-border); }
-.bca-archive-header .bca-section-heading { color: var(--bca-ink); }
-@media (max-width: 900px) { .bca-archive-header { padding: 32px var(--gutter-mobile); } }
-
-/* ===== Pagination ===== */
-.bca-pagination { margin-top: 48px; display: flex; justify-content: center; }
-.bca-pagination .nav-links, .bca-pagination .page-numbers { display: flex; gap: 8px; flex-wrap: wrap; }
-.bca-pagination .page-numbers { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 12px; border: 1px solid var(--bca-border); border-radius: var(--radius); color: var(--bca-ink); text-decoration: none; font-size: 14px; font-weight: var(--fw-semibold, 600); }
-.bca-pagination .page-numbers.current, .bca-pagination .page-numbers:hover { background: var(--bca-navy); color: var(--bca-white); border-color: var(--bca-navy); }
-
-/* ===== Empty state ===== */
-.bca-empty { text-align: center; padding: 48px 0; color: var(--bca-ink-2, #374151); font-size: 16px; }
 
 /* ===== Wysiwyg content (single pages) ===== */
+
 .bca-wysiwyg, .bca-news-body, .bca-research-body, .bca-leader-body { max-width: 820px; }
 .bca-news-body, .bca-research-body { margin: 0 auto; }
 .bca-leader-body { max-width: 1060px; } /* leader bio wider (prototype) */
@@ -976,42 +1072,43 @@ a.bca-contact-line-value:hover { text-decoration: underline; }
 /* research/news pull-quote: prototype style — blue left rule, no bg, navy 22/32 */
 .bca-wysiwyg blockquote, .bca-news-body blockquote, .bca-research-body blockquote { margin: 32px 0; padding: 8px 0 8px 28px; border-left: 4px solid var(--bca-blue); background: none; font-style: normal; font-size: 22px; line-height: 1.2; font-weight: var(--fw-bold, 700); color: var(--bca-navy); }
 .bca-single--career .bca-wysiwyg p, .bca-single--career .bca-wysiwyg li { font-size: 16px; line-height: 1.5 }
+
 /* ===== Back link ===== */
+
 .bca-back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: var(--fw-semibold, 600); color: var(--bca-blue); text-decoration: none; margin-bottom: 16px; }
 .bca-back-link:hover { color: var(--bca-navy); }
 
-/* ===== Project detail ===== */
-.bca-project-detail-body { max-width: 820px; }
-.bca-project-detail-text { margin: 0 0 32px; font-size: 16.992px; line-height: 1.2; color: var(--bca-ink-2, #374151); white-space: pre-line; }
-.bca-project-detail-content { margin-top: 32px; font-size: 16.992px; line-height: 1.2; color: var(--bca-ink-2, #374151); }
+/* ===== sections/14-archive.css ===== */
+/* BCA Partners — 14-archive.js.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
 
-/* ===== Service detail ===== */
-.bca-service-detail-body { max-width: 820px; }
-.bca-service-detail-excerpt { font-size: 18px; line-height: 1.2; color: var(--bca-ink-2, #374151); margin: 0 0 32px; font-weight: var(--fw-medium, 500); }
-/* "What we do" capabilities → 2-col with navy top-rule (prototype .cap) */
-.bca-single--service .bca-service-card-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-@media (max-width: 900px) {
-  .bca-single--service .bca-service-card-items { grid-template-columns: 1fr; }
-}
+/* ===== Archive header ===== */
 
-/* ===== Leader single ===== */
-.bca-single-leader-hero { background: var(--bca-surface-section); }
-.bca-leader-hero-grid { display: grid; grid-template-columns: 1fr 400px; gap: 40px; align-items: center; min-height: 420px; padding: 64px 0; }
-.bca-leader-hero-text { display: flex; flex-direction: column; gap: 12px; }
-.bca-leader-hero-name { margin: 0; font-size: 52px; line-height: 1.2; font-weight: var(--fw-bold, 700); letter-spacing: -0.025em; color: var(--bca-ink); }
-.bca-leader-hero-role { font-size: 20px; color: var(--bca-ink-2, #374151); }
-.bca-leader-hero-img img { width: 400px; height: 420px; object-fit: cover; object-position: top center; display: block; border-radius: var(--radius); }
-.bca-leader-credentials { font-size: 16px; font-weight: var(--fw-semibold, 600); color: var(--bca-navy); margin: 0 0 24px; }
-@media (max-width: 900px) {
-  .bca-leader-hero-grid { grid-template-columns: 1fr; }
-  .bca-leader-hero-img img { width: 100%; height: auto; }
-  .bca-leader-hero-name { font-size: 36px; line-height: 1.2 }
-}
+.bca-archive-header { padding: 56px var(--gutter); background: var(--bca-white); border-bottom: 1px solid var(--bca-border); }
+.bca-archive-header .bca-section-heading { color: var(--bca-ink); }
+@media (max-width: 900px) { .bca-archive-header { padding: 32px var(--gutter-mobile); } }
 
-/* ===== Leader group on archive ===== */
-.bca-leader-group { margin-bottom: 64px; }
+
+/* ===== Pagination ===== */
+
+.bca-pagination { margin-top: 48px; display: flex; justify-content: center; }
+.bca-pagination .nav-links, .bca-pagination .page-numbers { display: flex; gap: 8px; flex-wrap: wrap; }
+.bca-pagination .page-numbers { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 12px; border: 1px solid var(--bca-border); border-radius: var(--radius); color: var(--bca-ink); text-decoration: none; font-size: 14px; font-weight: var(--fw-semibold, 600); }
+.bca-pagination .page-numbers.current, .bca-pagination .page-numbers:hover { background: var(--bca-navy); color: var(--bca-white); border-color: var(--bca-navy); }
+
+
+/* ===== Empty state ===== */
+
+.bca-empty { text-align: center; padding: 48px 0; color: var(--bca-ink-2, #374151); font-size: 16px; }
+
+/* ===== sections/15-home.css ===== */
+/* BCA Partners — 15-home.js.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
 
 /* ===== Insights (home) ===== */
+
 .bca-insights-row { display: flex; gap: 32px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
 .bca-insight-card { width: 384px; flex-shrink: 0; display: flex; flex-direction: column; gap: 16px; scroll-snap-align: start; }
 .bca-insight-card-img { aspect-ratio: 16 / 10; border-radius: var(--radius); overflow: hidden; background: var(--bca-surface-section); }
@@ -1019,7 +1116,9 @@ a.bca-contact-line-value:hover { text-decoration: underline; }
 .bca-insight-card-title { margin: 0; font-size: 20px; line-height: 1.2; font-weight: var(--fw-bold, 700); color: var(--bca-ink, #0a1f33); }
 .bca-insight-card-body { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
 
+
 /* ===== About teaser (home) ===== */
+
 .bca-about-teaser-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 .bca-about-teaser-img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 1 / 0.85; background: var(--bca-surface-section, #f3f4f6); }
 .bca-about-teaser-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -1028,14 +1127,18 @@ a.bca-contact-line-value:hover { text-decoration: underline; }
 .bca-about-teaser-body { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
 .bca-about-teaser-block-heading { margin: 0; font-size: 20px; font-weight: var(--fw-bold, 700); color: var(--bca-ink, #0a1f33); }
 .bca-about-teaser-block-body { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+
 /* ===== Partners (home) ===== */
+
 .bca-partners-list { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; align-items: center; }
 .bca-partner-logo { display: flex; align-items: center; justify-content: center; }
 .bca-partner-logo-img { max-width: 160px; max-height: 64px; width: auto; height: auto; filter: grayscale(0.1); opacity: 0.9; transition: opacity 200ms ease; }
 .bca-partner-logo:hover .bca-partner-logo-img { opacity: 1; }
 .bca-partner-logo-link { display: inline-block; }
 
+
 /* ===== Project highlights (home) — 1 big + 2 small ===== */
+
 .bca-highlights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
 .bca-highlights-col--small { display: flex; flex-direction: column; gap: 24px; }
 .bca-highlight { display: flex; flex-direction: column; gap: 16px; }
@@ -1052,7 +1155,28 @@ a.bca-contact-line-value:hover { text-decoration: underline; }
 .bca-highlight-client { font-size: 16px; font-weight: var(--fw-semibold, 600); color: var(--bca-black, #111827); }
 .bca-highlight-body { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
 
+/* ===== sections/16-detail.css ===== */
+/* BCA Partners — 16-detail.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Service detail ===== */
+
+.bca-service-detail-body { max-width: 820px; }
+.bca-service-detail-excerpt { font-size: 18px; line-height: 1.2; color: var(--bca-ink-2, #374151); margin: 0 0 32px; font-weight: var(--fw-medium, 500); }
+/* "What we do" capabilities → 2-col with navy top-rule (prototype .cap) */
+.bca-single--service .bca-service-card-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+@media (max-width: 900px) {
+  .bca-single--service .bca-service-card-items { grid-template-columns: 1fr; }
+}
+
+/* ===== sections/17-responsive.css ===== */
+/* BCA Partners — 17-responsive.js.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
 /* ===== Responsive additions for new sections ===== */
+
 @media (max-width: 900px) {
   .bca-insight-card { width: 280px; }
   .bca-about-teaser-grid { grid-template-columns: 1fr; gap: 32px; }

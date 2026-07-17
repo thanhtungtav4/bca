@@ -1,0 +1,42 @@
+/* BCA Partners — 08-leaders.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Leader card ===== */
+
+.bca-leaders-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+/* home "Meet our team" shows 4 across (prototype Homepage.jsx) */
+#home-leadership .bca-leaders-grid { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1024px) { #home-leadership .bca-leaders-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { #home-leadership .bca-leaders-grid { grid-template-columns: 1fr; } }
+.bca-leader-card { display: flex; flex-direction: column; gap: 16px; text-decoration: none; color: inherit; }
+/* prototype LeaderCard: square-ish photo, no radius, larger name/role */
+.bca-leader-card-img { overflow: hidden; aspect-ratio: 3 / 4; background: var(--bca-surface-section); }
+.bca-leader-card-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 200ms ease; }
+.bca-leader-card:hover .bca-leader-card-img img { transform: scale(1.03); }
+.bca-leader-card-name { margin: 0; font-size: 24px; line-height: 1.2; font-weight: var(--fw-bold, 700); color: var(--bca-ink); }
+.bca-leader-card-role { margin: 0; font-size: 16px; line-height: 1.5; font-weight: var(--fw-bold, 700); color: var(--bca-ink-2, #374151); }
+@media (max-width: 900px) {
+  .bca-leaders-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ===== Leader single ===== */
+
+.bca-single-leader-hero { background: var(--bca-surface-section); }
+.bca-leader-hero-grid { display: grid; grid-template-columns: 1fr 400px; gap: 40px; align-items: center; min-height: 420px; padding: 64px 0; }
+.bca-leader-hero-text { display: flex; flex-direction: column; gap: 12px; }
+.bca-leader-hero-name { margin: 0; font-size: 52px; line-height: 1.2; font-weight: var(--fw-bold, 700); letter-spacing: -0.025em; color: var(--bca-ink); }
+.bca-leader-hero-role { font-size: 20px; color: var(--bca-ink-2, #374151); }
+.bca-leader-hero-img img { width: 400px; height: 420px; object-fit: cover; object-position: top center; display: block; border-radius: var(--radius); }
+.bca-leader-credentials { font-size: 16px; font-weight: var(--fw-semibold, 600); color: var(--bca-navy); margin: 0 0 24px; }
+@media (max-width: 900px) {
+  .bca-leader-hero-grid { grid-template-columns: 1fr; }
+  .bca-leader-hero-img img { width: 100%; height: auto; }
+  .bca-leader-hero-name { font-size: 36px; line-height: 1.2 }
+}
+
+
+/* ===== Leader group on archive ===== */
+
+.bca-leader-group { margin-bottom: 64px; }

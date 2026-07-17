@@ -1,0 +1,11 @@
+/* BCA Partners — 04-common.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Section heading + sub ===== */
+
+.bca-section-heading { font-size: 48px; line-height: 1.2 }
+.bca-section-heading--sm { font-size: 32px; }
+.bca-section-sub--center { text-align: center; }
+.bca-teaser-foot { margin-top: 48px; }
+.bca-teaser-foot--center { text-align: center; }

@@ -1,0 +1,16 @@
+/* BCA Partners — 02-buttons.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Buttons ===== */
+
+.bca-btn { display: inline-flex; align-items: center; gap: 10px; padding: var(--btn-pad-y, 16px) var(--btn-pad-x, 24px); font-weight: var(--fw-semibold, 600); font-size: 15.008px; line-height: 1.2; text-decoration: none; border-radius: var(--radius); border: 1px solid transparent; transition: background 160ms ease, color 160ms ease, border-color 160ms ease; cursor: pointer; font-family: inherit; min-height: 44px; }
+.bca-btn--filled { background: var(--bca-navy); color: var(--bca-white); }
+.bca-btn--filled:hover, .bca-btn--filled:focus { background: var(--bca-blue); }
+.bca-btn--filled.bca-btn--light { background: var(--bca-white); color: var(--bca-navy); }
+.bca-btn--filled.bca-btn--light:hover, .bca-btn--filled.bca-btn--light:focus { background: var(--bca-surface-section); }
+.bca-btn--line { background: transparent; color: var(--bca-navy); border-width: 2px; border-color: var(--bca-navy); }
+.bca-btn--line:hover, .bca-btn--line:focus { background: var(--bca-navy); color: var(--bca-white); }
+.bca-btn--ghost { background: transparent; color: var(--bca-navy); padding: 12px 0; min-height: 44px; }
+.bca-btn--ghost:hover, .bca-btn--ghost:focus { color: var(--bca-blue); }
+.bca-btn-arrow { font-size: 1.1em; line-height: 1 }

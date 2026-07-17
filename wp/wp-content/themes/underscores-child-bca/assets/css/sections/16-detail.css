@@ -1,0 +1,13 @@
+/* BCA Partners — 16-detail.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Service detail ===== */
+
+.bca-service-detail-body { max-width: 820px; }
+.bca-service-detail-excerpt { font-size: 18px; line-height: 1.2; color: var(--bca-ink-2, #374151); margin: 0 0 32px; font-weight: var(--fw-medium, 500); }
+/* "What we do" capabilities → 2-col with navy top-rule (prototype .cap) */
+.bca-single--service .bca-service-card-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+@media (max-width: 900px) {
+  .bca-single--service .bca-service-card-items { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,43 @@
+/* BCA Partners — 01-hero.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Hero ===== */
+
+.bca-hero { position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center; color: var(--bca-white, #ffffff); }
+.bca-hero-bg { position: absolute; inset: 0; }
+.bca-hero-bg--gradient { background: linear-gradient(135deg, #001a2e 0%, #003f6f 50%, #001a2e 100%); }
+.bca-hero-bg-img { width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
+.bca-hero-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,26,46,0.85) 0%, rgba(0,26,46,0.5) 55%, rgba(0,26,46,0.1) 100%); }
+.bca-hero--home .bca-hero-inner { padding: 80px var(--gutter); }
+.bca-hero--page { min-height: 400px; }
+/* inner keeps full content-max + gutter (left-aligned to page margin like
+   prototype .pad); cap only the text content to 720px, not the box. */
+.bca-hero--page .bca-hero-inner { padding: 120px var(--gutter) 56px; }
+.bca-hero--page .bca-hero-inner > * { max-width: 720px; }
+/* detail hero heading smaller than home (prototype: 44px/52px bold) */
+.bca-hero--page .bca-hero-heading { font-size: 44px; line-height: 1.2; font-weight: var(--fw-bold, 700); }
+.bca-hero--navy .bca-hero-bg { display: none; }
+.bca-hero--navy { background: var(--bca-navy); color: var(--bca-white); }
+/* gradient tone: dark gradient bg + white text (fallback when no image) */
+.bca-hero--gradient { background: var(--bca-navy); color: var(--bca-white); }
+.bca-hero--gradient .bca-hero-bg--gradient { display: block; }
+.bca-hero--blue { background: var(--bca-blue); color: var(--bca-white); }
+.bca-hero--blue .bca-hero-bg { display: none; }
+/* contact hero heading larger (prototype 48/56) */
+.bca-hero--blue .bca-hero-heading { font-size: 48px; line-height: 1.2 }
+.bca-hero-inner { position: relative; z-index: 1; max-width: var(--content-max); margin: 0 auto; width: 100%; }
+.bca-hero-heading { margin: 0; font-size: var(--fs-hero, 59px); line-height: 1.2; font-weight: var(--fw-extrabold, 800); letter-spacing: -0.025em; color: inherit; }
+.bca-hero-sub { margin: 16px 0 0; font-size: var(--fs-lead, 18px); line-height: 1.5; font-weight: 400; max-width: 440px; color: var(--bca-white, #ffffff); }
+/* === Mobile hero === */
+@media (max-width: 900px) {
+  .bca-hero { min-height: 280px; }
+  .bca-hero-heading { font-size: 32px; line-height: 1.2 }
+  .bca-hero-sub { font-size: 15.008px; line-height: 1.5 }
+  .bca-hero--page { min-height: 240px; }
+  .bca-hero--page .bca-hero-inner { padding: 40px var(--gutter-mobile, 20px); }
+}
+@media (max-width: 480px) {
+  .bca-hero { min-height: 240px; }
+  .bca-hero-heading { font-size: 28px; }
+}

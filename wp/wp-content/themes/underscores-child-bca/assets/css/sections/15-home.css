@@ -1,0 +1,51 @@
+/* BCA Partners — 15-home.js.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Insights (home) ===== */
+
+.bca-insights-row { display: flex; gap: 32px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+.bca-insight-card { width: 384px; flex-shrink: 0; display: flex; flex-direction: column; gap: 16px; scroll-snap-align: start; }
+.bca-insight-card-img { aspect-ratio: 16 / 10; border-radius: var(--radius); overflow: hidden; background: var(--bca-surface-section); }
+.bca-insight-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bca-insight-card-title { margin: 0; font-size: 20px; line-height: 1.2; font-weight: var(--fw-bold, 700); color: var(--bca-ink, #0a1f33); }
+.bca-insight-card-body { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+
+
+/* ===== About teaser (home) ===== */
+
+.bca-about-teaser-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.bca-about-teaser-img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 1 / 0.85; background: var(--bca-surface-section, #f3f4f6); }
+.bca-about-teaser-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bca-about-teaser-img-fallback { width: 100%; height: 100%; background: var(--bca-border, #e5e7eb); }
+.bca-about-teaser-text { display: flex; flex-direction: column; gap: 24px; }
+.bca-about-teaser-body { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+.bca-about-teaser-block-heading { margin: 0; font-size: 20px; font-weight: var(--fw-bold, 700); color: var(--bca-ink, #0a1f33); }
+.bca-about-teaser-block-body { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+
+/* ===== Partners (home) ===== */
+
+.bca-partners-list { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; align-items: center; }
+.bca-partner-logo { display: flex; align-items: center; justify-content: center; }
+.bca-partner-logo-img { max-width: 160px; max-height: 64px; width: auto; height: auto; filter: grayscale(0.1); opacity: 0.9; transition: opacity 200ms ease; }
+.bca-partner-logo:hover .bca-partner-logo-img { opacity: 1; }
+.bca-partner-logo-link { display: inline-block; }
+
+
+/* ===== Project highlights (home) — 1 big + 2 small ===== */
+
+.bca-highlights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.bca-highlights-col--small { display: flex; flex-direction: column; gap: 24px; }
+.bca-highlight { display: flex; flex-direction: column; gap: 16px; }
+.bca-highlight--big .bca-highlight-media { aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: var(--bca-surface-section, #f3f4f6); }
+.bca-highlight--big .bca-highlight-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bca-highlight--small { flex-direction: row; gap: 24px; background: var(--bca-surface-section, #f3f4f6); border-radius: var(--radius); overflow: hidden; }
+.bca-highlight--small .bca-highlight-media { flex: 0 0 200px; width: 200px; }
+.bca-highlight--small .bca-highlight-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bca-highlight--small .bca-highlight-text { padding: 20px 20px 20px 0; gap: 8px; }
+.bca-highlight-title { margin: 0; font-size: 24px; line-height: 1.2; font-weight: var(--fw-bold, 700); color: var(--bca-ink, #0a1f33); }
+.bca-highlight--small .bca-highlight-title { font-size: 18px; line-height: 1.2 }
+.bca-highlight-title a { color: inherit; text-decoration: none; }
+.bca-highlight-title a:hover { color: var(--bca-navy, #0a1f33); }
+.bca-highlight-client { font-size: 16px; font-weight: var(--fw-semibold, 600); color: var(--bca-black, #111827); }
+.bca-highlight-body { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }

@@ -1,0 +1,98 @@
+/* BCA Partners — 17-responsive.js.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Responsive additions for new sections ===== */
+
+@media (max-width: 900px) {
+  .bca-insight-card { width: 280px; }
+  .bca-about-teaser-grid { grid-template-columns: 1fr; gap: 32px; }
+  .bca-highlights-grid { grid-template-columns: 1fr; }
+  .bca-highlight--small { flex-direction: column; }
+  .bca-highlight--small .bca-highlight-media { flex: 0 0 auto; width: 100%; aspect-ratio: 16 / 9; }
+  .bca-highlight--small .bca-highlight-text { padding: 20px; }
+}
+
+/* ===== Convert gap-fill: sections that had markup but no CSS =====
+   Layouts derived from ui_kits/website prototype. */
+
+/* Default page template (page.php) — page header + title */
+.bca-page-header { padding: 64px var(--gutter) 0; }
+.bca-page-header .bca-section-inner { max-width: var(--content-max); margin: 0 auto; }
+.bca-page-title {
+    margin: 0;
+    font-size: 48px;
+    line-height: 1.2;
+    letter-spacing: var(--tracking-tight, -0.025em);
+    font-weight: var(--fw-bold, 700);
+    color: var(--bca-navy);
+}
+
+/* Service detail — single column body, matches prototype .split fallback */
+.bca-service-detail-grid { display: block; }
+.bca-service-detail-grid .bca-service-detail-body { margin: 0 auto; }
+
+/* Related sections (project / research / service) — muted band separator */
+.bca-project-related,
+.bca-leader-related { background: var(--bca-surface-section, #e9ecf2); }
+
+/* Leader card text block */
+.bca-leader-card-body { padding: 0; }
+
+/* Footer brand column — stack logo + description, prototype gap */
+.bca-footer-brand { display: flex; flex-direction: column; gap: 16px; }
+
+/* Apply modal form (career apply-modal) */
+.bca-apply-form { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+
+/* Career row CTA — keep button from shrinking in flex row */
+.bca-career-row-cta { flex-shrink: 0; align-self: center; }
+
+@media (max-width: 900px) {
+    .bca-page-title { font-size: 32px; line-height: 1.2 }
+    .bca-page-header { padding: 40px var(--gutter-mobile) 0; }
+    .bca-career-row-cta { align-self: flex-start; }
+}
+
+/* ============================================================
+   Mobile-friendly pass — patch heading overrides + tablet ≤900
+   ============================================================ */
+@media (max-width: 900px) {
+    /* detail/contact hero headings must shrink too (higher-specificity
+       overrides beat the generic .bca-hero-heading mobile rule) */
+    .bca-hero--page .bca-hero-heading,
+    .bca-hero--blue .bca-hero-heading { font-size: 32px; line-height: 1.2 }
+    .bca-hero--page .bca-hero-inner { padding-top: 64px; }
+
+    /* the 48px archive heading (sections.css) never shrank on mobile */
+    .bca-section-heading { font-size: 28px; }
+    .bca-section-heading--sm { font-size: 22px; }
+
+    /* contact CTA band: stop full desktop padding overflowing */
+    .bca-contact-band-inner { padding: 40px var(--gutter-mobile); min-height: 0; gap: 20px; }
+    .bca-contact-band-heading { font-size: 24px; line-height: 1.2 }
+
+    /* fixed-width insight cards would overflow small screens */
+    .bca-insight-card { width: 100%; }
+}
+
+/* ============================================================
+   Small phones ≤480px — tighten type, full-width CTAs
+   ============================================================ */
+@media (max-width: 480px) {
+    .bca-hero--page .bca-hero-heading,
+    .bca-hero--blue .bca-hero-heading { font-size: 28px; }
+    .bca-section-heading { font-size: 24px; }
+    .bca-hero--page .bca-hero-inner { padding-top: 48px; }
+
+    /* article body: drop desktop lead sizing so it fits */
+    .bca-wysiwyg p, .bca-news-body p, .bca-research-body p, .bca-leader-body p,
+    .bca-wysiwyg li, .bca-news-body li, .bca-research-body li { font-size: 16px; line-height: 1.5 }
+    .bca-wysiwyg blockquote, .bca-news-body blockquote, .bca-research-body blockquote { font-size: 18px; line-height: 1.5; padding-left: 16px; }
+    /* CTAs full-width for easy tapping */
+    .bca-btn { width: 100%; justify-content: center; }
+    .bca-contact-band-inner > .bca-btn,
+    .bca-hero-cta .bca-btn { width: auto; }
+    .bca-contact-band-inner { text-align: center; }
+    .bca-contact-band-inner > .bca-btn { width: 100%; }
+}

@@ -1,0 +1,18 @@
+/* BCA Partners — 06-services.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Services grid + card ===== */
+
+.bca-services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.bca-service-card { display: flex; flex-direction: column; gap: 24px; text-decoration: none; color: inherit; }
+.bca-service-card-img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; background: var(--bca-surface-section); }
+.bca-service-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 200ms ease; }
+.bca-service-card:hover .bca-service-card-img img { transform: scale(1.03); }
+.bca-service-card-body { display: flex; flex-direction: column; gap: 12px; }
+.bca-service-card-title { margin: 0; font-size: 28px; line-height: 1.2; font-weight: var(--fw-bold, 700); color: var(--bca-ink); }
+.bca-service-card-items { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.bca-service-card-bullet { color: var(--bca-blue); font-weight: var(--fw-bold, 700); flex-shrink: 0; }
+@media (max-width: 900px) {
+  .bca-services-grid { grid-template-columns: 1fr; gap: 32px; }
+}

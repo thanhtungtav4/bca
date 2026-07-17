@@ -1,0 +1,19 @@
+/* BCA Partners — 11-career.css (auto-split from sections.css on 2026-07-16).
+   Tokens from assets/css/tokens/*.css.
+   Source order preserved: Hero/Buttons/... — see top of each section. */
+
+/* ===== Career row ===== */
+
+.bca-career-list { display: flex; flex-direction: column; border-top: 1px solid var(--bca-border); }
+.bca-career-row { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; padding: 32px 0; border-bottom: 1px solid var(--bca-border); }
+.bca-career-row-text { display: flex; flex-direction: column; gap: 8px; max-width: 760px; }
+.bca-career-row-title { margin: 0; font-size: 24px; line-height: 1.2; font-weight: var(--fw-bold, 700); color: var(--bca-ink); }
+.bca-career-row-title a { color: inherit; text-decoration: none; }
+.bca-career-row-title a:hover { color: var(--bca-navy); }
+.bca-career-row-meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 0; }
+.bca-career-tag { font-size: 12.992px; font-weight: var(--fw-semibold, 600); color: var(--bca-navy); background: var(--bca-surface-section); border-radius: var(--radius); padding: 4px 10px; }
+.bca-career-row-desc { margin: 4px 0 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
+.bca-career-cta-band h3 { margin: 0 0 4px; font-size: 20px; font-weight: var(--fw-bold, 700); color: var(--bca-navy); }
+@media (max-width: 900px) {
+  .bca-career-row { grid-template-columns: 1fr; gap: 16px; }
+}
