@@ -23,12 +23,16 @@
   --bca-overlay-blue:rgba(0,121,166,0.8);  /* contact CTA band */
   --bca-overlay-white:rgba(255,255,255,0.8);
 
-  /* Text on dark surfaces (footer, hero, contact band, belief card). */
-  --bca-text-on-dark:var(--bca-text-on-dark, rgba(255,255,255,0.85));          /* primary readable text */
-  --bca-text-on-dark-muted:var(--bca-text-on-dark-muted, rgba(255,255,255,0.7));     /* secondary, descriptions */
-  --bca-text-on-dark-faint:var(--bca-text-on-dark-faint, rgba(255,255,255,0.55));    /* labels (Tel:, Email:) */
-  --bca-text-on-dark-subtle:var(--bca-text-on-dark-subtle, rgba(255,255,255,0.12));   /* social chip bg, etc */
-  --bca-divider-on-dark:var(--bca-divider-on-dark, rgba(255,255,255,0.1));       /* footer top border, etc */
+  /* Text on dark surfaces (footer, hero, contact band, belief card).
+     4-tier hierarchy: bright headings > regular body links > muted
+     descriptions > faint labels. Use these everywhere — no raw
+     rgba(255,255,255,*) on dark surfaces. */
+  --bca-text-on-dark-bright:rgba(255,255,255,1);            /* headings, strong text, full white */
+  --bca-text-on-dark:rgba(255,255,255,0.85);                /* body, links, primary readable */
+  --bca-text-on-dark-muted:rgba(255,255,255,0.7);           /* descriptions, secondary */
+  --bca-text-on-dark-faint:rgba(255,255,255,0.55);          /* labels, captions, faint */
+  --bca-text-on-dark-subtle:rgba(255,255,255,0.12);         /* social chip bg, etc */
+  --bca-divider-on-dark:rgba(255,255,255,0.1);              /* footer top border, hairlines */
   --bca-scrim:rgba(0,0,0,0.3);
 
   /* Semantic aliases */

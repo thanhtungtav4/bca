@@ -28,12 +28,16 @@
   --bca-overlay-blue:rgba(0,121,166,0.8);  /* contact CTA band */
   --bca-overlay-white:rgba(255,255,255,0.8);
 
-  /* Text on dark surfaces (footer, hero, contact band, belief card). */
-  --bca-text-on-dark:var(--bca-text-on-dark, rgba(255,255,255,0.85));          /* primary readable text */
-  --bca-text-on-dark-muted:var(--bca-text-on-dark-muted, rgba(255,255,255,0.7));     /* secondary, descriptions */
-  --bca-text-on-dark-faint:var(--bca-text-on-dark-faint, rgba(255,255,255,0.55));    /* labels (Tel:, Email:) */
-  --bca-text-on-dark-subtle:var(--bca-text-on-dark-subtle, rgba(255,255,255,0.12));   /* social chip bg, etc */
-  --bca-divider-on-dark:var(--bca-divider-on-dark, rgba(255,255,255,0.1));       /* footer top border, etc */
+  /* Text on dark surfaces (footer, hero, contact band, belief card).
+     4-tier hierarchy: bright headings > regular body links > muted
+     descriptions > faint labels. Use these everywhere — no raw
+     rgba(255,255,255,*) on dark surfaces. */
+  --bca-text-on-dark-bright:rgba(255,255,255,1);            /* headings, strong text, full white */
+  --bca-text-on-dark:rgba(255,255,255,0.85);                /* body, links, primary readable */
+  --bca-text-on-dark-muted:rgba(255,255,255,0.7);           /* descriptions, secondary */
+  --bca-text-on-dark-faint:rgba(255,255,255,0.55);          /* labels, captions, faint */
+  --bca-text-on-dark-subtle:rgba(255,255,255,0.12);         /* social chip bg, etc */
+  --bca-divider-on-dark:rgba(255,255,255,0.1);              /* footer top border, hairlines */
   --bca-scrim:rgba(0,0,0,0.3);
 
   /* Semantic aliases */
@@ -562,33 +566,88 @@ input, textarea, select, button {
 .bca-navbar-menu .current-menu-ancestor > .bca-navbar-link { color: var(--bca-blue); }
 .bca-navbar-cta { display: none; /* hidden on desktop — Contact us is a regular nav link per design */ }
 
-/* Footer */
-.bca-site-footer { background: var(--bca-black); color: var(--bca-white); padding: 64px var(--gutter) 24px; }
-.bca-footer-inner { max-width: var(--content-max); margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 48px; }
-.bca-footer-links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-.bca-footer-links li + li { margin-top: 0; }
-.bca-footer-links a { color: var(--bca-text-on-dark, rgba(255,255,255,0.85)); text-decoration: none; font-size: 14px; line-height: 1.5; }
-.bca-footer-links a:hover { color: var(--bca-white); text-decoration: underline; }
-.bca-footer-col h4.bca-footer-heading { font-size: 14px; font-weight: var(--fw-semibold, 600); color: var(--bca-white); margin: 0 0 16px; letter-spacing: 0.05em; text-transform: uppercase; }
+/* ===== Footer =====
+   Token usage:
+   - bg: --bca-black (surface-footer)
+   - text tiers: --bca-text-on-dark-{bright,muted,faint,subtle}
+   - dividers: --bca-divider-on-dark
+   - spacing: --space-* + --gutter / --gutter-mobile
+   - All raw rgba() values are tokenized — no magic colors. */
+
+/* Container + grid */
+.bca-site-footer { background: var(--bca-black); color: var(--bca-text-on-dark-bright, #fff); padding: 64px var(--gutter) 24px; }
+.bca-footer-inner { max-width: var(--content-max); margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: var(--space-7, 48px); }
+.bca-footer-brand { display: flex; flex-direction: column; gap: var(--space-4, 16px); }
+
+/* Brand column (logo + description + socials) */
 .bca-footer-logo { min-height: var(--touch-min, 44px); display: inline-flex; align-items: center; }
 .bca-footer-logo .bca-logo-img { max-height: 38px; width: auto; }
-.bca-footer-logo-text { color: var(--bca-white); font-size: 20px; font-weight: var(--fw-bold, 700); text-decoration: none; }
-.bca-footer-desc { font-size: 14px; line-height: 22px; color: var(--bca-text-on-dark-muted, rgba(255,255,255,0.7)); margin: 16px 0 0; }
-.bca-footer-address { font-size: 14px; line-height: 22px; color: var(--bca-text-on-dark, rgba(255,255,255,0.85)); margin: 0 0 12px; white-space: pre-line; }
-.bca-footer-line { font-size: 14px; color: var(--bca-text-on-dark, rgba(255,255,255,0.85)); margin: 0 0 6px; }
-.bca-footer-label { color: var(--bca-text-on-dark-faint, rgba(255,255,255,0.55)); margin-right: 6px; }
-.bca-footer-line a { color: var(--bca-white); text-decoration: none; }
-.bca-footer-line a:hover { text-decoration: underline; }
-.bca-footer-social-list { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; flex-wrap: wrap; }
-.bca-social-chip { display: inline-flex; align-items: center; justify-content: center; width: var(--touch-min, 44px); height: var(--touch-min, 44px); border-radius: var(--radius-pill); background: var(--bca-text-on-dark-subtle, rgba(255,255,255,0.12)); color: var(--bca-white); text-decoration: none; font-size: 12px; font-weight: var(--fw-bold, 700); transition: background 160ms ease; }
-.bca-social-chip:hover { background: var(--bca-blue); }
-.bca-footer-bottom { max-width: var(--content-max); margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--bca-divider-on-dark, rgba(255,255,255,0.1)); }
-.bca-footer-copy { font-size: var(--fs-meta, 13px); color: var(--bca-text-on-dark-faint, rgba(255,255,255,0.55)); margin: 0; }
+.bca-footer-logo-text { color: var(--bca-text-on-dark-bright, #fff); font-size: 20px; font-weight: var(--fw-bold, 700); text-decoration: none; }
+.bca-footer-desc { margin: 0; font-size: 14px; line-height: 1.5; color: var(--bca-text-on-dark-muted, rgba(255,255,255,0.7)); }
+
+/* Column heading (COMPANY / SERVICES / GET IN TOUCH) */
+.bca-footer-col h4.bca-footer-heading {
+    margin: 0 0 var(--space-4, 16px);
+    font-size: 14px;
+    font-weight: var(--fw-semibold, 600);
+    color: var(--bca-text-on-dark-bright, #fff);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Link list (used in COMPANY + SERVICES columns) */
+.bca-footer-links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.bca-footer-links a {
+    color: var(--bca-text-on-dark, rgba(255,255,255,0.85));
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: color 160ms ease;
+}
+.bca-footer-links a:hover,
+.bca-footer-links a:focus { color: var(--bca-text-on-dark-bright, #fff); text-decoration: underline; }
+
+/* Touch details (address + tel + email in GET IN TOUCH column) */
+.bca-footer-address { margin: 0 0 var(--space-3, 12px); font-size: 14px; line-height: 1.5; color: var(--bca-text-on-dark, rgba(255,255,255,0.85)); white-space: pre-line; }
+.bca-footer-line { margin: 0 0 var(--space-2, 8px); font-size: 14px; line-height: 1.5; color: var(--bca-text-on-dark, rgba(255,255,255,0.85)); }
+.bca-footer-line:last-child { margin-bottom: 0; }
+.bca-footer-label { color: var(--bca-text-on-dark-faint, rgba(255,255,255,0.55)); margin-right: var(--space-2, 8px); }
+.bca-footer-line a { color: var(--bca-text-on-dark-bright, #fff); text-decoration: none; transition: opacity 160ms ease; }
+.bca-footer-line a:hover,
+.bca-footer-line a:focus { text-decoration: underline; opacity: 0.85; }
+
+/* Social chips */
+.bca-footer-social-list { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--space-2, 8px); flex-wrap: wrap; }
+.bca-social-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--touch-min, 44px);
+    height: var(--touch-min, 44px);
+    border-radius: var(--radius-pill);
+    background: var(--bca-text-on-dark-subtle, rgba(255,255,255,0.12));
+    color: var(--bca-text-on-dark-bright, #fff);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: var(--fw-bold, 700);
+    transition: background 160ms ease;
+}
+.bca-social-chip:hover,
+.bca-social-chip:focus { background: var(--bca-blue); }
+
+/* Bottom bar (copyright + border-top) */
+.bca-footer-bottom {
+    max-width: var(--content-max);
+    margin: var(--space-7, 48px) auto 0;
+    padding-top: var(--space-5, 24px);
+    border-top: 1px solid var(--bca-divider-on-dark, rgba(255,255,255,0.1));
+}
+.bca-footer-copy { margin: 0; font-size: var(--fs-meta, 13px); color: var(--bca-text-on-dark-faint, rgba(255,255,255,0.55)); }
 
 @media (max-width: 900px) {
   .bca-site-footer { padding: 40px var(--gutter-mobile) 20px; }
-  .bca-footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .bca-footer-bottom { margin-top: 24px; padding-top: 16px; }
+  .bca-footer-inner { grid-template-columns: 1fr 1fr; gap: var(--space-6, 32px); }
+  .bca-footer-bottom { margin-top: var(--space-5, 24px); padding-top: var(--space-4, 16px); }
 }
 @media (max-width: 480px) {
   .bca-footer-inner { grid-template-columns: 1fr; }
