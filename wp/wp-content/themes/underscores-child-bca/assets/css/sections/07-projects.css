@@ -7,7 +7,7 @@
 .bca-projects-list { display: flex; flex-direction: column; gap: 64px; }
 .bca-project-card { display: flex; gap: 64px; align-items: stretch; }
 .bca-project-card--flip { flex-direction: row-reverse; }
-.bca-project-card-media { flex: 0 0 560px; max-width: 560px; border-radius: var(--radius); overflow: hidden; }
+.bca-project-card-media { flex: 0 0 560px; max-width: 480px; border-radius: var(--radius); overflow: hidden; }
 .bca-project-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .bca-project-card-text { flex: 1; display: flex; flex-direction: column; gap: 12px; justify-content: center; }
 .bca-eyebrow { font-size: 16px; line-height: 1.2; font-weight: var(--fw-semibold, 600); color: var(--bca-navy); letter-spacing: 0.02em; }
