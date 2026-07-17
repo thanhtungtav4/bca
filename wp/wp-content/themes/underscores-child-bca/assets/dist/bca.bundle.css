@@ -1152,28 +1152,70 @@ a.bca-contact-line-value:hover { text-decoration: underline; }
    Tokens from assets/css/tokens/*.css.
    Source order preserved: Hero/Buttons/... — see top of each section. */
 
-/* ===== Privacy body ===== */
+/* ===== Content body width (shared) =====
+   All "article-style" body classes share the same 820px reading width
+   and centering. Exceptions (.bca-leader-body) override the max-width
+   only. base.css owns the inner element styles (h2/h3/p/ul/li). */
+.bca-wysiwyg,
+.bca-news-body,
+.bca-research-body,
+.bca-privacy-body {
+    max-width: 820px;
+    margin: 0 auto;
+}
+/* Leader bio — wider (prototype) */
+.bca-leader-body {
+    max-width: 1060px;
+    margin: 0 auto;
+}
 
-.bca-privacy-body { max-width: 820px; }
+/* Body h2 override — slightly larger than base.css (28px vs 24px)
+   for single-page articles. base.css handles 24px as the global default;
+   these specific articles use the larger 28px to match the prototype. */
+.bca-wysiwyg h2, .bca-news-body h2, .bca-research-body h2 {
+    margin: 40px 0 12px;
+    font-size: 28px;
+    line-height: 1.2;
+    color: var(--bca-navy);
+    font-weight: var(--fw-bold, 700);
+}
+/* Body p — only override white-space (preserves line breaks from WP editor) */
+.bca-wysiwyg p, .bca-news-body p, .bca-research-body p, .bca-leader-body p {
+    white-space: pre-line;
+}
+/* Body list (already in base.css but with different spacing — keep variant here) */
+.bca-wysiwyg ul, .bca-wysiwyg ol, .bca-news-body ul, .bca-research-body ul {
+    margin: 0 0 16px;
+    padding-left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.bca-wysiwyg img, .bca-news-body img, .bca-research-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    margin: 16px 0;
+}
+/* research/news pull-quote: prototype style — blue left rule, no bg, navy 22/32 */
+.bca-wysiwyg blockquote, .bca-news-body blockquote, .bca-research-body blockquote {
+    margin: 32px 0;
+    padding: 8px 0 8px 28px;
+    border-left: 4px solid var(--bca-blue);
+    background: none;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: var(--fw-bold, 700);
+    color: var(--bca-navy);
+}
+.bca-single--career .bca-wysiwyg p, .bca-single--career .bca-wysiwyg li { font-size: 16px; line-height: 1.5 }
+
+/* ===== Privacy body ===== */
 .bca-privacy-body p { font-size: 16px; line-height: 1.2; color: var(--bca-ink-2, #374151); }
 .bca-privacy-body ul { margin: 0 0 16px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
 
-
-/* ===== Wysiwyg content (single pages) ===== */
-
-.bca-wysiwyg, .bca-news-body, .bca-research-body, .bca-leader-body { max-width: 820px; }
-.bca-news-body, .bca-research-body { margin: 0 auto; }
-.bca-leader-body { max-width: 1060px; } /* leader bio wider (prototype) */
-.bca-wysiwyg h2, .bca-news-body h2, .bca-research-body h2 { margin: 40px 0 12px; font-size: 28px; line-height: 1.2; color: var(--bca-navy); font-weight: var(--fw-bold, 700); }
-.bca-wysiwyg p, .bca-news-body p, .bca-research-body p, .bca-leader-body p { font-size: 18px; line-height: 1.5; color: var(--bca-ink-2, #374151); white-space: pre-line; }
-.bca-wysiwyg ul, .bca-wysiwyg ol, .bca-news-body ul, .bca-research-body ul { margin: 0 0 16px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
-.bca-wysiwyg img, .bca-news-body img, .bca-research-body img { max-width: 100%; height: auto; border-radius: var(--radius); margin: 16px 0; }
-/* research/news pull-quote: prototype style — blue left rule, no bg, navy 22/32 */
-.bca-wysiwyg blockquote, .bca-news-body blockquote, .bca-research-body blockquote { margin: 32px 0; padding: 8px 0 8px 28px; border-left: 4px solid var(--bca-blue); background: none; font-style: normal; font-size: 22px; line-height: 1.2; font-weight: var(--fw-bold, 700); color: var(--bca-navy); }
-.bca-single--career .bca-wysiwyg p, .bca-single--career .bca-wysiwyg li { font-size: 16px; line-height: 1.5 }
-
 /* ===== Back link ===== */
-
 .bca-back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: var(--fw-semibold, 600); color: var(--bca-blue); text-decoration: none; margin-bottom: 16px; }
 .bca-back-link:hover { color: var(--bca-navy); }
 
