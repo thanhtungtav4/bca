@@ -54,3 +54,4 @@ wp-content/themes/*/package-lock.json
 
 # Local env config
 .deploy.env
+.deploy.env.example
