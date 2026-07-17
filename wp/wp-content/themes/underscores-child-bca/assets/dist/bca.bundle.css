@@ -449,6 +449,56 @@ input, textarea, select, button {
     margin: 0 0 0.5em;
 }
 
+/* === Utility primitives — pattern from Every Layout / Open Props.
+   Compose with component classes for cleaner markup + less repetition. */
+
+/* Stack: vertical rhythm with consistent gap. The most-used pattern in
+   this codebase. Override gap with --stack-gap inline or via a modifier. */
+.bca-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--stack-gap, 16px);
+}
+
+/* Cluster: horizontal flow that wraps. For tag lists, button groups,
+   meta info (eyebrow + date). */
+.bca-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--cluster-gap, 8px);
+    align-items: center;
+}
+
+/* Cover: full-height container with content stuck to the bottom
+   (for cards with media on top + text below). */
+.bca-cover {
+    display: flex;
+    flex-direction: column;
+    gap: var(--cover-gap, 16px);
+    justify-content: flex-end;
+}
+
+/* Box: padded rounded surface. Used for contact details, belief card,
+   highlight-small. */
+.bca-box {
+    padding: var(--box-pad, 32px);
+    border-radius: var(--radius);
+    background: var(--bca-surface-section, #e9ecf2);
+}
+
+/* Visually-hidden but accessible (alias of .screen-reader-text). */
+.bca-vh {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* === Accessibility — hide screen-reader text / skip-link offscreen,
    reveal on keyboard focus. Standard _s (Underscores) rule. === */
 .screen-reader-text {
