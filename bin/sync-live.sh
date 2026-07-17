@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
-# Deploy BCA Partners to live (bca.nttung.dev) — full sync: code + assets + DB.
+# Deploy BCA Partners to live (bca.nttung.dev) — code + cache sync.
 #
 # Does:
 #   1. rsync theme code (underscores + underscores-child-bca) via sync-theme.sh
-#   2. Run any pending DB updates registered in bin/db-updates/*.sql
-#   3. Run any pending PHP one-liners registered in bin/db-updates/*.php
-#   4. Flush WP cache on live
-#   5. Verify live is reachable + return version hash
+#   2. Flush WP cache on live
+#   3. Write deploy marker (timestamp) to wp-content/deploy-marker.txt
+#
+# For DB/content updates that can't be done via code (copyright text, ACF
+# option values, image imports), do them manually via `ssh ... "wp eval ..."`
+# or write a one-off script. There is no auto DB migration step here by
+# design — the live DB is treated as the source of truth for content.
 #
 # Does NOT touch:
 #   - .deploy.env (security — contains SSHPASS, never committed)
-#   - Database content unrelated to design system (no destructive ops)
+#   - Database content / options / posts
 #
 # Usage:
-#   ./bin/sync-live.sh             # full deploy
-#   ./bin/sync-live.sh --code-only # just rsync, skip DB
+#   ./bin/sync-live.sh
 
 set -euo pipefail
 
@@ -28,11 +30,6 @@ if [ ! -f .deploy.env ]; then
 fi
 set -a; . ./.deploy.env; set +a
 
-CODE_ONLY=0
-if [ "${1:-}" = "--code-only" ]; then
-    CODE_ONLY=1
-fi
-
 # Helper: SSH with sshpass using env var (avoids leaking password to ps).
 _ssh() {
     sshpass -e ssh -p "${SSH_PORT}" -o StrictHostKeyChecking=no "${SSH_USER}@${SSH_HOST}" "$@"
@@ -44,48 +41,19 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 
 # 1. Code sync — delegate to existing sync-theme.sh (no re-implementation).
 echo ""
-echo "→ [1/4] rsync theme code"
+echo "→ [1/3] rsync theme code"
 bash "$ROOT/sync-theme.sh"
 
-# 2. SQL updates — apply every .sql file in bin/db-updates/ once, in name order.
-if [ "$CODE_ONLY" -eq 0 ] && [ -d "$ROOT/bin/db-updates" ]; then
-    echo ""
-    echo "→ [2/4] apply SQL updates (bin/db-updates/*.sql)"
-    for sql in "$ROOT"/bin/db-updates/*.sql; do
-        [ -f "$sql" ] || continue
-        name=$(basename "$sql" .sql)
-        echo "  • $name"
-        # shellcheck disable=SC2024
-        _ssh "wp eval --path=/var/www/bca.nttung.dev/htdocs --allow-root \"
-            \$applied = get_option('bca_db_update_$name', 0);
-            if (\$applied) { echo '  already applied — skipping'; exit(0); }
-            require ABSPATH . 'wp-admin/includes/upgrade.php';
-            dbDelta(file_get_contents('$sql'));
-            update_option('bca_db_update_$name', time());
-            echo '  applied + marked';
-        \""
-    done
-fi
-
-# 3. PHP one-liners — each .php file runs once, similar gating.
-if [ "$CODE_ONLY" -eq 0 ] && [ -d "$ROOT/bin/db-updates" ]; then
-    echo ""
-    echo "→ [3/4] run PHP one-liners (bin/db-updates/*.php)"
-    for php in "$ROOT"/bin/db-updates/*.php; do
-        [ -f "$php" ] || continue
-        name=$(basename "$php" .php)
-        echo "  • $name"
-        _ssh "wp eval-file --path=/var/www/bca.nttung.dev/htdocs --allow-root '$php' || true"
-    done
-fi
-
-# 4. Cache flush + version stamp.
+# 2. Cache flush + version stamp.
 echo ""
-echo "→ [4/4] flush cache + write deploy marker"
+echo "→ [2/3] flush WP cache"
 _ssh 'cd /var/www/bca.nttung.dev/htdocs
-   wp cache flush --allow-root 2>&1 | tail -1
-   echo "  deploy: $(date -u +%FT%TZ) sha=$(git rev-parse --short HEAD 2>/dev/null || echo none)" \
-        > wp-content/deploy-marker.txt
+   wp cache flush --allow-root 2>&1 | tail -1'
+
+echo ""
+echo "→ [3/3] write deploy marker"
+_ssh 'cd /var/www/bca.nttung.dev/htdocs
+   echo "deploy: $(date -u +%FT%TZ)" > wp-content/deploy-marker.txt
    echo "  marker written"'
 
 echo ""
