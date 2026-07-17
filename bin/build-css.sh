@@ -28,10 +28,15 @@ build() {
 
         # 1) Tokens (CSS custom properties). Order independent, but keep
         #    alphabetical for stable diffs.
+        #
+        #    Path-rewrite: source files use '../../fonts/' (relative to
+        #    assets/css/tokens/), but the bundle lives at assets/dist/, so
+        #    we rewrite to '../fonts/' to resolve to assets/fonts/.
         for f in "$CSS_DIR"/tokens/*.css; do
             [ -f "$f" ] || continue
             printf '/* ===== %s ===== */\n' "$(basename "$f")"
-            cat "$f"
+            # Use a different sed delimiter (|) + escape dots literally.
+            sed "s|\\.\\./\\.\\./fonts/|../fonts/|g" "$f"
             printf '\n'
         done
 
