@@ -33,7 +33,7 @@
 @media (max-width: 900px) {
   .bca-hero { min-height: 280px; }
   .bca-hero-heading { font-size: 32px; line-height: 1.2 }
-  .bca-hero-sub { font-size: 15.008px; line-height: 1.5 }
+  .bca-hero-sub { font-size: var(--fs-btn, 15px); line-height: 1.5 }
   .bca-hero--page { min-height: 240px; }
   .bca-hero--page .bca-hero-inner { padding: 40px var(--gutter-mobile, 20px); }
 }

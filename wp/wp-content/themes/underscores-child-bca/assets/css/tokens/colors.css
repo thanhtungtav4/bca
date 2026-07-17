@@ -22,6 +22,13 @@
   --bca-overlay-dark:rgba(36,36,36,0.5);   /* blurred glass panel over imagery */
   --bca-overlay-blue:rgba(0,121,166,0.8);  /* contact CTA band */
   --bca-overlay-white:rgba(255,255,255,0.8);
+
+  /* Text on dark surfaces (footer, hero, contact band, belief card). */
+  --bca-text-on-dark:var(--bca-text-on-dark, rgba(255,255,255,0.85));          /* primary readable text */
+  --bca-text-on-dark-muted:var(--bca-text-on-dark-muted, rgba(255,255,255,0.7));     /* secondary, descriptions */
+  --bca-text-on-dark-faint:var(--bca-text-on-dark-faint, rgba(255,255,255,0.55));    /* labels (Tel:, Email:) */
+  --bca-text-on-dark-subtle:var(--bca-text-on-dark-subtle, rgba(255,255,255,0.12));   /* social chip bg, etc */
+  --bca-divider-on-dark:var(--bca-divider-on-dark, rgba(255,255,255,0.1));       /* footer top border, etc */
   --bca-scrim:rgba(0,0,0,0.3);
 
   /* Semantic aliases */

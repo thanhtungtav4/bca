@@ -21,4 +21,8 @@
   --btn-pad-y:16px;
   --btn-pad-x:24px;
   --btn-gap:16px;
+
+  /* Touch target minimum (Apple HIG 44pt, Material 48dp). Used for
+     navbar links, buttons, social chips, form inputs, hamburger. */
+  --touch-min:44px;
 }

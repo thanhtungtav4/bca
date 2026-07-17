@@ -25,5 +25,11 @@
   --fs-body:16px;        --lh-body:1.5;        /* body + button label, 400/600 */
   --fs-small:14px;       --lh-small:1.2;       /* nav item, footer, eyebrow */
 
+  /* UI sizing tokens (formerly magic numbers 15.008, 12.992, 16.992).
+     Rounded to clean px so they read sensibly in devtools. */
+  --fs-btn:15px;         /* button label, nav link, news excerpt, form input, contact-band CTA */
+  --fs-meta:13px;        /* news card cat/date, career tag, form label, footer copy */
+  --fs-detail-body:17px; /* single-page body (project/service/leader/research/news detail) */
+
   --tracking-tight:-0.025em;  /* applied to display/section headings */
 }

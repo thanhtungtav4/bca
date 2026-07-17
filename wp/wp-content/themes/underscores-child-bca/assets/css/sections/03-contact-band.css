@@ -29,7 +29,7 @@
     border: 0;
     padding: 14px 22px;
     font-weight: var(--fw-semibold, 600);
-    font-size: 15.008px;
+    font-size: var(--fs-btn, 15px);
     text-decoration: none;
 }
 .bca-contact-band .bca-contact-band-cta:hover,

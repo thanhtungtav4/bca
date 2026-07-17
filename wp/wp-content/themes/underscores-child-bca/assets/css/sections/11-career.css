@@ -11,7 +11,7 @@
 .bca-career-row-title a { color: inherit; text-decoration: none; }
 .bca-career-row-title a:hover { color: var(--bca-navy); }
 .bca-career-row-meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 0; }
-.bca-career-tag { font-size: 12.992px; font-weight: var(--fw-semibold, 600); color: var(--bca-navy); background: var(--bca-surface-section); border-radius: var(--radius); padding: 4px 10px; }
+.bca-career-tag { font-size: var(--fs-meta, 13px); font-weight: var(--fw-semibold, 600); color: var(--bca-navy); background: var(--bca-surface-section); border-radius: var(--radius); padding: 4px 10px; }
 .bca-career-row-desc { margin: 4px 0 0; font-size: 16px; line-height: 1.5; color: var(--bca-ink-2, #374151); }
 .bca-career-cta-band h3 { margin: 0 0 4px; font-size: 20px; font-weight: var(--fw-bold, 700); color: var(--bca-navy); }
 @media (max-width: 900px) {
