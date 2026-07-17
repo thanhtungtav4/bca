@@ -301,22 +301,27 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-/* === Headings — use design-system ink + weights === */
+/* === Headings — use design-system ink + weights ===
+   Base: all headings default to semibold (600) + normal letter-spacing.
+   h1/h2/h3 override to bold (700) + tight letter-spacing for display
+   hierarchy. h4/h5/h6 keep the semibold default (no override needed). */
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 0.5em;
     color: var(--bca-ink, #111827);
     font-family: var(--font-sans, "Inter", sans-serif);
-    font-weight: var(--fw-bold, 700);
-    line-height: 1.2;
-    letter-spacing: var(--tracking-tight, -0.025em);
+    font-weight: var(--fw-semibold, 600);
+    line-height: var(--lh-h1, 1.2);
+    letter-spacing: 0;
 }
 
-h1 { font-size: var(--fs-h1, 48px); line-height: var(--lh-h1, 1.2); }
-h2 { font-size: var(--fs-h2, 40px); line-height: var(--lh-h2, 1.2); }
-h3 { font-size: var(--fs-h3, 30px); line-height: var(--lh-h3, 1.2); }
-h4 { font-size: var(--fs-h4, 24px); line-height: var(--lh-h4, 1.2); font-weight: var(--fw-semibold, 600); letter-spacing: 0; }
-h5 { font-size: var(--fs-title, 20px); line-height: var(--lh-title, 1.2); font-weight: var(--fw-semibold, 600); letter-spacing: 0; }
-h6 { font-size: var(--fs-body, 16px); line-height: var(--lh-body, 1.2); font-weight: var(--fw-semibold, 600); letter-spacing: 0; }
+/* Display headings (h1/h2/h3) — bold + tight tracking for hierarchy */
+h1 { font-size: var(--fs-h1, 48px); font-weight: var(--fw-bold, 700); letter-spacing: var(--tracking-tight, -0.025em); }
+h2 { font-size: var(--fs-h2, 40px); font-weight: var(--fw-bold, 700); letter-spacing: var(--tracking-tight, -0.025em); }
+h3 { font-size: var(--fs-h3, 30px); font-weight: var(--fw-bold, 700); letter-spacing: var(--tracking-tight, -0.025em); }
+/* Smaller headings (h4/h5/h6) — inherit generic semibold (no override) */
+h4 { font-size: var(--fs-h4, 24px); line-height: var(--lh-h4, 1.2); }
+h5 { font-size: var(--fs-title, 20px); line-height: var(--lh-title, 1.2); }
+h6 { font-size: var(--fs-body, 16px); line-height: var(--lh-body, 1.2); }
 
 /* === Body copy ===
    Spacing handled by sibling combinator: only add top margin when a previous
@@ -412,20 +417,10 @@ input, textarea, select, button {
 
 /* === Content-area headings (smaller than display headings) ===
    These apply to plain h2/h3 inside BCA content body wrappers —
-   they should look like article sub-heads, not the global page headings. */
-.bca-wysiwyg h2,
-.bca-news-body h2,
-.bca-research-body h2,
-.bca-service-detail-body h2,
-.bca-leader-body h2,
-.bca-project-detail-body h2,
-.bca-vision-mission-body h2 {
-    margin: 40px 0 12px;
-    font-size: 24px;
-    color: var(--bca-navy, #003f6f);
-    font-weight: var(--fw-bold, 700);
-    letter-spacing: 0;
-}
+   they should look like article sub-heads, not the global page headings.
+   Note: h2 rules consolidated in 13-content.css to avoid conflict
+   (28px article body vs 40px section heading). This file owns h3/p/li
+   base styles only. */
 .bca-wysiwyg h3,
 .bca-news-body h3,
 .bca-research-body h3,
@@ -456,13 +451,6 @@ input, textarea, select, button {
 .bca-project-detail-body p + p,
 .bca-vision-mission-body p + p {
     margin-top: 1em;
-}
-.bca-wysiwig ul, .bca-wysiwyg ul,
-.bca-news-body ul, .bca-research-body ul,
-.bca-service-detail-body ul, .bca-leader-body ul,
-.bca-project-detail-body ul, .bca-vision-mission-body ul {
-    margin: 0 0 1em 1.5em;
-    padding: 0;
 }
 .bca-wysiwyg li, .bca-news-body li, .bca-research-body li,
 .bca-service-detail-body li, .bca-leader-body li,
@@ -1169,22 +1157,32 @@ a.bca-contact-line-value:hover { text-decoration: underline; }
     margin: 0 auto;
 }
 
-/* Body h2 override — slightly larger than base.css (28px vs 24px)
-   for single-page articles. base.css handles 24px as the global default;
-   these specific articles use the larger 28px to match the prototype. */
-.bca-wysiwyg h2, .bca-news-body h2, .bca-research-body h2 {
+/* Body h2 — 28px for ALL article body wrappers (was 24px in base.css
+   for 4 of these, 28px here for 3 — inconsistent). Now uniform. */
+.bca-wysiwyg h2,
+.bca-news-body h2,
+.bca-research-body h2,
+.bca-service-detail-body h2,
+.bca-leader-body h2,
+.bca-project-detail-body h2,
+.bca-vision-mission-body h2 {
     margin: 40px 0 12px;
     font-size: 28px;
     line-height: 1.2;
     color: var(--bca-navy);
     font-weight: var(--fw-bold, 700);
+    letter-spacing: 0;
 }
 /* Body p — only override white-space (preserves line breaks from WP editor) */
 .bca-wysiwyg p, .bca-news-body p, .bca-research-body p, .bca-leader-body p {
     white-space: pre-line;
 }
-/* Body list (already in base.css but with different spacing — keep variant here) */
-.bca-wysiwyg ul, .bca-wysiwyg ol, .bca-news-body ul, .bca-research-body ul {
+/* Body list — uniform 16px bottom margin + 22px left indent
+   (was 0 0 1em 1.5em in base.css, now consistent across all body types). */
+.bca-wysiwyg ul, .bca-wysiwyg ol,
+.bca-news-body ul, .bca-research-body ul,
+.bca-service-detail-body ul, .bca-leader-body ul,
+.bca-project-detail-body ul, .bca-vision-mission-body ul {
     margin: 0 0 16px;
     padding-left: 22px;
     display: flex;
@@ -1220,7 +1218,7 @@ a.bca-contact-line-value:hover { text-decoration: underline; }
 .bca-back-link:hover { color: var(--bca-navy); }
 
 /* ===== sections/14-archive.css ===== */
-/* BCA Partners — 14-archive.js.css (auto-split from sections.css on 2026-07-16).
+/* BCA Partners — 14-archive.css (auto-split from sections.css on 2026-07-16).
    Tokens from assets/css/tokens/*.css.
    Source order preserved: Hero/Buttons/... — see top of each section. */
 
@@ -1234,7 +1232,7 @@ a.bca-contact-line-value:hover { text-decoration: underline; }
 /* ===== Pagination ===== */
 
 .bca-pagination { margin-top: 48px; display: flex; justify-content: center; }
-.bca-pagination .nav-links, .bca-pagination .page-numbers { display: flex; gap: 8px; flex-wrap: wrap; }
+.bca-pagination .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
 .bca-pagination .page-numbers { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 12px; border: 1px solid var(--bca-border); border-radius: var(--radius); color: var(--bca-ink); text-decoration: none; font-size: 14px; font-weight: var(--fw-semibold, 600); }
 .bca-pagination .page-numbers.current, .bca-pagination .page-numbers:hover { background: var(--bca-navy); color: var(--bca-white); border-color: var(--bca-navy); }
 
@@ -1403,11 +1401,11 @@ a.bca-contact-line-value:hover { text-decoration: underline; }
     .bca-wysiwyg p, .bca-news-body p, .bca-research-body p, .bca-leader-body p,
     .bca-wysiwyg li, .bca-news-body li, .bca-research-body li { font-size: 16px; line-height: 1.5 }
     .bca-wysiwyg blockquote, .bca-news-body blockquote, .bca-research-body blockquote { font-size: 18px; line-height: 1.5; padding-left: 16px; }
-    /* CTAs full-width for easy tapping */
+    /* CTAs full-width for easy tapping on small phones */
     .bca-btn { width: 100%; justify-content: center; }
-    .bca-contact-band-inner > .bca-btn,
+    /* Contact-band + hero-cta keep auto width to fit inline */
+    .bca-contact-band .bca-contact-band-cta,
     .bca-hero-cta .bca-btn { width: auto; }
     .bca-contact-band-inner { text-align: center; }
-    .bca-contact-band-inner > .bca-btn { width: 100%; }
 }
 

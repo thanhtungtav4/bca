@@ -89,10 +89,10 @@
     .bca-wysiwyg p, .bca-news-body p, .bca-research-body p, .bca-leader-body p,
     .bca-wysiwyg li, .bca-news-body li, .bca-research-body li { font-size: 16px; line-height: 1.5 }
     .bca-wysiwyg blockquote, .bca-news-body blockquote, .bca-research-body blockquote { font-size: 18px; line-height: 1.5; padding-left: 16px; }
-    /* CTAs full-width for easy tapping */
+    /* CTAs full-width for easy tapping on small phones */
     .bca-btn { width: 100%; justify-content: center; }
-    .bca-contact-band-inner > .bca-btn,
+    /* Contact-band + hero-cta keep auto width to fit inline */
+    .bca-contact-band .bca-contact-band-cta,
     .bca-hero-cta .bca-btn { width: auto; }
     .bca-contact-band-inner { text-align: center; }
-    .bca-contact-band-inner > .bca-btn { width: 100%; }
 }

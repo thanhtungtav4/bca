@@ -21,22 +21,27 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-/* === Headings — use design-system ink + weights === */
+/* === Headings — use design-system ink + weights ===
+   Base: all headings default to semibold (600) + normal letter-spacing.
+   h1/h2/h3 override to bold (700) + tight letter-spacing for display
+   hierarchy. h4/h5/h6 keep the semibold default (no override needed). */
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 0.5em;
     color: var(--bca-ink, #111827);
     font-family: var(--font-sans, "Inter", sans-serif);
-    font-weight: var(--fw-bold, 700);
-    line-height: 1.2;
-    letter-spacing: var(--tracking-tight, -0.025em);
+    font-weight: var(--fw-semibold, 600);
+    line-height: var(--lh-h1, 1.2);
+    letter-spacing: 0;
 }
 
-h1 { font-size: var(--fs-h1, 48px); line-height: var(--lh-h1, 1.2); }
-h2 { font-size: var(--fs-h2, 40px); line-height: var(--lh-h2, 1.2); }
-h3 { font-size: var(--fs-h3, 30px); line-height: var(--lh-h3, 1.2); }
-h4 { font-size: var(--fs-h4, 24px); line-height: var(--lh-h4, 1.2); font-weight: var(--fw-semibold, 600); letter-spacing: 0; }
-h5 { font-size: var(--fs-title, 20px); line-height: var(--lh-title, 1.2); font-weight: var(--fw-semibold, 600); letter-spacing: 0; }
-h6 { font-size: var(--fs-body, 16px); line-height: var(--lh-body, 1.2); font-weight: var(--fw-semibold, 600); letter-spacing: 0; }
+/* Display headings (h1/h2/h3) — bold + tight tracking for hierarchy */
+h1 { font-size: var(--fs-h1, 48px); font-weight: var(--fw-bold, 700); letter-spacing: var(--tracking-tight, -0.025em); }
+h2 { font-size: var(--fs-h2, 40px); font-weight: var(--fw-bold, 700); letter-spacing: var(--tracking-tight, -0.025em); }
+h3 { font-size: var(--fs-h3, 30px); font-weight: var(--fw-bold, 700); letter-spacing: var(--tracking-tight, -0.025em); }
+/* Smaller headings (h4/h5/h6) — inherit generic semibold (no override) */
+h4 { font-size: var(--fs-h4, 24px); line-height: var(--lh-h4, 1.2); }
+h5 { font-size: var(--fs-title, 20px); line-height: var(--lh-title, 1.2); }
+h6 { font-size: var(--fs-body, 16px); line-height: var(--lh-body, 1.2); }
 
 /* === Body copy ===
    Spacing handled by sibling combinator: only add top margin when a previous
@@ -132,20 +137,10 @@ input, textarea, select, button {
 
 /* === Content-area headings (smaller than display headings) ===
    These apply to plain h2/h3 inside BCA content body wrappers —
-   they should look like article sub-heads, not the global page headings. */
-.bca-wysiwyg h2,
-.bca-news-body h2,
-.bca-research-body h2,
-.bca-service-detail-body h2,
-.bca-leader-body h2,
-.bca-project-detail-body h2,
-.bca-vision-mission-body h2 {
-    margin: 40px 0 12px;
-    font-size: 24px;
-    color: var(--bca-navy, #003f6f);
-    font-weight: var(--fw-bold, 700);
-    letter-spacing: 0;
-}
+   they should look like article sub-heads, not the global page headings.
+   Note: h2 rules consolidated in 13-content.css to avoid conflict
+   (28px article body vs 40px section heading). This file owns h3/p/li
+   base styles only. */
 .bca-wysiwyg h3,
 .bca-news-body h3,
 .bca-research-body h3,
@@ -176,13 +171,6 @@ input, textarea, select, button {
 .bca-project-detail-body p + p,
 .bca-vision-mission-body p + p {
     margin-top: 1em;
-}
-.bca-wysiwig ul, .bca-wysiwyg ul,
-.bca-news-body ul, .bca-research-body ul,
-.bca-service-detail-body ul, .bca-leader-body ul,
-.bca-project-detail-body ul, .bca-vision-mission-body ul {
-    margin: 0 0 1em 1.5em;
-    padding: 0;
 }
 .bca-wysiwyg li, .bca-news-body li, .bca-research-body li,
 .bca-service-detail-body li, .bca-leader-body li,

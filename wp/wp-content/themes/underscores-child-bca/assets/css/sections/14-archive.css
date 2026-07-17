@@ -1,4 +1,4 @@
-/* BCA Partners — 14-archive.js.css (auto-split from sections.css on 2026-07-16).
+/* BCA Partners — 14-archive.css (auto-split from sections.css on 2026-07-16).
    Tokens from assets/css/tokens/*.css.
    Source order preserved: Hero/Buttons/... — see top of each section. */
 
@@ -12,7 +12,7 @@
 /* ===== Pagination ===== */
 
 .bca-pagination { margin-top: 48px; display: flex; justify-content: center; }
-.bca-pagination .nav-links, .bca-pagination .page-numbers { display: flex; gap: 8px; flex-wrap: wrap; }
+.bca-pagination .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
 .bca-pagination .page-numbers { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 12px; border: 1px solid var(--bca-border); border-radius: var(--radius); color: var(--bca-ink); text-decoration: none; font-size: 14px; font-weight: var(--fw-semibold, 600); }
 .bca-pagination .page-numbers.current, .bca-pagination .page-numbers:hover { background: var(--bca-navy); color: var(--bca-white); border-color: var(--bca-navy); }
 
