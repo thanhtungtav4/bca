@@ -341,6 +341,27 @@ a:hover, a:focus {
     text-decoration: underline;
 }
 
+/* === Keyboard focus indicator ===
+   Standard :focus (above) changes the link color on BOTH mouse-click and
+   keyboard-tab. To keep mouse focus clean but still show a visible ring
+   for keyboard users, add a single global :focus-visible rule that paints
+   a high-contrast outline on every interactive element. The :focus rules
+   elsewhere handle hover state; this one is keyboard-only. */
+:focus-visible {
+    outline: 2px solid var(--bca-blue, #0079a6);
+    outline-offset: 2px;
+    border-radius: var(--radius, 4px);
+}
+/* Buttons already have their own border-radius; tighten offset. */
+.bca-btn:focus-visible {
+    outline-offset: 3px;
+}
+/* Inline text links on dark backgrounds — use a light outline. */
+.bca-contact-band .bca-contact-band-cta:focus-visible,
+.bca-site-footer a:focus-visible {
+    outline-color: var(--bca-white, #ffffff);
+}
+
 /* === Images === */
 img, svg, video {
     max-width: 100%;
