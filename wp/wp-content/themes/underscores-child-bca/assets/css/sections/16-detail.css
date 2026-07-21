@@ -6,8 +6,12 @@
 
 .bca-service-detail-body { max-width: 820px; }
 .bca-service-detail-excerpt { font-size: 18px; line-height: 1.2; color: var(--bca-ink-2, #374151); margin: 0 0 32px; font-weight: var(--fw-medium, 500); }
-/* "What we do" capabilities → 2-col with navy top-rule (prototype .cap) */
-.bca-single--service .bca-service-card-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+/* "What we do" capabilities → 2-col (prototype .cap).
+   Note: ACF `items` has only `label` sub-field (no description), so we render
+   a flat bullet list. Gap tightened 32 → 16 so the 2-col grid doesn't feel
+   sparse with single-line content. Add `description` sub-field + top-border
+   card style later to match the design's full cap-card structure. */
+.bca-single--service .bca-service-card-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 @media (max-width: 900px) {
   .bca-single--service .bca-service-card-items { grid-template-columns: 1fr; }
 }
